@@ -265,26 +265,8 @@
             </control>
             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]1">
                 <skinshortcuts>visibility</skinshortcuts>
-                <onup condition="$EXP[Widget25Enabled]">301$SKINSHORTCUTS[id]25</onup>
-                <onup condition="$EXP[Widget24Enabled]">301$SKINSHORTCUTS[id]24</onup>
-                <onup condition="$EXP[Widget23Enabled]">301$SKINSHORTCUTS[id]23</onup>
-                <onup condition="$EXP[Widget22Enabled]">301$SKINSHORTCUTS[id]22</onup>
-                <onup condition="$EXP[Widget21Enabled]">301$SKINSHORTCUTS[id]21</onup>
-                <onup condition="$EXP[Widget20Enabled]">301$SKINSHORTCUTS[id]20</onup>
-                <onup condition="$EXP[Widget19Enabled]">301$SKINSHORTCUTS[id]19</onup>
-                <onup condition="$EXP[Widget18Enabled]">301$SKINSHORTCUTS[id]18</onup>
-                <onup condition="$EXP[Widget17Enabled]">301$SKINSHORTCUTS[id]17</onup>
-                <onup condition="$EXP[Widget16Enabled]">301$SKINSHORTCUTS[id]16</onup>
-                <onup condition="$EXP[Widget15Enabled]">301$SKINSHORTCUTS[id]15</onup>
-                <onup condition="$EXP[Widget14Enabled]">301$SKINSHORTCUTS[id]14</onup>
-                <onup condition="$EXP[Widget13Enabled]">301$SKINSHORTCUTS[id]13</onup>
-                <onup condition="$EXP[Widget12Enabled]">301$SKINSHORTCUTS[id]12</onup>
-                <onup condition="$EXP[Widget11Enabled]">301$SKINSHORTCUTS[id]11</onup>
-                <onup condition="$EXP[Widget10Enabled]">301$SKINSHORTCUTS[id]10</onup>
-                <onup condition="$EXP[Widget9Enabled]">301$SKINSHORTCUTS[id]9</onup>
-                <onup condition="$EXP[Widget8Enabled]">301$SKINSHORTCUTS[id]8</onup>
-                <onup condition="$EXP[Widget7Enabled]">301$SKINSHORTCUTS[id]7</onup>
-                <onup>301$SKINSHORTCUTS[id]6</onup>
+                <onup condition="!Skin.HasSetting(disable.widgets.onup.go.back.to.last.item)">8888</onup>
+                <onup condition="Skin.HasSetting(disable.widgets.onup.go.back.to.last.item)">300</onup>
                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]1).NumItems,0) | Container(301$SKINSHORTCUTS[id]1).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget),mysubmenu) | String.IsEqual(Container(300).ListItem.Property(widget),custom) | String.Contains(Container(300).ListItem.Property(widget),weather)</visible>
                 <include content="DefMultiWidgetContainer">
                     <param name="id" value="301$SKINSHORTCUTS[id]1"/>

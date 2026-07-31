@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+    <variable name="HomeLastWidgetId">
+        <value condition="$EXP[Widget25Enabled]">301$INFO[Container(300).ListItem.Property(id)]25</value>
+        <value condition="$EXP[Widget24Enabled]">301$INFO[Container(300).ListItem.Property(id)]24</value>
+        <value condition="$EXP[Widget23Enabled]">301$INFO[Container(300).ListItem.Property(id)]23</value>
+        <value condition="$EXP[Widget22Enabled]">301$INFO[Container(300).ListItem.Property(id)]22</value>
+        <value condition="$EXP[Widget21Enabled]">301$INFO[Container(300).ListItem.Property(id)]21</value>
+        <value condition="$EXP[Widget20Enabled]">301$INFO[Container(300).ListItem.Property(id)]20</value>
+        <value condition="$EXP[Widget19Enabled]">301$INFO[Container(300).ListItem.Property(id)]19</value>
+        <value condition="$EXP[Widget18Enabled]">301$INFO[Container(300).ListItem.Property(id)]18</value>
+        <value condition="$EXP[Widget17Enabled]">301$INFO[Container(300).ListItem.Property(id)]17</value>
+        <value condition="$EXP[Widget16Enabled]">301$INFO[Container(300).ListItem.Property(id)]16</value>
+        <value condition="$EXP[Widget15Enabled]">301$INFO[Container(300).ListItem.Property(id)]15</value>
+        <value condition="$EXP[Widget14Enabled]">301$INFO[Container(300).ListItem.Property(id)]14</value>
+        <value condition="$EXP[Widget13Enabled]">301$INFO[Container(300).ListItem.Property(id)]13</value>
+        <value condition="$EXP[Widget12Enabled]">301$INFO[Container(300).ListItem.Property(id)]12</value>
+        <value condition="$EXP[Widget11Enabled]">301$INFO[Container(300).ListItem.Property(id)]11</value>
+        <value condition="$EXP[Widget10Enabled]">301$INFO[Container(300).ListItem.Property(id)]10</value>
+        <value condition="$EXP[Widget9Enabled]">301$INFO[Container(300).ListItem.Property(id)]9</value>
+        <value condition="$EXP[Widget8Enabled]">301$INFO[Container(300).ListItem.Property(id)]8</value>
+        <value condition="$EXP[Widget7Enabled]">301$INFO[Container(300).ListItem.Property(id)]7</value>
+        <value condition="$EXP[Widget6Enabled]">301$INFO[Container(300).ListItem.Property(id)]6</value>
+        <value condition="$EXP[Widget5Enabled]">301$INFO[Container(300).ListItem.Property(id)]5</value>
+        <value condition="$EXP[Widget4Enabled]">301$INFO[Container(300).ListItem.Property(id)]4</value>
+        <value condition="$EXP[Widget3Enabled]">301$INFO[Container(300).ListItem.Property(id)]3</value>
+        <value condition="$EXP[Widget2Enabled]">301$INFO[Container(300).ListItem.Property(id)]2</value>
+        <value>301$INFO[Container(300).ListItem.Property(id)]1</value>
+    </variable>
+
     <include name="HomeHeader">
 
         <!-- Header -->
@@ -795,6 +823,7 @@
                     <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
                     <onup condition="$EXP[ExtendedNowPlayingIsVisible] + Skin.HasSetting(hide.home.nowplaying.controls) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + Skin.HasSetting(home.extended.nowplaying.tracklist) + Integer.IsGreater(Container(778).NumItems,0) + Player.HasAudio">778</onup>
                     <onup condition="$EXP[ExtendedNowPlayingIsVisible] + !Skin.HasSetting(hide.home.nowplaying.controls) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]]">777</onup>
+                    <onup condition="$EXP[HomeIsModernMultiWidgets]">SetFocus($VAR[HomeLastWidgetId])</onup>
                     <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
                     <onup>301</onup>
                     <ondown condition="Integer.IsGreater(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
@@ -2501,9 +2530,9 @@
         </control>
         <control type="button" id="8888">
             <include>HiddenButton</include>
-            <onfocus condition="Integer.IsEqual(Container(301).NumItems,1)">SetFocus(300)</onfocus>
-            <onfocus condition="!Integer.IsEqual(Container(301).NumItems,1) + !Integer.IsEqual(Container(301).NumItems,0)">SetFocus($INFO[Window(Home).Property(LastId)])</onfocus>
-            <onfocus condition="Integer.IsEqual(Container(301).NumItems,0)">SetFocus(300)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(LastId)) + String.IsEqual(Window(Home).Property(BackToId),Window(Home).Property(LastId))">SetFocus(300)</onfocus>
+            <onfocus condition="!String.IsEmpty(Window(Home).Property(LastId)) + !String.IsEqual(Window(Home).Property(BackToId),Window(Home).Property(LastId))">SetFocus($INFO[Window(Home).Property(LastId)])</onfocus>
+            <onfocus condition="String.IsEmpty(Window(Home).Property(LastId))">SetFocus(300)</onfocus>
         </control>
     </include>
 

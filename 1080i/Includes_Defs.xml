@@ -1629,31 +1629,32 @@
             <onfocus>SetProperty(BackToId,$PARAM[backid],Home)</onfocus>
             <onfocus condition="Skin.HasSetting(extended.nowplaying) + Window.IsVisible(Home) + Skin.HasSetting(home.nowplaying.info.auto.show)">SetProperty(nowplayingautoshowtimer,1,home)</onfocus>
             <onunfocus>ClearProperty(nowplayingautoshowtimer,home)</onunfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]1).NumItems,0) + Control.IsVisible(301$PARAM[idshort]1)">SetProperty(LastId,301$PARAM[idshort]1,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]2).NumItems,0) + Control.IsVisible(301$PARAM[idshort]2)">SetProperty(LastId,301$PARAM[idshort]2,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]3).NumItems,0) + Control.IsVisible(301$PARAM[idshort]3)">SetProperty(LastId,301$PARAM[idshort]3,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]4).NumItems,0) + Control.IsVisible(301$PARAM[idshort]4)">SetProperty(LastId,301$PARAM[idshort]4,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]5).NumItems,0) + Control.IsVisible(301$PARAM[idshort]5)">SetProperty(LastId,301$PARAM[idshort]5,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]6).NumItems,0) + Control.IsVisible(301$PARAM[idshort]6)">SetProperty(LastId,301$PARAM[idshort]6,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]7).NumItems,0) + Control.IsVisible(301$PARAM[idshort]7)">SetProperty(LastId,301$PARAM[idshort]7,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]8).NumItems,0) + Control.IsVisible(301$PARAM[idshort]8)">SetProperty(LastId,301$PARAM[idshort]8,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]9).NumItems,0) + Control.IsVisible(301$PARAM[idshort]9)">SetProperty(LastId,301$PARAM[idshort]9,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]10).NumItems,0) + Control.IsVisible(301$PARAM[idshort]10)">SetProperty(LastId,301$PARAM[idshort]10,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]11).NumItems,0) + Control.IsVisible(301$PARAM[idshort]11)">SetProperty(LastId,301$PARAM[idshort]11,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]12).NumItems,0) + Control.IsVisible(301$PARAM[idshort]12)">SetProperty(LastId,301$PARAM[idshort]12,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]13).NumItems,0) + Control.IsVisible(301$PARAM[idshort]13)">SetProperty(LastId,301$PARAM[idshort]13,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]14).NumItems,0) + Control.IsVisible(301$PARAM[idshort]14)">SetProperty(LastId,301$PARAM[idshort]14,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]15).NumItems,0) + Control.IsVisible(301$PARAM[idshort]15)">SetProperty(LastId,301$PARAM[idshort]15,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]16).NumItems,0) + Control.IsVisible(301$PARAM[idshort]16)">SetProperty(LastId,301$PARAM[idshort]16,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]17).NumItems,0) + Control.IsVisible(301$PARAM[idshort]17)">SetProperty(LastId,301$PARAM[idshort]17,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]18).NumItems,0) + Control.IsVisible(301$PARAM[idshort]18)">SetProperty(LastId,301$PARAM[idshort]18,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]19).NumItems,0) + Control.IsVisible(301$PARAM[idshort]19)">SetProperty(LastId,301$PARAM[idshort]19,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]20).NumItems,0) + Control.IsVisible(301$PARAM[idshort]20)">SetProperty(LastId,301$PARAM[idshort]20,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]21).NumItems,0) + Control.IsVisible(301$PARAM[idshort]21)">SetProperty(LastId,301$PARAM[idshort]21,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]22).NumItems,0) + Control.IsVisible(301$PARAM[idshort]22)">SetProperty(LastId,301$PARAM[idshort]22,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]23).NumItems,0) + Control.IsVisible(301$PARAM[idshort]23)">SetProperty(LastId,301$PARAM[idshort]23,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]24).NumItems,0) + Control.IsVisible(301$PARAM[idshort]24)">SetProperty(LastId,301$PARAM[idshort]24,Home)</onfocus>
-            <onfocus condition="Integer.IsGreater(Container(301$PARAM[idshort]25).NumItems,0) + Control.IsVisible(301$PARAM[idshort]25)">SetProperty(LastId,301$PARAM[idshort]25,Home)</onfocus>
+            <!-- Resolve the last configured widget independently of asynchronous content loading. -->
+            <onfocus>SetProperty(LastId,301$PARAM[idshort]1,Home)</onfocus>
+            <onfocus condition="$EXP[Widget2Enabled]">SetProperty(LastId,301$PARAM[idshort]2,Home)</onfocus>
+            <onfocus condition="$EXP[Widget3Enabled]">SetProperty(LastId,301$PARAM[idshort]3,Home)</onfocus>
+            <onfocus condition="$EXP[Widget4Enabled]">SetProperty(LastId,301$PARAM[idshort]4,Home)</onfocus>
+            <onfocus condition="$EXP[Widget5Enabled]">SetProperty(LastId,301$PARAM[idshort]5,Home)</onfocus>
+            <onfocus condition="$EXP[Widget6Enabled]">SetProperty(LastId,301$PARAM[idshort]6,Home)</onfocus>
+            <onfocus condition="$EXP[Widget7Enabled]">SetProperty(LastId,301$PARAM[idshort]7,Home)</onfocus>
+            <onfocus condition="$EXP[Widget8Enabled]">SetProperty(LastId,301$PARAM[idshort]8,Home)</onfocus>
+            <onfocus condition="$EXP[Widget9Enabled]">SetProperty(LastId,301$PARAM[idshort]9,Home)</onfocus>
+            <onfocus condition="$EXP[Widget10Enabled]">SetProperty(LastId,301$PARAM[idshort]10,Home)</onfocus>
+            <onfocus condition="$EXP[Widget11Enabled]">SetProperty(LastId,301$PARAM[idshort]11,Home)</onfocus>
+            <onfocus condition="$EXP[Widget12Enabled]">SetProperty(LastId,301$PARAM[idshort]12,Home)</onfocus>
+            <onfocus condition="$EXP[Widget13Enabled]">SetProperty(LastId,301$PARAM[idshort]13,Home)</onfocus>
+            <onfocus condition="$EXP[Widget14Enabled]">SetProperty(LastId,301$PARAM[idshort]14,Home)</onfocus>
+            <onfocus condition="$EXP[Widget15Enabled]">SetProperty(LastId,301$PARAM[idshort]15,Home)</onfocus>
+            <onfocus condition="$EXP[Widget16Enabled]">SetProperty(LastId,301$PARAM[idshort]16,Home)</onfocus>
+            <onfocus condition="$EXP[Widget17Enabled]">SetProperty(LastId,301$PARAM[idshort]17,Home)</onfocus>
+            <onfocus condition="$EXP[Widget18Enabled]">SetProperty(LastId,301$PARAM[idshort]18,Home)</onfocus>
+            <onfocus condition="$EXP[Widget19Enabled]">SetProperty(LastId,301$PARAM[idshort]19,Home)</onfocus>
+            <onfocus condition="$EXP[Widget20Enabled]">SetProperty(LastId,301$PARAM[idshort]20,Home)</onfocus>
+            <onfocus condition="$EXP[Widget21Enabled]">SetProperty(LastId,301$PARAM[idshort]21,Home)</onfocus>
+            <onfocus condition="$EXP[Widget22Enabled]">SetProperty(LastId,301$PARAM[idshort]22,Home)</onfocus>
+            <onfocus condition="$EXP[Widget23Enabled]">SetProperty(LastId,301$PARAM[idshort]23,Home)</onfocus>
+            <onfocus condition="$EXP[Widget24Enabled]">SetProperty(LastId,301$PARAM[idshort]24,Home)</onfocus>
+            <onfocus condition="$EXP[Widget25Enabled]">SetProperty(LastId,301$PARAM[idshort]25,Home)</onfocus>
             <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>
             <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>
             <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>            
