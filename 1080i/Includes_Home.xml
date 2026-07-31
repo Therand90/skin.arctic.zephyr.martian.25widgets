@@ -786,7 +786,7 @@
                     <include condition="Skin.HasSetting(furniture.clock)">DefHomeRightSidePad</include>
                     <onup condition="$EXP[ExtendedNowPlayingIsVisible] + Skin.HasSetting(hide.home.nowplaying.controls) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + Skin.HasSetting(home.extended.nowplaying.tracklist) + Integer.IsGreater(Container(778).NumItems,0) + Player.HasAudio">778</onup>
                     <onup condition="$EXP[ExtendedNowPlayingIsVisible] + !Skin.HasSetting(hide.home.nowplaying.controls) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]]">777</onup>
-                    <onup condition="$EXP[HomeIsModernMultiWidgets]">SetFocus($VAR[HomeLastWidgetId])</onup>
+                    <onup condition="$EXP[HomeIsModernMultiWidgets]">301</onup>
                     <onup condition="!Player.HasVideo | !Skin.HasSetting(global.showvideo)">301</onup>
                     <onup>301</onup>
                     <ondown condition="Integer.IsGreater(Container(302).NumItems,0)">SetFocus(302,0)</ondown>
