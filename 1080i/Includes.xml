@@ -67,8 +67,12 @@
     <expression name="HomeIsModernMultiWidgetsNetflix">!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.modernwidgets) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)</expression>
     <expression name="HomeIsVerticalMultiWidgetsNetflix">Skin.HasSetting(home.vertical) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)</expression>
     <expression name="HomeIsCleanMinimal">Skin.HasSetting(home.modernwidgets) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + Skin.HasSetting(homemenu.clean.flix)</expression>
-    <!-- Some add-ons either omit fanart or reuse the thumbnail URL as fanart. -->
-    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Art(fanart)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Property(fanart)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb))]</expression>
+    <!-- Some add-ons either omit fanart, reuse the thumbnail URL or receive CodeQuick's generic add-on fanart. -->
+    <expression name="HomeWidgetArtIsCatchupDefaultFanart">String.Contains(ListItem.Art(fanart),plugin.video.catchuptvandmore/fanart.jpg)</expression>
+    <expression name="HomeWidgetPropertyIsCatchupDefaultFanart">String.Contains(ListItem.Property(fanart),plugin.video.catchuptvandmore/fanart.jpg)</expression>
+    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Art(fanart)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) | $EXP[HomeWidgetArtIsCatchupDefaultFanart]] + [String.IsEmpty(ListItem.Property(fanart)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) | $EXP[HomeWidgetPropertyIsCatchupDefaultFanart]]</expression>
+    <expression name="HomeWidgetUsesPortraitThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + String.Contains(ListItem.FolderPath,/channels/fr/francetv/)</expression>
+    <expression name="HomeWidgetUsesLandscapeThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + !$EXP[HomeWidgetUsesPortraitThumbFallback]</expression>
     <expression name="HomeIsVerticalAll">Skin.HasSetting(home.vertical)</expression>
     <expression name="HomeIsClassic">!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.classicwidgets)</expression>
     <expression name="HomeIsVertical">Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.vertical.widgets)</expression>
@@ -611,8 +615,8 @@
 		<!-- Multi Widget -->
         <value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Art(thumb)) + Skin.HasSetting(background.episodes.use.thumbnail) + !$EXP[HomeWidgetUsesThumbFallback]">$INFO[ListItem.Art(thumb)]</value>
         <value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Art(season.fanart)) + String.IsEqual(ListItem.Art(fanart),ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(season.fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart)) + !String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb))">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(fanart)) + !String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb))">$INFO[ListItem.Property(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart)) + !String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) + !$EXP[HomeWidgetArtIsCatchupDefaultFanart]">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(fanart)) + !String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) + !$EXP[HomeWidgetPropertyIsCatchupDefaultFanart]">$INFO[ListItem.Property(fanart)]</value>
         <value condition="String.StartsWith(ListItem.FolderPath,pvr://) + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Fanart)]</value>
         
 		<!-- Fallbacks -->
@@ -1005,19 +1009,37 @@
             <include>Animation.AutoTrailer.FadeOut.Background</include>
         </control>
 
-        <!-- Keep low-resolution thumbnails out of the fullscreen fanart layer. -->
-        <control type="image" description="Widget thumbnail fallback fanart">
-            <visible>$EXP[HomeWidgetUsesThumbFallback]</visible>
-            <left>570</left>
+        <!-- Keep low-resolution landscape thumbnails out of the fullscreen fanart layer. -->
+        <control type="image" description="Widget landscape thumbnail fallback fanart">
+            <visible>$EXP[HomeWidgetUsesLandscapeThumbFallback]</visible>
+            <left>800</left>
             <top>0</top>
-            <width>1350</width>
-            <height>760</height>
+            <width>1120</width>
+            <height>630</height>
             <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
             <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
             <include>Animation.Background.OpenClose</include>
             <include>BackgroundFanartFadetime</include>
             <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
             <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-clean.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
+            <imagefilter>linear</imagefilter>
+            <diffusefilter>linear</diffusefilter>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+        <!-- France.tv uses portrait or square thumbnails when no 16:9 artwork is available. -->
+        <control type="image" description="Widget portrait thumbnail fallback fanart">
+            <visible>$EXP[HomeWidgetUsesPortraitThumbFallback]</visible>
+            <left>1120</left>
+            <top>0</top>
+            <width>800</width>
+            <height>630</height>
+            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
+            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-clean.png">$INFO[ListItem.Art(thumb)]</texture>
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
