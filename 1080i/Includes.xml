@@ -1021,7 +1021,7 @@
             <include>Animation.Background.OpenClose</include>
             <include>BackgroundFanartFadetime</include>
             <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
-            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-clean.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
@@ -1039,7 +1039,7 @@
             <include>Animation.Background.OpenClose</include>
             <include>BackgroundFanartFadetime</include>
             <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-clean.png">$INFO[ListItem.Art(thumb)]</texture>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$INFO[ListItem.Art(thumb)]</texture>
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
