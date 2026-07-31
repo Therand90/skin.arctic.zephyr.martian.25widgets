@@ -17,10 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.14.3\n"
 
-msgctxt "#31000"
-msgid "Limit number of items in widget"
-msgstr "Begränsa antal objekt i widget"
-
 msgctxt "#31002"
 msgid "Animated posters"
 msgstr "Animerade posters"
@@ -28,14 +24,6 @@ msgstr "Animerade posters"
 msgctxt "#31003"
 msgid "Animated fanarts"
 msgstr "Animerad fanart"
-
-msgctxt "#31004"
-msgid "Show discart (fanart views)"
-msgstr "Visa skivbild (fanart-vyer)"
-
-msgctxt "#31005"
-msgid "Alternate case (fanart views)"
-msgstr "Alternativt omslag (fanart-vyer)"
 
 msgctxt "#31007"
 msgid "Title-overlays (symbols-view, deprecated)"
@@ -66,11 +54,11 @@ msgid "Netflix"
 msgstr "Netflix"
 
 msgctxt "#31017"
-msgid "Colored icon media flags"
+msgid "Coloured icon media flags"
 msgstr "Färgade ikoner för mediaflaggor"
 
 msgctxt "#31019"
-msgid "Supported Addons"
+msgid "Supported add-ons"
 msgstr "Tillägg som stöds"
 
 msgctxt "#31020"
@@ -182,7 +170,7 @@ msgid "Movie Sets"
 msgstr "Filmuppsättningar"
 
 msgctxt "#31053"
-msgid "New Tv Shows"
+msgid "New TV Shows"
 msgstr "Nya tv-serier"
 
 msgctxt "#31054"
@@ -190,11 +178,11 @@ msgid "Recently Watched TV Shows"
 msgstr "Nyligen sedda TV-serier"
 
 msgctxt "#31056"
-msgid "Random Tv Shows"
+msgid "Random TV Shows"
 msgstr "Slumpmässiga TV-serier"
 
 msgctxt "#31057"
-msgid "Top Rated Tv Shows"
+msgid "Top Rated TV Shows"
 msgstr "TV-serier med högst betyg"
 
 msgctxt "#31058"
@@ -443,7 +431,7 @@ msgid "Set your favourite settings"
 msgstr "Ställ in dina favoritinställningar"
 
 msgctxt "#31126"
-msgid "Accent colors"
+msgid "Accent colours"
 msgstr "Accentfärger"
 
 msgctxt "#31133"
@@ -539,7 +527,7 @@ msgid "Movies by"
 msgstr "Filmer av"
 
 msgctxt "#31160"
-msgid "Tv Shows by"
+msgid "TV Shows by"
 msgstr "TV-serier av"
 
 msgctxt "#31161"
@@ -834,10 +822,6 @@ msgctxt "#31234"
 msgid "Fanart overlay"
 msgstr "Fanarts-overlay"
 
-msgctxt "#31235"
-msgid "Show banner?"
-msgstr "Visa banderoll?"
-
 msgctxt "#31236"
 msgid "Now playing..."
 msgstr "Spelas nu..."
@@ -847,11 +831,11 @@ msgid "Use minimal busy loader in header"
 msgstr "Visa liten upptagenanimering i huvudet"
 
 msgctxt "#31238"
-msgid "Select highlight color"
+msgid "Select highlight colour"
 msgstr "Välj markeringsfärg"
 
 msgctxt "#31239"
-msgid "Current Color"
+msgid "Current Colour"
 msgstr "Nuvarande färg"
 
 #, fuzzy
@@ -1076,7 +1060,7 @@ msgid "Show plot on HUB"
 msgstr "Visa handling på HUB"
 
 msgctxt "#31300"
-msgid "Colors"
+msgid "Colours"
 msgstr "Färger"
 
 msgctxt "#31301"
@@ -1160,7 +1144,7 @@ msgid "New Unwatched Episodes"
 msgstr "Nya osedda avsnitt"
 
 msgctxt "#31323"
-msgid "New Unwatched Tv Shows"
+msgid "New Unwatched TV Shows"
 msgstr "Nya osedda tv-serier"
 
 msgctxt "#31324"
@@ -1217,22 +1201,10 @@ msgid "25"
 msgstr "25"
 
 msgctxt "#31340"
-msgid "Auto-scrolling"
+msgid "Autoscroll"
 msgstr "Automatisk rullning"
 
 #, fuzzy
-msgctxt "#31341"
-msgid "Widget-listtype"
-msgstr "Widget-listtyp"
-
-msgctxt "#31342"
-msgid "List"
-msgstr "Lista"
-
-msgctxt "#31343"
-msgid "Fixed list"
-msgstr "Fast lista"
-
 #, fuzzy
 msgctxt "#31348"
 msgid "Movie Genre Icons"
@@ -1274,14 +1246,6 @@ msgctxt "#31360"
 msgid "Log off: $INFO[system.profilename]"
 msgstr "Logga ut: $INFO[system.profilename]"
 
-msgctxt "#31361"
-msgid "Delete/Disable Settings Menu Item?"
-msgstr "Ta bort/inaktivera menyposten Inställningar?"
-
-msgctxt "#31362"
-msgid "Are you sure you want to remove the Settings menu item?[CR]Please ensure that you have an alternative method of accessing Settings before you remove this menu item."
-msgstr "Är du säker på att du vill ta bort menyalternativet Inställningar?[CR]Se till att du har en alternativ metod för att komma åt Inställningar innan du tar bort det här menyalternativet."
-
 msgctxt "#31363"
 msgid "Power menu"
 msgstr "Energimeny"
@@ -1298,6 +1262,10 @@ msgstr ""
 msgctxt "#31366"
 msgid "Show Filenames"
 msgstr "Visa filnamn"
+
+msgctxt "#31368"
+msgid "Show unwatched episodes count"
+msgstr "Visa osedda antal avsnitt"
 
 #, fuzzy
 msgctxt "#31369"
@@ -1371,10 +1339,6 @@ msgctxt "#31391"
 msgid "Prefer tags instead of rating"
 msgstr "Föredrar taggar istället för betyg"
 
-msgctxt "#31392"
-msgid "Limit number of items in hub"
-msgstr "Begränsa antalet poster i hubb"
-
 msgctxt "#31393"
 msgid "Show icons only"
 msgstr "Visa endast ikoner"
@@ -1384,7 +1348,7 @@ msgid "Multi-Widgets"
 msgstr "Multiwidgetar"
 
 msgctxt "#31395"
-msgid "Gradient color for "
+msgid "Gradient colour for "
 msgstr "Gradientfärg för "
 
 msgctxt "#31396"
@@ -1404,14 +1368,6 @@ msgid "Aspect ratio"
 msgstr "Bildförhållande"
 
 #, fuzzy
-msgctxt "#31402"
-msgid "Select aspect ratio for square widget"
-msgstr "Välj bildförhållande för kvadratisk widget"
-
-msgctxt "#31403"
-msgid "Scale"
-msgstr "Skala"
-
 msgctxt "#31404"
 msgid "Sunrise at"
 msgstr "Soluppgång vid"
@@ -1421,15 +1377,7 @@ msgid "Sunset at"
 msgstr "Solnedgång vid"
 
 #, fuzzy
-msgctxt "#31406"
-msgid "Square small"
-msgstr "Fyrkantig liten"
-
 #, fuzzy
-msgctxt "#31407"
-msgid "Square medium"
-msgstr "Fyrkantig medium"
-
 msgctxt "#31410"
 msgid "Home menu bar"
 msgstr "Menyfältet Hem"
@@ -1446,26 +1394,6 @@ msgctxt "#31413"
 msgid "Weather location"
 msgstr "Väderplats"
 
-msgctxt "#31414"
-msgid "Widget 1"
-msgstr "Widget 1"
-
-msgctxt "#31415"
-msgid "Widget 2"
-msgstr "Widget 2"
-
-msgctxt "#31416"
-msgid "Widget 3"
-msgstr "Widget 3"
-
-msgctxt "#31417"
-msgid "Widget 4"
-msgstr "Widget 4"
-
-msgctxt "#31418"
-msgid "Widget 5"
-msgstr "Widget 5"
-
 msgctxt "#31421"
 msgid "Images"
 msgstr "Bilder"
@@ -1477,14 +1405,6 @@ msgstr "Stor bred"
 msgctxt "#31425"
 msgid "Seconds"
 msgstr "sekunder"
-
-msgctxt "#31429"
-msgid "more..."
-msgstr "mer..."
-
-msgctxt "#31430"
-msgid "item"
-msgstr "objekt"
 
 #, fuzzy
 msgctxt "#31431"
@@ -1510,10 +1430,6 @@ msgstr "Nyligen tillagda låtar"
 msgctxt "#31436"
 msgid "Most played Songs"
 msgstr "Mest spelade låtar"
-
-msgctxt "#31437"
-msgid "Use old jumpbar (requires script.embuary.helper)"
-msgstr ""
 
 msgctxt "#31438"
 msgid "Genre Poster"
@@ -1557,15 +1473,7 @@ msgctxt "#31452"
 msgid "Widget"
 msgstr "Widget"
 
-msgctxt "#31453"
-msgid "Edge distance"
-msgstr "Avstånd till kant"
-
 #, fuzzy
-msgctxt "#31454"
-msgid "30px"
-msgstr "30px"
-
 #, fuzzy
 msgctxt "#31455"
 msgid "Path intros"
@@ -1621,18 +1529,14 @@ msgid "disabled"
 msgstr "inaktiverad"
 
 msgctxt "#31468"
-msgid "Required addons"
+msgid "Required add-ons"
 msgstr "Nödvändiga tillägg"
 
 msgctxt "#31469"
-msgid "Recommended addons"
+msgid "Recommended add-ons"
 msgstr "Rekommenderade tillägg"
 
 #, fuzzy
-msgctxt "#31472"
-msgid "CoreELEC Settings"
-msgstr "CoreELEC-inställningar"
-
 msgctxt "#31473"
 msgid "Custom widget"
 msgstr "Anpassad widget"
@@ -1651,8 +1555,8 @@ msgid "Boxed Set"
 msgstr "Samlingsbox"
 
 msgctxt "#31477"
-msgid "Widget 6"
-msgstr "Widget 6"
+msgid "Select icon"
+msgstr "Välj ikon"
 
 msgctxt "#31478"
 msgid "Indicators"
@@ -1692,7 +1596,7 @@ msgid "CPU"
 msgstr "CPU"
 
 msgctxt "#31489"
-msgid "Underlined homemenu items"
+msgid "Underlined home menu items"
 msgstr "Understrukna hemmenyobjekt"
 
 msgctxt "#31492"
@@ -1783,7 +1687,7 @@ msgid "Mini-EPG (vertical, only 5 Items)"
 msgstr "Mini-EPG (vertikal, endast 5 poster)"
 
 msgctxt "#31518"
-msgid "Unwatched Tv Shows"
+msgid "Unwatched TV Shows"
 msgstr "Osedda TV-serier"
 
 msgctxt "#31520"
@@ -1806,11 +1710,7 @@ msgstr "IMDb-position"
 msgctxt "#31525"
 msgid "Use default MPAA rating icons"
 msgstr "Använd standardikoner för MPAA-klassificering"
->>>>>>> refs/remotes/github/master
 
-#, fuzzy
-#, fuzzy
-#, fuzzy
 msgctxt "#31533"
 msgid "Clean and minimal"
 msgstr "Ren och minimal"
@@ -1946,10 +1846,6 @@ msgctxt "#31623"
 msgid "If home menu is focused, jump to widgets on back"
 msgstr "Om hemmenyn är fokuserad, hoppa till widgetar på baksidan"
 
-msgctxt "#31625"
-msgid "Disable addons fanart"
-msgstr "Inaktivera fanart-tillägg"
-
 msgctxt "#31630"
 msgid "Hub widget content type"
 msgstr "Innehållstyp för hubbwidget"
@@ -1962,10 +1858,6 @@ msgstr "Uppspelningsåtgärd när dialogrutan för videoinformation visas"
 msgctxt "#31632"
 msgid "Stop playback when item is no longer focused"
 msgstr "Stoppa uppspelningen när objektet inte längre är fokuserat"
-
-msgctxt "#31643"
-msgid "LibreELEC Settings"
-msgstr "Inställningar för LibreELEC"
 
 msgctxt "#31650"
 msgid "Is playing"
@@ -1986,10 +1878,6 @@ msgstr "Spelas nu"
 msgctxt "#31663"
 msgid "Now playing..."
 msgstr "Spelas nu..."
-
-msgctxt "#31667"
-msgid "Animated artwork"
-msgstr "Animerade bakgrunder"
 
 msgctxt "#31668"
 msgid "Path to additional animated posters"
@@ -2021,7 +1909,7 @@ msgid "Show detailed info when video starts (in seconds)"
 msgstr "Visa detaljerad information när videon startar (i sekunder)"
 
 msgctxt "#31679"
-msgid "Color presets"
+msgid "Colour presets"
 msgstr "Förinställda färger"
 
 msgctxt "#31680"
@@ -2048,31 +1936,19 @@ msgctxt "#31693"
 msgid "Online"
 msgstr "Online"
 
-msgctxt "#31694"
-msgid "Game studio/flag icons"
-msgstr "Ikoner för spelstudio/flagga"
-
 msgctxt "#31699"
-msgid "Pick a color..."
+msgid "Pick a colour..."
 msgstr "Välj en färg..."
 
 msgctxt "#31700"
-msgid "Set color"
+msgid "Set colour"
 msgstr "Ställ in färg"
 
 msgctxt "#31703"
 msgid "Small landscape"
 msgstr "Litet landskap"
 
-msgctxt "#31704"
-msgid "Small fanart"
-msgstr "Liten fanart"
-
 #, fuzzy
-msgctxt "#31705"
-msgid "Small poster fanart"
-msgstr "Liten affisch fanart"
-
 msgctxt "#31707"
 msgid "Rating stars"
 msgstr "Betyg stjärnor"

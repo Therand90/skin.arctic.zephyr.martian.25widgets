@@ -6,7 +6,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(505)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="panel" id="505">
                 <visible>$EXP[Exp_View_505]</visible>
                 <top>206</top>
@@ -44,9 +43,10 @@
                 <focusedlayout height="337" width="222">
                     <control type="group">
                         <height>222</height>
-                        <include content="include.widget.poster.focus">
+                        <include content="include.widget.poster">
                             <param name="id" value="505"/>
                             <param name="height" value="222"/>
+                            <param name="focused" value="true" />
                         </include>
                     </control>
                     <control type="textbox">
@@ -62,7 +62,9 @@
                     </control>
                 </focusedlayout>
             </control>
-            <include>Furniture_Scrollbar</include>
+            <include content="Furniture_Scrollbar">
+                <param name="jumpbar" value="true" />
+            </include>
             <control type="group" description="Poster">
                 <width>PosterH</width>
                 <include content="Fanart_Info">
@@ -97,13 +99,16 @@
                     </include>
                 </itemlayout>
                 <focusedlayout height="220" width="224">
-                    <include content="include.widget.poster.focus">
+                    <include content="include.widget.poster">
                         <param name="id" value="506"/>
                         <param name="height" value="220"/>
+                        <param name="focused" value="true" />
                     </include>
                 </focusedlayout>
             </control>
-            <include>Furniture_Scrollbar</include>
+            <include content="Furniture_Scrollbar">
+                <param name="jumpbar" value="true" />
+            </include>
             <control type="group" description="Poster">
                 <left>SidePad</left>
                 <top>PosterPad</top>
@@ -141,7 +146,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(507)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="panel" id="507">
                 <visible>$EXP[Exp_View_507]</visible>
                 <top>206</top>
@@ -179,9 +183,10 @@
                 <focusedlayout height="337" width="222">
                     <control type="group">
                         <height>225</height>
-                        <include content="include.widget.poster.focus">
+                        <include content="include.widget.poster">
                             <param name="id" value="507"/>
                             <param name="height" value="225"/>
+                            <param name="focused" value="true" />
                         </include>
                     </control>
                     <control type="textbox">
@@ -197,7 +202,9 @@
                     </control>
                 </focusedlayout>
             </control>
-            <include>Furniture_Scrollbar</include>
+            <include content="Furniture_Scrollbar">
+                <param name="jumpbar" value="true" />
+            </include>
         </control>
     </include>
 </includes>

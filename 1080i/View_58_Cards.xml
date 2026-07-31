@@ -7,7 +7,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(58)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="group">
                 <control type="panel" id="58">
                     <visible>$EXP[Exp_View_58]</visible>
@@ -101,7 +100,7 @@
                             <width>400</width>
                             <height>310</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture diffuse="diffuse/cardthumb.png" background="true">$VAR[FanartImage]</texture>
+                            <texture diffuse="diffuse/cardthumb.png" background="true">$VAR[LandscapeImage]</texture>
                         </control>
                         <control type="label">
                             <left>440</left>
@@ -225,7 +224,7 @@
                             <width>400</width>
                             <height>310</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture diffuse="diffuse/cardthumb.png" background="true">$VAR[FanartImage]</texture>
+                            <texture diffuse="diffuse/cardthumb.png" background="true">$VAR[LandscapeImage]</texture>
                         </control>
                         <control type="label">
                             <left>440</left>
@@ -274,11 +273,10 @@
                         </include>
                     </focusedlayout>
                 </control>
-                <control type="scrollbar" id="1624">
-                    <include content="scrollbar_vertical">
-                        <param name="scrollid" value="1624"/>
-                    </include>
-                </control>
+                <include content="Furniture_Scrollbar">
+                    <param name="id" value="1624" />
+                    <param name="jumpbar" value="true" />
+                </include>
             </control>
         </control>
     </include>

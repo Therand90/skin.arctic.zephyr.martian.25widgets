@@ -33,9 +33,10 @@
             <control type="group">
                 <width>562</width>
                 <left>70</left>
-	            <include content="include.widget.landscape.focus">
+	            <include content="include.widget.landscape">
 	                <param name="id" value="522"/>
 	                <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
+                    <param name="focused" value="true" />
 	            </include>
             </control>
             <include condition="Skin.HasSetting(home.netflix.autoplay.trailer)">SetAutoTrailerControl</include>
@@ -49,16 +50,15 @@
             <visible>Control.IsVisible(522)</visible>
             <include>ViewSlideForJumpBar</include>
             <include>View_521_Minimal_V2_Content</include>
-            <control type="scrollbar" id="1646">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1646"/>
-                    <param name="jumpbar" value="true"/>
-                    <param name="bottom" value="200"/>
-                </include>
-            </control>
-	        <control type="fixedlist" id="522">
-	            <include>522Content</include>
-	        </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1646" />
+                <param name="jumpbar" value="true" />
+            </include>
+            <include content="DefListControl">
+                <param name="id" value="522" />
+                <param name="nowrap" value="Skin.HasSetting(view.netflix.nowrap)" />
+                <include>522Content</include>
+            </include>
         </control>
     </include>
 </includes>

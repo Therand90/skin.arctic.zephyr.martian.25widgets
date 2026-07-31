@@ -5,37 +5,25 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XBMC Skins\n"
-"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2024-01-16 03:23+0000\n"
-"Last-Translator: dm1tz <dmitz@disroot.org>\n"
+"PO-Revision-Date: 2026-01-10 11:13+0000\n"
+"Last-Translator: Pavlo Marianov <acid@jack.kyiv.ua>\n"
 "Language-Team: Ukrainian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-arctic-zephyr-mod/uk_ua/>\n"
 "Language: uk_ua\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.3\n"
-
-msgctxt "#31000"
-msgid "Limit number of items in widget"
-msgstr ""
+"X-Generator: Weblate 5.15.1\n"
 
 msgctxt "#31002"
 msgid "Animated posters"
-msgstr ""
+msgstr "Анімовані постери"
 
 msgctxt "#31003"
 msgid "Animated fanarts"
-msgstr ""
-
-msgctxt "#31004"
-msgid "Show discart (fanart views)"
-msgstr ""
-
-msgctxt "#31005"
-msgid "Alternate case (fanart views)"
-msgstr ""
+msgstr "Анімований фанарт"
 
 msgctxt "#31007"
 msgid "Title-overlays (symbols-view, deprecated)"
@@ -51,27 +39,27 @@ msgstr ""
 
 msgctxt "#31010"
 msgid "Alternate case"
-msgstr ""
+msgstr "Альтернативна коробка"
 
 msgctxt "#31011"
 msgid "Show CD and case"
-msgstr ""
+msgstr "Показати CD та коробку"
 
 msgctxt "#31013"
 msgid "Feature ends at"
-msgstr ""
+msgstr "Завершення в"
 
 msgctxt "#31014"
 msgid "Netflix"
-msgstr ""
+msgstr "Netflix"
 
 msgctxt "#31017"
-msgid "Colored icon media flags"
-msgstr ""
+msgid "Coloured icon media flags"
+msgstr "Кольорові піктограми для позначок медіафайлів"
 
 msgctxt "#31019"
-msgid "Supported Addons"
-msgstr ""
+msgid "Supported add-ons"
+msgstr "Підтримувані додатки"
 
 msgctxt "#31020"
 msgid "Resources"
@@ -79,239 +67,239 @@ msgstr ""
 
 msgctxt "#31021"
 msgid "Hide widget title"
-msgstr ""
+msgstr "Приховати заголовок віджета"
 
 msgctxt "#31022"
 msgid "Video Infodialog"
-msgstr ""
+msgstr "Відомості про відео"
 
 msgctxt "#31023"
 msgid "Awards"
-msgstr ""
+msgstr "Нагороди"
 
 msgctxt "#31025"
 msgid "Show clearLogo"
-msgstr ""
+msgstr "Показати чистий логотип"
 
 msgctxt "#31026"
 msgid "Videolyrics"
-msgstr ""
+msgstr "Тексти пісень з відео"
 
 msgctxt "#31027"
 msgid "Shifted"
-msgstr ""
+msgstr "Зміщений"
 
 msgctxt "#31028"
 msgid "Widgets fade animation"
-msgstr ""
+msgstr "Анімація зникнення віджета"
 
 msgctxt "#31030"
 msgid "movies in the library"
-msgstr ""
+msgstr "фільми в медіатеці"
 
 msgctxt "#31035"
 msgid "Show PVR technical info"
-msgstr ""
+msgstr "Показати технічну інформацію про PVR"
 
 msgctxt "#31036"
 msgid "Fullscreen Fanart"
-msgstr ""
+msgstr "Фанарт на весь екран"
 
 msgctxt "#31037"
 msgid "Extended Info"
-msgstr ""
+msgstr "Додаткова інформація"
 
 msgctxt "#31039"
 msgid "IPTV Recorder"
-msgstr ""
+msgstr "Запис IPTV"
 
 msgctxt "#31040"
 msgid "Recordings"
-msgstr ""
+msgstr "Записи"
 
 msgctxt "#31041"
 msgid "Hide actor images"
-msgstr ""
+msgstr "Приховати зображення акторів"
 
 msgctxt "#31042"
 msgid "Add-On Widgets"
-msgstr ""
+msgstr "Віджети додатка"
 
 msgctxt "#31043"
 msgid "Last Played Channels"
-msgstr ""
+msgstr "Нещодавно переглянуті канали"
 
 msgctxt "#31044"
 msgid "All Channels"
-msgstr ""
+msgstr "Всі канали"
 
 msgctxt "#31045"
 msgid "New Movies"
-msgstr ""
+msgstr "Нові фільми"
 
 msgctxt "#31046"
 msgid "Recently Played Movies"
-msgstr ""
+msgstr "Нещодавно переглянуті фільми"
 
 msgctxt "#31047"
 msgid "Random Movies"
-msgstr ""
+msgstr "Випадкові фільми"
 
 msgctxt "#31048"
 msgid "In Progress Movies"
-msgstr ""
+msgstr "Фільми які переглядаються"
 
 msgctxt "#31049"
 msgid "Top Rated Movies"
-msgstr ""
+msgstr "Найкращі фільми"
 
 msgctxt "#31050"
 msgid "Top 250 Movies"
-msgstr ""
+msgstr "Найкращі 250 фільмів"
 
 msgctxt "#31051"
 msgid "Unwatched Movies"
-msgstr ""
+msgstr "Непереглянуті фільми"
 
 msgctxt "#31052"
 msgid "Movie Sets"
-msgstr ""
+msgstr "Кіноцикли"
 
 msgctxt "#31053"
-msgid "New Tv Shows"
-msgstr ""
+msgid "New TV Shows"
+msgstr "Нові серіали"
 
 msgctxt "#31054"
 msgid "Recently Watched TV Shows"
-msgstr ""
+msgstr "Нещодавно переглянуті серіали"
 
 msgctxt "#31056"
-msgid "Random Tv Shows"
-msgstr ""
+msgid "Random TV Shows"
+msgstr "Випадкові серіали"
 
 msgctxt "#31057"
-msgid "Top Rated Tv Shows"
-msgstr ""
+msgid "Top Rated TV Shows"
+msgstr "Найкращі серіали"
 
 msgctxt "#31058"
 msgid "New Episodes"
-msgstr ""
+msgstr "Нові серії"
 
 msgctxt "#31059"
 msgid "Recently Played Episodes"
-msgstr ""
+msgstr "Нещодавно переглянуті серії"
 
 msgctxt "#31060"
 msgid "Random Episodes"
-msgstr ""
+msgstr "Випадкові серії"
 
 msgctxt "#31061"
 msgid "Unwatched Episodes"
-msgstr ""
+msgstr "Непереглянуті серії"
 
 msgctxt "#31062"
 msgid "In Progress Episodes"
-msgstr ""
+msgstr "Серії які переглядаються"
 
 msgctxt "#31063"
 msgid "Top Rated Episodes"
-msgstr ""
+msgstr "Найкращі серії"
 
 msgctxt "#31064"
 msgid "New Albums"
-msgstr ""
+msgstr "Нові альбоми"
 
 msgctxt "#31065"
 msgid "Recently Played Albums"
-msgstr ""
+msgstr "Останні відтворені альбоми"
 
 msgctxt "#31066"
 msgid "Top Albums"
-msgstr ""
+msgstr "Найкращі альбоми"
 
 msgctxt "#31067"
 msgid "Random Albums"
-msgstr ""
+msgstr "Випадкові альбоми"
 
 msgctxt "#31068"
 msgid "Random Artists"
-msgstr ""
+msgstr "Випадкові виконавці"
 
 msgctxt "#31071"
 msgid "Show fanart/landscape view"
-msgstr ""
+msgstr "Показувати фанарт/пейзаж"
 
 msgctxt "#31072"
 msgid "Poster Flix"
-msgstr ""
+msgstr "Постер Flix"
 
 msgctxt "#31073"
 msgid "Show clearlogo instead of title"
-msgstr ""
+msgstr "Показувати чистий логотип замість назви"
 
 msgctxt "#31074"
 msgid "Enable blur"
-msgstr ""
+msgstr "Увімкнути розмиття"
 
 msgctxt "#31076"
 msgid "This view"
-msgstr ""
+msgstr "Це подання"
 
 msgctxt "#31077"
 msgid "Misc"
-msgstr ""
+msgstr "Різне"
 
 msgctxt "#31078"
 msgid "Global options"
-msgstr ""
+msgstr "Загальні налаштування"
 
 msgctxt "#31079"
 msgid "Show discart"
-msgstr ""
+msgstr "Показати обкладинку диска"
 
 msgctxt "#31081"
 msgid "Double-Flix"
-msgstr ""
+msgstr "Подвійний Flix"
 
 msgctxt "#31082"
 msgid "Flip poster/fanart"
-msgstr ""
+msgstr "Перевернути постер/фанарт"
 
 msgctxt "#31083"
 msgid "Show list instead of posters"
-msgstr ""
+msgstr "Показати список замість постерів"
 
 msgctxt "#31084"
 msgid "Show clearlogo on top instead on fanart"
-msgstr ""
+msgstr "Показати чистий логотип зверху замість на фанарті"
 
 msgctxt "#31085"
 msgid "Fanart & poster 2"
-msgstr ""
+msgstr "Фанарт і постер 2"
 
 msgctxt "#31086"
 msgid "Show extended infos on list"
-msgstr ""
+msgstr "Додаткова інформація у списку"
 
 msgctxt "#31087"
 msgid "episodes watched"
-msgstr ""
+msgstr "переглянуто серій"
 
 msgctxt "#31088"
 msgid "h"
-msgstr ""
+msgstr "г"
 
 msgctxt "#31089"
 msgid "m"
-msgstr ""
+msgstr "хв"
 
 msgctxt "#31091"
 msgid "Double-Flix Banner"
-msgstr ""
+msgstr "Банер подвійний Flix"
 
 msgctxt "#31092"
 msgid "Flip fanart/banner"
-msgstr ""
+msgstr "Перевернути фанарт/банер"
 
 msgctxt "#31093"
 msgid "Hourly forecast"
@@ -319,31 +307,31 @@ msgstr "Щогодинний прогноз"
 
 msgctxt "#31094"
 msgid "Next days forecast"
-msgstr ""
+msgstr "Прогноз на наступні дні"
 
 msgctxt "#31095"
 msgid "Show RSS Feed on home menu"
-msgstr ""
+msgstr "Стрічка RSS на головному екрані"
 
 msgctxt "#31096"
 msgid "Show RSS Feed on top instead on bottom"
-msgstr ""
+msgstr "Показувати стрічку RSS зверху, а не знизу"
 
 msgctxt "#31097"
 msgid "RSS Feed"
-msgstr ""
+msgstr "Стрічка RSS"
 
 msgctxt "#31098"
 msgid "Flip list and info"
-msgstr ""
+msgstr "Перевернути список та відомості"
 
 msgctxt "#31099"
 msgid "Vertical Shifted"
-msgstr ""
+msgstr "Зсув по вертикалі"
 
 msgctxt "#31100"
 msgid "Defaults"
-msgstr ""
+msgstr "Стандартно"
 
 msgctxt "#31101"
 msgid "items"
@@ -355,7 +343,7 @@ msgstr "мін"
 
 msgctxt "#31103"
 msgid "Live TV"
-msgstr "ТБ"
+msgstr "Ефірне ТБ"
 
 msgctxt "#31104"
 msgid "Used Memory"
@@ -363,11 +351,11 @@ msgstr "Використана пам'ять"
 
 msgctxt "#31105"
 msgid "Spotlight"
-msgstr ""
+msgstr "У фокусі"
 
 msgctxt "#31106"
 msgid "Finishes at"
-msgstr ""
+msgstr "Кінець в"
 
 msgctxt "#31107"
 msgid "Video Stream"
@@ -375,11 +363,11 @@ msgstr ""
 
 msgctxt "#31108"
 msgid "Show original"
-msgstr ""
+msgstr "Показати оригінал"
 
 msgctxt "#31109"
 msgid "Customise home menu"
-msgstr ""
+msgstr "Налаштувати головний екран"
 
 msgctxt "#31110"
 msgid "Background"
@@ -391,15 +379,15 @@ msgstr ""
 
 msgctxt "#31112"
 msgid "Submenu"
-msgstr ""
+msgstr "Підменю"
 
 msgctxt "#31113"
 msgid "No Timer"
-msgstr ""
+msgstr "Без таймеру"
 
 msgctxt "#31114"
 msgid "Show effect"
-msgstr ""
+msgstr "З ефектом"
 
 msgctxt "#31115"
 msgid "Show header"
@@ -407,19 +395,19 @@ msgstr ""
 
 msgctxt "#31116"
 msgid "DVD Menu"
-msgstr ""
+msgstr "Меню DVD"
 
 msgctxt "#31117"
 msgid "3D Mode"
-msgstr ""
+msgstr "3D-режим"
 
 msgctxt "#31118"
 msgid "Show artist slideshow"
-msgstr ""
+msgstr "Слайд-шоу виконавця"
 
 msgctxt "#31120"
 msgid "Animate artist slideshow"
-msgstr ""
+msgstr "Анімація слайд-шоу виконавця"
 
 msgctxt "#31121"
 msgid "Show fanart"
@@ -427,27 +415,27 @@ msgstr "Показувати фанарт"
 
 msgctxt "#31122"
 msgid "     Settings"
-msgstr ""
+msgstr "     Налаштування"
 
 msgctxt "#31123"
 msgid "Change image"
-msgstr ""
+msgstr "Змінити картинку"
 
 msgctxt "#31125"
 msgid "Set your favourite settings"
 msgstr ""
 
 msgctxt "#31126"
-msgid "Accent colors"
-msgstr ""
+msgid "Accent colours"
+msgstr "Колір виділення"
 
 msgctxt "#31133"
 msgid "Hide watched"
-msgstr ""
+msgstr "Приховати переглянуті"
 
 msgctxt "#31135"
 msgid "Hide scrolling text"
-msgstr ""
+msgstr "Приховати текст, що прокручується"
 
 msgctxt "#31137"
 msgid "[CR]Arctic: Zephyr - Martian is based on the third iteration of the Arctic skin created by jurialmunkey[CR]and it's extension by beatmasterRS.[CR]Arctic focuses on being simple, clean and minimalistic with a light spin."
@@ -455,15 +443,15 @@ msgstr ""
 
 msgctxt "#31138"
 msgid "Content Loading"
-msgstr ""
+msgstr "Завантаження вмісту"
 
 msgctxt "#31139"
 msgid "Play trailer in windowed mode"
-msgstr ""
+msgstr "Відтворювати трейлер у вікні"
 
 msgctxt "#31141"
 msgid "Youtube"
-msgstr ""
+msgstr "Youtube"
 
 msgctxt "#31142"
 msgid "Use low list"
@@ -475,19 +463,19 @@ msgstr ""
 
 msgctxt "#31144"
 msgid "Widgets"
-msgstr ""
+msgstr "Віджети"
 
 msgctxt "#31145"
 msgid "Show weather"
-msgstr ""
+msgstr "Показати погоду"
 
 msgctxt "#31146"
 msgid "Animate fanart"
-msgstr ""
+msgstr "Анімація фанарту"
 
 msgctxt "#31147"
 msgid "Extra Info"
-msgstr ""
+msgstr "Додаткова інформація"
 
 msgctxt "#31148"
 msgid "Wrap list"
@@ -499,11 +487,11 @@ msgstr ""
 
 msgctxt "#31150"
 msgid "Set fallback image"
-msgstr ""
+msgstr "Установити резервну картинку"
 
 msgctxt "#31151"
 msgid "Power Menu"
-msgstr ""
+msgstr "Меню живлення"
 
 msgctxt "#31152"
 msgid "Furniture"
@@ -511,11 +499,11 @@ msgstr ""
 
 msgctxt "#31153"
 msgid "Show clock"
-msgstr ""
+msgstr "Показати годинник"
 
 msgctxt "#31154"
 msgid "Show media flags"
-msgstr "Інформаційні значки"
+msgstr "Показувати позначки медіафайлів"
 
 msgctxt "#31155"
 msgid "Show now playing info"
@@ -523,18 +511,18 @@ msgstr ""
 
 msgctxt "#31157"
 msgid "Extended info of"
-msgstr ""
+msgstr "Додаткова інформація про"
 
 msgctxt "#31158"
 msgid "Trailer of"
-msgstr ""
+msgstr "Трейлер"
 
 msgctxt "#31159"
 msgid "Movies by"
 msgstr ""
 
 msgctxt "#31160"
-msgid "Tv Shows by"
+msgid "TV Shows by"
 msgstr ""
 
 msgctxt "#31161"
@@ -583,7 +571,7 @@ msgstr ""
 
 msgctxt "#31172"
 msgid "Show music visualisation in background"
-msgstr ""
+msgstr "Візуалізація на тлі при програванні музики"
 
 msgctxt "#31173"
 msgid "Recently added"
@@ -591,11 +579,11 @@ msgstr "Додано останніми"
 
 msgctxt "#31174"
 msgid "Recently played"
-msgstr ""
+msgstr "Нещодавно відтворені"
 
 msgctxt "#31175"
 msgid "Play random"
-msgstr ""
+msgstr "Випадковий вибір при відтворюванні"
 
 msgctxt "#31176"
 msgid "Delete Settings Shortcut"
@@ -615,7 +603,7 @@ msgstr ""
 
 msgctxt "#31181"
 msgid "Similar to"
-msgstr ""
+msgstr "Подібно до"
 
 msgctxt "#31182"
 msgid "Fanart of"
@@ -707,7 +695,7 @@ msgstr ""
 
 msgctxt "#31204"
 msgid "Similar to"
-msgstr ""
+msgstr "Подібно до"
 
 msgctxt "#31205"
 msgid "Released by"
@@ -715,7 +703,7 @@ msgstr ""
 
 msgctxt "#31206"
 msgid "Similar"
-msgstr ""
+msgstr "Подібно"
 
 msgctxt "#31207"
 msgid "Movies by"
@@ -743,7 +731,7 @@ msgstr ""
 
 msgctxt "#31213"
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
 msgctxt "#31214"
 msgid "Show plot"
@@ -751,7 +739,7 @@ msgstr ""
 
 msgctxt "#31215"
 msgid "Unwatched"
-msgstr ""
+msgstr "Непереглянуті"
 
 msgctxt "#31216"
 msgid "Tracklist of"
@@ -775,7 +763,7 @@ msgstr ""
 
 msgctxt "#31221"
 msgid "Studio"
-msgstr ""
+msgstr "Студія"
 
 msgctxt "#31222"
 msgid "Sorry, we don't have any data for that."
@@ -787,7 +775,7 @@ msgstr ""
 
 msgctxt "#31224"
 msgid "Similar"
-msgstr ""
+msgstr "Подібно"
 
 msgctxt "#31225"
 msgid "Fanart"
@@ -795,7 +783,7 @@ msgstr "Фанарт"
 
 msgctxt "#31226"
 msgid "Youtube"
-msgstr ""
+msgstr "Youtube"
 
 msgctxt "#31227"
 msgid "Crew"
@@ -829,10 +817,6 @@ msgctxt "#31234"
 msgid "Fanart overlay"
 msgstr ""
 
-msgctxt "#31235"
-msgid "Show banner?"
-msgstr ""
-
 msgctxt "#31236"
 msgid "Now playing..."
 msgstr ""
@@ -842,11 +826,11 @@ msgid "Use minimal busy loader in header"
 msgstr ""
 
 msgctxt "#31238"
-msgid "Select highlight color"
+msgid "Select highlight colour"
 msgstr ""
 
 msgctxt "#31239"
-msgid "Current Color"
+msgid "Current Colour"
 msgstr ""
 
 msgctxt "#31240"
@@ -875,7 +859,7 @@ msgstr ""
 
 msgctxt "#31246"
 msgid "Show icon media flags"
-msgstr ""
+msgstr "Показувати піктограми для позначок медіафайлів"
 
 msgctxt "#31247"
 msgid "Home menu style"
@@ -883,7 +867,7 @@ msgstr ""
 
 msgctxt "#31248"
 msgid "Featured"
-msgstr ""
+msgstr "Обране"
 
 msgctxt "#31249"
 msgid "Classic"
@@ -907,7 +891,7 @@ msgstr ""
 
 msgctxt "#31255"
 msgid "Collections"
-msgstr ""
+msgstr "Колекції"
 
 msgctxt "#31256"
 msgid "Homepage"
@@ -935,11 +919,11 @@ msgstr "Постер"
 
 msgctxt "#31263"
 msgid "Square"
-msgstr ""
+msgstr "Квадрат"
 
 msgctxt "#31264"
 msgid "Extended List"
-msgstr ""
+msgstr "Розширений список"
 
 msgctxt "#31265"
 msgid "Fanart"
@@ -947,7 +931,7 @@ msgstr "Фанарт"
 
 msgctxt "#31266"
 msgid "Widget"
-msgstr ""
+msgstr "Віджет"
 
 msgctxt "#31267"
 msgid "Action"
@@ -1055,7 +1039,7 @@ msgstr ""
 
 msgctxt "#31294"
 msgid "Side"
-msgstr ""
+msgstr "Сторона"
 
 msgctxt "#31296"
 msgid "This is your personal rating and will not be published."
@@ -1070,24 +1054,24 @@ msgid "Show plot on HUB"
 msgstr ""
 
 msgctxt "#31300"
-msgid "Colors"
+msgid "Colours"
 msgstr ""
 
 msgctxt "#31301"
 msgid "Video OSD"
-msgstr "OSD відео"
+msgstr "Екранне меню у відео"
 
 msgctxt "#31302"
 msgid "Music OSD"
-msgstr "OSD музики"
+msgstr "Екранне меню в музиці"
 
 msgctxt "#31303"
 msgid "Widgets"
-msgstr ""
+msgstr "Віджети"
 
 msgctxt "#31304"
 msgid "Views"
-msgstr ""
+msgstr "Подання"
 
 msgctxt "#31305"
 msgid "Hubs"
@@ -1103,7 +1087,7 @@ msgstr ""
 
 msgctxt "#31309"
 msgid "Media-Flags"
-msgstr ""
+msgstr "Позначки медіафайлів"
 
 msgctxt "#31310"
 msgid "Enable grid"
@@ -1154,7 +1138,7 @@ msgid "New Unwatched Episodes"
 msgstr ""
 
 msgctxt "#31323"
-msgid "New Unwatched Tv Shows"
+msgid "New Unwatched TV Shows"
 msgstr ""
 
 msgctxt "#31324"
@@ -1210,19 +1194,7 @@ msgid "25"
 msgstr ""
 
 msgctxt "#31340"
-msgid "Auto-scrolling"
-msgstr ""
-
-msgctxt "#31341"
-msgid "Widget-listtype"
-msgstr ""
-
-msgctxt "#31342"
-msgid "List"
-msgstr "Список"
-
-msgctxt "#31343"
-msgid "Fixed list"
+msgid "Autoscroll"
 msgstr ""
 
 msgctxt "#31348"
@@ -1263,14 +1235,6 @@ msgstr ""
 
 msgctxt "#31360"
 msgid "Log off: $INFO[system.profilename]"
-msgstr ""
-
-msgctxt "#31361"
-msgid "Delete/Disable Settings Menu Item?"
-msgstr ""
-
-msgctxt "#31362"
-msgid "Are you sure you want to remove the Settings menu item?[CR]Please ensure that you have an alternative method of accessing Settings before you remove this menu item."
 msgstr ""
 
 msgctxt "#31363"
@@ -1339,7 +1303,7 @@ msgstr ""
 
 msgctxt "#31387"
 msgid "DiscArt Fallback-Type"
-msgstr ""
+msgstr "Резервний тип для обкладинки диска"
 
 msgctxt "#31388"
 msgid "CD"
@@ -1357,10 +1321,6 @@ msgctxt "#31391"
 msgid "Prefer tags instead of rating"
 msgstr ""
 
-msgctxt "#31392"
-msgid "Limit number of items in hub"
-msgstr ""
-
 msgctxt "#31393"
 msgid "Show icons only"
 msgstr ""
@@ -1370,7 +1330,7 @@ msgid "Multi-Widgets"
 msgstr ""
 
 msgctxt "#31395"
-msgid "Gradient color for "
+msgid "Gradient colour for "
 msgstr ""
 
 msgctxt "#31396"
@@ -1389,28 +1349,12 @@ msgctxt "#31401"
 msgid "Aspect ratio"
 msgstr ""
 
-msgctxt "#31402"
-msgid "Select aspect ratio for square widget"
-msgstr ""
-
-msgctxt "#31403"
-msgid "Scale"
-msgstr ""
-
 msgctxt "#31404"
 msgid "Sunrise at"
 msgstr ""
 
 msgctxt "#31405"
 msgid "Sunset at"
-msgstr ""
-
-msgctxt "#31406"
-msgid "Square small"
-msgstr ""
-
-msgctxt "#31407"
-msgid "Square medium"
 msgstr ""
 
 msgctxt "#31410"
@@ -1429,29 +1373,9 @@ msgctxt "#31413"
 msgid "Weather location"
 msgstr ""
 
-msgctxt "#31414"
-msgid "Widget 1"
-msgstr ""
-
-msgctxt "#31415"
-msgid "Widget 2"
-msgstr ""
-
-msgctxt "#31416"
-msgid "Widget 3"
-msgstr ""
-
-msgctxt "#31417"
-msgid "Widget 4"
-msgstr ""
-
-msgctxt "#31418"
-msgid "Widget 5"
-msgstr ""
-
 msgctxt "#31421"
 msgid "Images"
-msgstr ""
+msgstr "Зображення"
 
 msgctxt "#31422"
 msgid "Big wide"
@@ -1460,14 +1384,6 @@ msgstr ""
 msgctxt "#31425"
 msgid "Seconds"
 msgstr "Секунди"
-
-msgctxt "#31429"
-msgid "more..."
-msgstr ""
-
-msgctxt "#31430"
-msgid "item"
-msgstr ""
 
 msgctxt "#31431"
 msgid "Use old Arctic Zephyr window animation"
@@ -1493,17 +1409,13 @@ msgctxt "#31436"
 msgid "Most played Songs"
 msgstr ""
 
-msgctxt "#31437"
-msgid "Use old jumpbar (requires script.embuary.helper)"
-msgstr ""
-
 msgctxt "#31438"
 msgid "Genre Poster"
 msgstr ""
 
 msgctxt "#31442"
 msgid "Select media flags"
-msgstr ""
+msgstr "Виберіть позначки медіафайлів"
 
 msgctxt "#31443"
 msgid "Subtitle icon"
@@ -1535,15 +1447,7 @@ msgstr ""
 
 msgctxt "#31452"
 msgid "Widget"
-msgstr ""
-
-msgctxt "#31453"
-msgid "Edge distance"
-msgstr ""
-
-msgctxt "#31454"
-msgid "30px"
-msgstr ""
+msgstr "Віджет"
 
 msgctxt "#31455"
 msgid "Path intros"
@@ -1563,7 +1467,7 @@ msgstr ""
 
 msgctxt "#31459"
 msgid "DiscArt"
-msgstr ""
+msgstr "Обкладинка диска"
 
 msgctxt "#31460"
 msgid "Fake Blu-ray"
@@ -1598,15 +1502,11 @@ msgid "disabled"
 msgstr ""
 
 msgctxt "#31468"
-msgid "Required addons"
+msgid "Required add-ons"
 msgstr ""
 
 msgctxt "#31469"
-msgid "Recommended addons"
-msgstr ""
-
-msgctxt "#31472"
-msgid "CoreELEC Settings"
+msgid "Recommended add-ons"
 msgstr ""
 
 msgctxt "#31473"
@@ -1619,14 +1519,10 @@ msgstr ""
 
 msgctxt "#31475"
 msgid "Netflix fanart window"
-msgstr ""
+msgstr "Вікно фанарту Netflix"
 
 msgctxt "#31476"
 msgid "Boxed Set"
-msgstr ""
-
-msgctxt "#31477"
-msgid "Widget 6"
 msgstr ""
 
 msgctxt "#31478"
@@ -1663,15 +1559,15 @@ msgstr ""
 
 msgctxt "#31487"
 msgid "CPU"
-msgstr ""
+msgstr "ЦП"
 
 msgctxt "#31489"
-msgid "Underlined homemenu items"
+msgid "Underlined home menu items"
 msgstr ""
 
 msgctxt "#31492"
 msgid "Paused"
-msgstr ""
+msgstr "Пауза"
 
 msgctxt "#31493"
 msgid "Watched"
@@ -1695,7 +1591,7 @@ msgstr ""
 
 msgctxt "#31498"
 msgid "Collection"
-msgstr ""
+msgstr "Кіноцикл"
 
 msgctxt "#31500"
 msgid "Prefer percentage"
@@ -1719,7 +1615,7 @@ msgstr ""
 
 msgctxt "#31508"
 msgid "Global"
-msgstr ""
+msgstr "Загально"
 
 msgctxt "#31509"
 msgid "4K Movies"
@@ -1750,7 +1646,7 @@ msgid "Mini-EPG (vertical, only 5 Items)"
 msgstr ""
 
 msgctxt "#31518"
-msgid "Unwatched Tv Shows"
+msgid "Unwatched TV Shows"
 msgstr ""
 
 msgctxt "#31520"
@@ -1763,7 +1659,7 @@ msgstr ""
 
 msgctxt "#31523"
 msgid "Fanart Flix"
-msgstr ""
+msgstr "Фанарт Flix"
 
 msgctxt "#31524"
 msgid "IMDb Position"
@@ -1779,7 +1675,7 @@ msgstr ""
 
 msgctxt "#31536"
 msgid "Audio streams"
-msgstr ""
+msgstr "Аудіопотоки"
 
 msgctxt "#31537"
 msgid "Info slider"
@@ -1843,7 +1739,7 @@ msgstr ""
 
 msgctxt "#31593"
 msgid "Enable auto playing trailers in flix views"
-msgstr ""
+msgstr "Автоматично відтворювати трейлери у поданнях flix"
 
 msgctxt "#31594"
 msgid "Stop playback on next"
@@ -1897,10 +1793,6 @@ msgctxt "#31623"
 msgid "If home menu is focused, jump to widgets on back"
 msgstr ""
 
-msgctxt "#31625"
-msgid "Disable addons fanart"
-msgstr ""
-
 msgctxt "#31630"
 msgid "Hub widget content type"
 msgstr ""
@@ -1913,17 +1805,13 @@ msgctxt "#31632"
 msgid "Stop playback when item is no longer focused"
 msgstr ""
 
-msgctxt "#31643"
-msgid "LibreELEC Settings"
-msgstr ""
-
 msgctxt "#31650"
 msgid "Is playing"
-msgstr ""
+msgstr "Відтворюється"
 
 msgctxt "#31651"
 msgid "Icon"
-msgstr "Іконка"
+msgstr "Піктограма"
 
 msgctxt "#31653"
 msgid "blur"
@@ -1931,15 +1819,11 @@ msgstr ""
 
 msgctxt "#31658"
 msgid "Now playing"
-msgstr "Відтворюється"
+msgstr "Зараз відтворюється"
 
 msgctxt "#31663"
 msgid "Now playing..."
-msgstr ""
-
-msgctxt "#31667"
-msgid "Animated artwork"
-msgstr ""
+msgstr "Зараз відтворюється..."
 
 msgctxt "#31668"
 msgid "Path to additional animated posters"
@@ -1963,14 +1847,14 @@ msgstr ""
 
 msgctxt "#31676"
 msgid "Ratings"
-msgstr ""
+msgstr "Рейтинги"
 
 msgctxt "#31677"
 msgid "Show detailed info when video starts (in seconds)"
 msgstr ""
 
 msgctxt "#31679"
-msgid "Color presets"
+msgid "Colour presets"
 msgstr ""
 
 msgctxt "#31680"
@@ -1991,34 +1875,22 @@ msgstr ""
 
 msgctxt "#31692"
 msgid "Local"
-msgstr ""
+msgstr "Локально"
 
 msgctxt "#31693"
 msgid "Online"
 msgstr ""
 
-msgctxt "#31694"
-msgid "Game studio/flag icons"
-msgstr ""
-
 msgctxt "#31699"
-msgid "Pick a color..."
+msgid "Pick a colour..."
 msgstr ""
 
 msgctxt "#31700"
-msgid "Set color"
+msgid "Set colour"
 msgstr ""
 
 msgctxt "#31703"
 msgid "Small landscape"
-msgstr ""
-
-msgctxt "#31704"
-msgid "Small fanart"
-msgstr ""
-
-msgctxt "#31705"
-msgid "Small poster fanart"
 msgstr ""
 
 msgctxt "#31707"
@@ -2033,6 +1905,38 @@ msgctxt "#31711"
 msgid "Wikipedia"
 msgstr ""
 
-#~ msgctxt "#31722"
-#~ msgid "Extras"
-#~ msgstr "Додатково"
+msgctxt "#31954"
+msgid "Purple"
+msgstr "Фіолетовий"
+
+msgctxt "#31957"
+msgid "Pink"
+msgstr "Рожевий"
+
+msgctxt "#31959"
+msgid "Slate"
+msgstr "Сланець"
+
+msgctxt "#31960"
+msgid "Coal"
+msgstr "Вугільний"
+
+msgctxt "#31961"
+msgid "Aqua"
+msgstr "Аква"
+
+msgctxt "#31962"
+msgid "Tropical Sunset"
+msgstr "Тропічний захід сонця"
+
+msgctxt "#31963"
+msgid "Miami Vaporwave"
+msgstr "Маямі вейпорвейв"
+
+msgctxt "#31964"
+msgid "Simple Gray"
+msgstr ""
+
+msgctxt "#31971"
+msgid "Midnight Purple"
+msgstr "Оксамитова ніч"

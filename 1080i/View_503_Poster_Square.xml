@@ -44,7 +44,6 @@
                                 <param name="height" value="448"/>
                                 <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
                                 <param name="top" value="430"/>
-                                <param name="height_reflection" value="448"/>
                             </include>
                         </control>
                     </control>
@@ -71,18 +70,16 @@
                                 <param name="height" value="448"/>
                                 <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
                                 <param name="top" value="430"/>
-                                <param name="height_reflection" value="448"/>
                             </include>
                         </control>
                     </control>
                 </focusedlayout>
             </control>
-            <control type="scrollbar" id="1636">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1636"/>
-                    <param name="bottom" value="266"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1636" />
+                <param name="jumpbar" value="true" />
+                <param name="bottom" value="266"/>
+            </include>
             <control type="grouplist">
                 <left>540</left>
                 <right>SidePad</right>

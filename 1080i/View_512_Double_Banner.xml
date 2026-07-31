@@ -29,9 +29,10 @@
             <focusedlayout height="289" width="184">
                 <control type="group">
                     <height>271</height>
-                    <include content="include.widget.poster.focus">
+                    <include content="include.widget.poster">
                         <param name="id" value="512"/>
                         <param name="height" value="271"/>
+                        <param name="focused" value="true" />
                     </include>
                 </control>
             </focusedlayout>
@@ -76,7 +77,6 @@
         <description>List View (id=512)</description>
         <control type="group">
             <include>Animation.Common</include>
-            <include>ViewSlideForJumpBar</include>
             <visible>Control.IsVisible(512)</visible>
             <control type="group">
                 <width>1920</width>
@@ -131,7 +131,7 @@
                         <top>14</top>
                         <fadetime>PosterFanartFadetime</fadetime>
                         <aspectratio aligny="center" align="center" scalediffuse="false">scale</aspectratio>
-                        <texture diffuse="diffuse/widgetfanart_new.png" background="true">$VAR[FanartImageFanart]</texture>
+                        <texture diffuse="diffuse/widgetfanart_new.png" background="true">$VAR[FanartImage]</texture>
                     </control>
                     <control type="image">
                         <left>-1</left>
@@ -177,13 +177,12 @@
             </control>
             <include condition="Skin.HasSetting(ListView511)">ListView512</include>
             <include condition="!Skin.HasSetting(ListView511)">DoubleBannerView512</include>
-            <control type="scrollbar" id="1692">
-                <include content="scrollbar_vertical">
-                    <param name="scrollid" value="1692"/>
-                    <param name="posy" value="315"/>
-                    <param name="height" value="534"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar">
+                <param name="id" value="1692" />
+                <param name="jumpbar" value="true" />
+                <param name="top" value="315" />
+                <param name="height" value="534"/>
+            </include>
         </control>
     </include>
 </includes>

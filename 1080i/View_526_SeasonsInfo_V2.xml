@@ -7,7 +7,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(526)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="group">
                 <control type="panel" id="526">
                     <visible>$EXP[Exp_View_526]</visible>
@@ -45,8 +44,9 @@
                     <focusedlayout height="355" width="224">
                         <control type="group">
                             <height>325</height>
-                            <include content="include.widget.poster.focus">
+                            <include content="include.widget.poster">
                                 <param name="id" value="526"/>
+                                <param name="focused" value="true" />
                             </include>
                         </control>
                         <control type="label">
@@ -77,7 +77,6 @@
                     <visible>!String.Contains(Control.GetLabel(526),..)</visible>
                     <itemlayout height="205" width="355.3">
                         <include content="include.widget.thumb">
-                            <param name="clearlogo" value="false"/>
                             <param name="id" value="5261"/>
                             <param name="small" value="true"/>
                             <param name="height" value="300"/>
@@ -85,24 +84,21 @@
                         </include>
                     </itemlayout>
                     <focusedlayout height="205" width="355.3">
-                        <include content="include.widget.thumb.focus">
-                            <param name="clearlogo" value="false"/>
+                        <include content="include.widget.thumb">
                             <param name="id" value="5261"/>
                             <param name="small" value="true"/>
                             <param name="height" value="300"/>
                             <param name="reflections" value="false"/>
+                            <param name="focused" value="true" />
                         </include>
                     </focusedlayout>
                     <content target="videos" sortby="episode" sortorder="ascending">$INFO[Container(526).ListItem.FolderPath]</content>
                 </control>
-                <control type="scrollbar" id="1613">
-                    <include content="scrollbar_hor">
-                        <param name="scrollid" value="1613"/>
-                        <param name="jumpbar" value="false"/>
-                        <param name="onup" value="5261"/>
-                        <param name="bottom" value="200"/>
-                    </include>
-                </control>
+	            <include content="Furniture_Scrollbar_Horizontal">
+	                <param name="id" value="1613" />
+	                <param name="jumpbar" value="false" />
+                    <param name="onup" value="5261"/>
+	            </include>
             </control>
             <include content="Fanart_Info" condition="!Skin.HasSetting(view.526.switch.plot.poster)">
                 <param name="posx" value="1208"/>
