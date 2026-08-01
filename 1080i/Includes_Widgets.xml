@@ -2385,7 +2385,7 @@
     <include name="MultiWidgetsPlotLabel">
         <control type="grouplist">
             <height>$PARAM[plotmaxheight]</height>
-            <visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Description)) | [!String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] | !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description)) | !String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription) | !String.IsEmpty(Window(home).Property(TMDbHelper.ListItem.Biography)) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,file)</visible>
+            <visible>!String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) | !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Description)) | [!String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] | !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description)) | !String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription) | !String.IsEmpty(Window(home).Property(TMDbHelper.ListItem.Biography)) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,file)</visible>
             <include content="def_width" condition="Skin.HasSetting(homemenu.netflix)">
                 <param name="width" value="100%" />
             </include>
@@ -2395,13 +2395,22 @@
             <orientation>vertical</orientation>
             <itemgap>0</itemgap>
 
+            <!-- Replay metadata supplied by service.therand.replaymetadata -->
+            <control type="textbox">
+                <include content="MultiWidgetsPlotLabelDefinition">
+                    <param name="maxheight" value="$PARAM[plotmaxheight]" />
+                </include>
+                <label>$INFO[Window(home).Property(TherandReplay.Plot.$PARAM[id])]</label>
+                <visible>!String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id]))</visible>
+            </control>
+
             <!-- Sets Movie Episode PVR No Netflix Or No ClearLogo Or Empty -->
             <control type="textbox">
                 <include content="MultiWidgetsPlotLabelDefinition">
                     <param name="maxheight" value="$PARAM[plotmaxheight]" />
                 </include>
                 <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
-                <visible>[[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] + [!Skin.HasSetting(homemenu.netflix) | Skin.HasSetting(homemenu.clean.flix) | !Skin.HasSetting(home.netflix.clearlogo) | [String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo)) + [String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo)) | !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)]]]</visible>
+                <visible>String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) + [[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] + [!Skin.HasSetting(homemenu.netflix) | Skin.HasSetting(homemenu.clean.flix) | !Skin.HasSetting(home.netflix.clearlogo) | [String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo)) + [String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo)) | !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)]]]</visible>
             </control>
 
             <!-- Sets Movies Episodes PVR Netflix ClearLogo -->
@@ -2410,7 +2419,7 @@
                     <param name="maxheight" value="136" />
                 </include>
                 <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
-                <visible>[[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + Skin.HasSetting(home.netflix.clearlogo) + ![String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo)) + [String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo)) | !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)]]</visible>
+                <visible>String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) + [[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow) | String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + Skin.HasSetting(home.netflix.clearlogo) + ![String.IsEmpty(Container($PARAM[id]).ListItem.Art(clearlogo)) + [String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.clearlogo)) | !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)]]</visible>
             </control>
 
             <!-- Albums -->
@@ -2473,7 +2482,7 @@
                     <param name="maxheight" value="$PARAM[plotmaxheight]" />
                 </include>
                 <label>19055</label>
-                <visible>String.IsEqual(Container($PARAM[id]).ListItem.DBType,file)</visible>
+                <visible>String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) + String.IsEqual(Container($PARAM[id]).ListItem.DBType,file)</visible>
             </control>
 
             <!-- Misc -->
@@ -2482,7 +2491,7 @@
                     <param name="maxheight" value="$PARAM[plotmaxheight]" />
                 </include>
                 <label>$INFO[Container($PARAM[id]).ListItem.Plot]</label>
-                <visible>![[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot)] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,album) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Description))] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,artist) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description))] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,song) + ControlGroup(301).HasFocus()] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,song) + !ControlGroup(301).HasFocus() + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description))]+ ![!String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription) + !String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription)] + ![String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,actor) + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)</visible>
+                <visible>String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) + ![[String.IsEqual(Container($PARAM[id]).ListItem.DBType,set) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,movie) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,tvshow)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot)] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,album) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Description))] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,artist) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description))] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,song) + ControlGroup(301).HasFocus()] + ![String.IsEqual(Container($PARAM[id]).ListItem.DBType,song) + !ControlGroup(301).HasFocus() + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description))]+ ![!String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription) + !String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription)] + ![String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://)] + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,actor) + !String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)</visible>
             </control>
         </control>
     </include>
