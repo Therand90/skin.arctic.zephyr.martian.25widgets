@@ -68,10 +68,15 @@
     <expression name="HomeIsVerticalMultiWidgetsNetflix">Skin.HasSetting(home.vertical) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)</expression>
     <expression name="HomeIsCleanMinimal">Skin.HasSetting(home.modernwidgets) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + Skin.HasSetting(homemenu.clean.flix)</expression>
     <!-- Some add-ons either omit fanart, reuse the thumbnail URL or receive CodeQuick's generic add-on fanart. -->
-    <expression name="HomeWidgetArtIsCatchupDefaultFanart">String.Contains(ListItem.Art(fanart),plugin.video.catchuptvandmore/fanart.jpg)</expression>
-    <expression name="HomeWidgetPropertyIsCatchupDefaultFanart">String.Contains(ListItem.Property(fanart),plugin.video.catchuptvandmore/fanart.jpg)</expression>
-    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Art(fanart)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) | $EXP[HomeWidgetArtIsCatchupDefaultFanart]] + [String.IsEmpty(ListItem.Property(fanart)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) | $EXP[HomeWidgetPropertyIsCatchupDefaultFanart]]</expression>
-    <expression name="HomeWidgetUsesPortraitThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + String.Contains(ListItem.FolderPath,/channels/fr/francetv/)</expression>
+    <!-- Kodi may URL-encode the add-on path, so match its id and filename independently. -->
+    <expression name="HomeWidgetArtIsCatchupDefaultFanart">String.Contains(ListItem.Art(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Art(fanart),fanart.jpg)</expression>
+    <expression name="HomeWidgetPropertyIsCatchupDefaultFanart">String.Contains(ListItem.Property(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Property(fanart),fanart.jpg)</expression>
+    <expression name="HomeWidgetParentArtIsCatchupDefaultFanart">String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),plugin.video.catchuptvandmore) + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),fanart.jpg)</expression>
+    <expression name="HomeWidgetParentPropertyIsCatchupDefaultFanart">String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),plugin.video.catchuptvandmore) + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),fanart.jpg)</expression>
+    <expression name="HomeWidgetFocusUsesThumbFallback">ControlGroup(301).HasFocus() + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Art(fanart)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(landscape)) | $EXP[HomeWidgetArtIsCatchupDefaultFanart]] + [String.IsEmpty(ListItem.Property(fanart)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(landscape)) | $EXP[HomeWidgetPropertyIsCatchupDefaultFanart]]</expression>
+    <expression name="HomeWidgetParentUsesThumbFallback">!ControlGroup(301).HasFocus() + !String.IsEmpty($VAR[TMDBHelperWidgetContainer_Parent]) + [!String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | !String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb))] + [String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | $EXP[HomeWidgetParentArtIsCatchupDefaultFanart]] + [String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | $EXP[HomeWidgetParentPropertyIsCatchupDefaultFanart]]</expression>
+    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + [$EXP[HomeWidgetFocusUsesThumbFallback] | $EXP[HomeWidgetParentUsesThumbFallback]]</expression>
+    <expression name="HomeWidgetUsesPortraitThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + [[$EXP[HomeWidgetFocusUsesThumbFallback] + String.Contains(ListItem.FolderPath,/channels/fr/francetv/)] | [$EXP[HomeWidgetParentUsesThumbFallback] + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.FolderPath,/channels/fr/francetv/)]]</expression>
     <expression name="HomeWidgetUsesLandscapeThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + !$EXP[HomeWidgetUsesPortraitThumbFallback]</expression>
     <expression name="HomeIsVerticalAll">Skin.HasSetting(home.vertical)</expression>
     <expression name="HomeIsClassic">!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.classicwidgets)</expression>
@@ -600,8 +605,10 @@
     </variable>
 
     <variable name="GlobalFanart_WidgetThumbFallback">
-        <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-        <value>$INFO[ListItem.Art(thumb)]</value>
+        <value condition="$EXP[HomeWidgetFocusUsesThumbFallback] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value condition="$EXP[HomeWidgetFocusUsesThumbFallback]">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape))">$INFO[Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)]</value>
+        <value>$INFO[Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)]</value>
     </variable>
 
 	<variable name="GlobalFanart_MultiWidgets">
@@ -624,8 +631,8 @@
         <value condition="String.IsEqual(ListItem.DBtype,artist) | String.IsEqual(ListItem.DBtype,album) | String.IsEqual(ListItem.DBtype,song) | String.IsEqual(ListItem.DBtype,musicvideo)">special://skin/extras/backgrounds/fallbacks/music.jpg</value>
         <value condition="String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,video)">special://skin/extras/backgrounds/fallbacks/tv.jpg</value>
 
-        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Integer.IsGreater(Container(9989).NumItems,0)">$VAR[GlobalFanart_MultiWidgets_Parent]</value>
-        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Control.IsVisible(993100)">$VAR[GlobalFanart_MultiWidgets_Spotlight]</value>
+        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Integer.IsGreater(Container(9989).NumItems,0) + !$EXP[HomeWidgetParentUsesThumbFallback]">$VAR[GlobalFanart_MultiWidgets_Parent]</value>
+        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Control.IsVisible(993100) + !$EXP[HomeWidgetParentUsesThumbFallback]">$VAR[GlobalFanart_MultiWidgets_Spotlight]</value>
 
 		<value>$VAR[GlobalFanart_Fallback]</value>
 	</variable>
@@ -1039,7 +1046,7 @@
             <include>Animation.Background.OpenClose</include>
             <include>BackgroundFanartFadetime</include>
             <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$INFO[ListItem.Art(thumb)]</texture>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
