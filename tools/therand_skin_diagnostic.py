@@ -4,6 +4,7 @@ from __future__ import annotations
 from pathlib import Path
 import re
 
+# Temporary diagnostic helper for the active Kodi skin branch.
 FILES = [
     Path("1080i/Home.xml"),
     Path("1080i/Includes.xml"),
