@@ -1,0 +1,22 @@
+name: Therand skin diagnostic
+
+on:
+  push:
+    branches:
+      - agent/sync-upstream-3.19.10
+    paths:
+      - tools/therand_skin_diagnostic.py
+      - .github/workflows/therand-skin-diagnostic.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Print relevant skin contexts
+        run: python3 tools/therand_skin_diagnostic.py
