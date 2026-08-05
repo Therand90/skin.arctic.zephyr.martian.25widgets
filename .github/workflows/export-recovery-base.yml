@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - recovery/export-pr6-base
+  pull_request:
+    branches:
+      - master
 
 permissions:
   contents: read
