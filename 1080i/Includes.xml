@@ -1055,7 +1055,7 @@
         <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
 
         <!-- Fixed background for the focused home submenu item -->
-        <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background))">$INFO[Container(302).ListItem.Property(background)]</value>
+        <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background)) + !String.IsEqual(Container(302).ListItem.Property(background),playlistBackground)">$INFO[Container(302).ListItem.Property(background)]</value>
  
 		<!-- Extra Fanart -->
         <value condition="[!String.IsEmpty(Control.GetLabel(4399)) + Skin.HasSetting(EnableExtraFanart) + !Skin.HasSetting(global.hidefanart) + [!Skin.HasSetting(disable.background.addons.fanart) | [Skin.HasSetting(disable.background.addons.fanart) + !String.Contains(Control.GetLabel(4399),addons) + ![String.Contains(Control.GetLabel(4399),plugin) | String.Contains(Control.GetLabel(4399),script) | String.Contains(Control.GetLabel(4399),service)]]]] + !String.IsEqual(ListItem.DBType,season) + !Container.Content(seasons)">$INFO[Control.GetLabel(4399)]</value>
