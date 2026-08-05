@@ -1,31 +1,13 @@
-name: Export recovery base
+name: Export recovery base (disabled)
 
 on:
-  push:
-    branches:
-      - recovery/export-pr6-base
-  pull_request:
-    branches:
-      - master
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  export:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out recovery base
-        uses: actions/checkout@v4
-      - name: Package source tree
-        shell: bash
-        run: |
-          set -euo pipefail
-          tar --exclude=.git --exclude=.github/workflows/export-recovery-base.yml -czf /tmp/recovery-base.tar.gz .
-      - name: Upload source artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: recovery-base-pr6
-          path: /tmp/recovery-base.tar.gz
-          if-no-files-found: error
-          retention-days: 1
+      - run: echo "Temporary recovery export disabled"
