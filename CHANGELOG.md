@@ -5,6 +5,7 @@ Les versions intermédiaires non publiées ne sont listées que lorsqu’elles c
 ## Unreleased — `develop`
 
 - ajout d’un arrière-plan fixe configurable pour chaque entrée de sous-menu ;
+- correction de l’écran noir lors de l’utilisation d’un chemin `/storage`, `special://` ou `image://` : le fond du sous-menu est maintenant rendu comme une texture directe au lieu de passer par le moteur de slideshow global ;
 - exclusion du menu d’alimentation, des widgets et du mode `playlistBackground` ;
 - réécriture du README pour présenter le fork Therand90 ;
 - ajout d’une documentation fonctionnelle des personnalisations ;
