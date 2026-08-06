@@ -4,7 +4,14 @@ Les versions intermédiaires non publiées ne sont listées que lorsqu’elles c
 
 ## Unreleased — `develop`
 
-- personnalisation du titre de chaque entrée de sous-menu : taille, couleur, police et gras.
+Aucune modification en attente : `develop` est alignée sur la dernière version stable.
+
+## 3.19.11+25widgets.13
+
+- personnalisation du titre de chaque entrée de sous-menu : taille, couleur, police et gras ;
+- sélection automatique du libellé et du style depuis le menu principal ou le sous-menu selon le focus ;
+- restauration immédiate du titre de la section parente en quittant le sous-menu ;
+- validation des 185 fichiers XML et test réussi sur Kodi / LibreELEC avant fusion dans `master`.
 
 ## 3.19.11+25widgets.12
 
