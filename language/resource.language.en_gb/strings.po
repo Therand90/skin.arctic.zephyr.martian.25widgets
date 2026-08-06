@@ -2312,3 +2312,27 @@ msgstr ""
 msgctxt "#31993"
 msgid "Timed change of colour scheme"
 msgstr ""
+
+msgctxt "#31994"
+msgid "Home section title size"
+msgstr ""
+
+msgctxt "#31995"
+msgid "Small"
+msgstr ""
+
+msgctxt "#31996"
+msgid "Home section title colour"
+msgstr ""
+
+msgctxt "#31997"
+msgid "Home section title font"
+msgstr ""
+
+msgctxt "#31998"
+msgid "Bold home section title"
+msgstr ""
+
+msgctxt "#31999"
+msgid "Roboto Condensed"
+msgstr ""

@@ -67,17 +67,37 @@
     <expression name="HomeIsModernMultiWidgetsNetflix">!Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.classicwidgets) + Skin.HasSetting(home.modernwidgets) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)</expression>
     <expression name="HomeIsVerticalMultiWidgetsNetflix">Skin.HasSetting(home.vertical) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)</expression>
     <expression name="HomeIsCleanMinimal">Skin.HasSetting(home.modernwidgets) + Skin.HasSetting(home.vertical.widgets) + Skin.HasSetting(homemenu.netflix) + Skin.HasSetting(homemenu.clean.flix)</expression>
-    <!-- Some add-ons either omit fanart, reuse the thumbnail URL or receive CodeQuick's generic add-on fanart. -->
-    <!-- Kodi may URL-encode the add-on path, so match its id and filename independently. -->
+    <expression name="HomeMenuOwnsFocus">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + Control.HasFocus(300)</expression>
+    <expression name="HomeMenuHasSectionBackground">!String.IsEmpty(Container(300).ListItem.Property(Background))</expression>
+    <expression name="HomeMenuHasCustomBackground">$EXP[HomeMenuHasSectionBackground] | ![String.IsEmpty(Skin.String(home.slideshowpath)) | String.IsEqual(Skin.String(home.slideshowpath),none)]</expression>
+    <expression name="HomeSectionIsYouTube">Window.IsVisible(home) + [String.Contains(Container(300).ListItem.Property(list),plugin.video.youtube) | String.Contains(Container(300).ListItem.Path,plugin.video.youtube) | String.IsEqual(Container(300).ListItem.Label,YouTube)]</expression>
+    <expression name="HomeUseFixedYouTubeBackground">$EXP[HomeSectionIsYouTube] + !$EXP[HomeMenuHasSectionBackground]</expression>
+    <expression name="HomeSectionTitleEnabled">$EXP[HomeMenuOwnsFocus] + !String.IsEmpty(Container(300).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(300).ListItem.Property(homeTitleSize),None)</expression>
+    <expression name="HomeSectionTitleIsBold">String.IsEqual(Container(300).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),1)</expression>
+    <!-- Catch-up items may be routed through plugin.video.therandtv and may expose Kodi-wrapped image:// artwork. -->
     <expression name="HomeWidgetArtIsCatchupDefaultFanart">String.Contains(ListItem.Art(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Art(fanart),fanart.jpg)</expression>
     <expression name="HomeWidgetPropertyIsCatchupDefaultFanart">String.Contains(ListItem.Property(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Property(fanart),fanart.jpg)</expression>
-    <expression name="HomeWidgetParentArtIsCatchupDefaultFanart">String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),plugin.video.catchuptvandmore) + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),fanart.jpg)</expression>
-    <expression name="HomeWidgetParentPropertyIsCatchupDefaultFanart">String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),plugin.video.catchuptvandmore) + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),fanart.jpg)</expression>
-    <expression name="HomeWidgetFocusUsesThumbFallback">ControlGroup(301).HasFocus() + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [String.IsEmpty(ListItem.Art(fanart)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) | String.IsEqual(ListItem.Art(fanart),ListItem.Art(landscape)) | $EXP[HomeWidgetArtIsCatchupDefaultFanart]] + [String.IsEmpty(ListItem.Property(fanart)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) | String.IsEqual(ListItem.Property(fanart),ListItem.Art(landscape)) | $EXP[HomeWidgetPropertyIsCatchupDefaultFanart]]</expression>
-    <expression name="HomeWidgetParentUsesThumbFallback">!ControlGroup(301).HasFocus() + !String.IsEmpty($VAR[TMDBHelperWidgetContainer_Parent]) + [!String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | !String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb))] + [String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | $EXP[HomeWidgetParentArtIsCatchupDefaultFanart]] + [String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)) | String.IsEqual(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Property(fanart),Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)) | $EXP[HomeWidgetParentPropertyIsCatchupDefaultFanart]]</expression>
-    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + [$EXP[HomeWidgetFocusUsesThumbFallback] | $EXP[HomeWidgetParentUsesThumbFallback]]</expression>
-    <expression name="HomeWidgetUsesPortraitThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + [[$EXP[HomeWidgetFocusUsesThumbFallback] + String.Contains(ListItem.FolderPath,/channels/fr/francetv/)] | [$EXP[HomeWidgetParentUsesThumbFallback] + String.Contains(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.FolderPath,/channels/fr/francetv/)]]</expression>
-    <expression name="HomeWidgetUsesLandscapeThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + !$EXP[HomeWidgetUsesPortraitThumbFallback]</expression>
+    <expression name="HomeWidgetFocusIsCatchup">ControlGroup(301).HasFocus() + [String.Contains(ListItem.FolderPath,plugin.video.catchuptvandmore) | String.Contains(ListItem.FolderPath,plugin.video.therandtv)]</expression>
+    <expression name="HomeWidgetFocusIsAuvio">$EXP[HomeWidgetFocusIsCatchup] + String.Contains(ListItem.FolderPath,rtbf)</expression>
+    <expression name="HomeWidgetFocusIsRTLplay">$EXP[HomeWidgetFocusIsCatchup] + String.Contains(ListItem.FolderPath,rtlplay)</expression>
+    <expression name="HomeWidgetFocusIsGeneral">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + !Control.HasFocus(300) + !$EXP[HomeWidgetFocusIsCatchup]</expression>
+    <expression name="HomeWidgetFocusHasGeneralArtFanart">$EXP[HomeWidgetFocusIsGeneral] + !String.IsEmpty(ListItem.Art(fanart))</expression>
+    <expression name="HomeWidgetFocusHasGeneralPropertyFanart">$EXP[HomeWidgetFocusIsGeneral] + String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(ListItem.Property(fanart))</expression>
+    <expression name="HomeWidgetFocusUsesGeneralLandscape">$EXP[HomeWidgetFocusIsGeneral] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Property(fanart)) + !String.IsEmpty(ListItem.Art(landscape))</expression>
+    <expression name="HomeWidgetFocusUsesGeneralThumb">$EXP[HomeWidgetFocusIsGeneral] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Property(fanart)) + String.IsEmpty(ListItem.Art(landscape)) + [!String.IsEmpty(ListItem.Art(thumb)) | !String.IsEmpty(ListItem.Art(poster))]</expression>
+    <expression name="HomeWidgetFocusHasRealArtFanart">$EXP[HomeWidgetFocusIsCatchup] + !String.IsEmpty(ListItem.Art(fanart)) + !String.IsEqual(ListItem.Art(fanart),ListItem.Art(thumb)) + !String.IsEqual(ListItem.Art(fanart),ListItem.Art(landscape)) + !$EXP[HomeWidgetArtIsCatchupDefaultFanart]</expression>
+    <expression name="HomeWidgetFocusHasRealPropertyFanart">$EXP[HomeWidgetFocusIsCatchup] + !String.IsEmpty(ListItem.Property(fanart)) + !String.IsEqual(ListItem.Property(fanart),ListItem.Art(thumb)) + !String.IsEqual(ListItem.Property(fanart),ListItem.Art(landscape)) + !$EXP[HomeWidgetPropertyIsCatchupDefaultFanart]</expression>
+    <expression name="HomeWidgetFocusHasRealFanart">$EXP[HomeWidgetFocusHasRealArtFanart] | $EXP[HomeWidgetFocusHasRealPropertyFanart]</expression>
+    <expression name="HomeWidgetFocusPrefersRealFanart">$EXP[HomeWidgetFocusHasRealFanart] + !$EXP[HomeWidgetFocusIsAuvio] + !$EXP[HomeWidgetFocusIsRTLplay]</expression>
+    <expression name="HomeWidgetFocusUsesThumbFallback">$EXP[HomeWidgetFocusIsCatchup] + [!String.IsEmpty(ListItem.Art(landscape)) | !String.IsEmpty(ListItem.Art(thumb))] + [$EXP[HomeWidgetFocusIsAuvio] | $EXP[HomeWidgetFocusIsRTLplay] | !$EXP[HomeWidgetFocusHasRealFanart]]</expression>
+    <expression name="HomeWidgetMenuUsesLogoFallback">$EXP[HomeMenuOwnsFocus] + !$EXP[HomeMenuHasCustomBackground] + [String.Contains(Container(300).ListItem.Property(list),plugin.video.catchuptvandmore) | String.Contains(Container(300).ListItem.Property(list),plugin.video.therandtv)] + !String.IsEmpty(Container(300).ListItem.Art(thumb))</expression>
+    <expression name="HomeWidgetUsesThumbFallback">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + $EXP[HomeWidgetFocusUsesThumbFallback]</expression>
+    <expression name="HomeWidgetActiveAspectIsLandscape">String.IsEqual(Window(Home).Property(TherandReplay.ActiveAspect),Landscape) | String.IsEqual(Window(Home).Property(TherandReplay.ActiveAspect),Thumbnail) | String.IsEqual(Window(Home).Property(TherandReplay.ActiveAspect),LandSmall) | String.IsEqual(Window(Home).Property(TherandReplay.ActiveAspect),LandPoSmall) | String.IsEqual(Window(Home).Property(TherandReplay.ActiveAspect),Banner)</expression>
+    <expression name="HomeWidgetUsesPortraitThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + !$EXP[HomeWidgetActiveAspectIsLandscape]</expression>
+    <expression name="HomeWidgetUsesLandscapeThumbFallback">$EXP[HomeWidgetUsesThumbFallback] + $EXP[HomeWidgetActiveAspectIsLandscape]</expression>
+    <!-- Multiimage accepts folders; encoded textures and ordinary image files require a normal image control. -->
+    <expression name="GlobalFanartUsesImageControl">String.StartsWith($VAR[GlobalFanart],image://) | String.EndsWith($VAR[GlobalFanart],.jpg) | String.EndsWith($VAR[GlobalFanart],.jpeg) | String.EndsWith($VAR[GlobalFanart],.png) | String.EndsWith($VAR[GlobalFanart],.webp) | String.EndsWith($VAR[GlobalFanart],.gif)</expression>
+    <expression name="GlobalFanartBlurUsesImageControl">String.StartsWith($VAR[GlobalFanart_Blur],image://) | String.EndsWith($VAR[GlobalFanart_Blur],.jpg) | String.EndsWith($VAR[GlobalFanart_Blur],.jpeg) | String.EndsWith($VAR[GlobalFanart_Blur],.png) | String.EndsWith($VAR[GlobalFanart_Blur],.webp) | String.EndsWith($VAR[GlobalFanart_Blur],.gif)</expression>
     <expression name="HomeIsVerticalAll">Skin.HasSetting(home.vertical)</expression>
     <expression name="HomeIsClassic">!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.classicwidgets)</expression>
     <expression name="HomeIsVertical">Skin.HasSetting(home.vertical) + !Skin.HasSetting(home.vertical.widgets)</expression>
@@ -579,6 +599,11 @@
         <value>$INFO[ListItem.MPAA,,.png]</value>
     </variable>
 
+    <variable name="HomeSectionTitleColor">
+        <value condition="!String.IsEmpty(Container(300).ListItem.Property(homeTitleColor))">$INFO[Container(300).ListItem.Property(homeTitleColor)]</value>
+        <value>FFFFFF00</value>
+    </variable>
+
     <variable name="StartupFanart">
         <value condition="!String.IsEmpty(Skin.String(startupfanart.fallback))">$INFO[Skin.String(startupfanart.fallback)]</value>
         <value>special://skin/extras/backgrounds/overlays/bg.jpg</value>
@@ -605,10 +630,13 @@
     </variable>
 
     <variable name="GlobalFanart_WidgetThumbFallback">
-        <value condition="$EXP[HomeWidgetFocusUsesThumbFallback] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-        <value condition="$EXP[HomeWidgetFocusUsesThumbFallback]">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape))">$INFO[Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(landscape)]</value>
-        <value>$INFO[Container($VAR[TMDBHelperWidgetContainer_Parent]).ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+        <value>$INFO[ListItem.Art(thumb)]</value>
+    </variable>
+
+    <variable name="GlobalFanart_GeneralThumbFallback">
+        <value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value>$INFO[ListItem.Art(poster)]</value>
     </variable>
 
 	<variable name="GlobalFanart_MultiWidgets">
@@ -618,6 +646,10 @@
 		<!-- Multi Widget Weather -->
         <value condition="!String.IsEmpty(ListItem.Property(FanartCode)) + $EXP[HasWeatherFanartMulti]">$VAR[WeatherFanartPath]$INFO[ListItem.Property(FanartCode)]/</value>
         <value condition="!String.IsEmpty(ListItem.Property(FanartCode)) + $EXP[HasWeatherFanartSingle]">$VAR[WeatherFanartPath]$INFO[ListItem.Property(FanartCode),,.jpg]</value>
+
+        <!-- An explicitly selected home background always wins while the main menu owns focus. -->
+        <value condition="$EXP[HomeMenuOwnsFocus] + !String.IsEmpty(Container(300).ListItem.Property(Background))">$INFO[Container(300).ListItem.Property(Background)]</value>
+        <value condition="$EXP[HomeMenuOwnsFocus] + ![String.IsEmpty(Skin.String(home.slideshowpath)) | String.IsEqual(Skin.String(home.slideshowpath),none)]">$INFO[Skin.String(home.slideshowpath)]</value>
  	
 		<!-- Multi Widget -->
         <value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Art(thumb)) + Skin.HasSetting(background.episodes.use.thumbnail) + !$EXP[HomeWidgetUsesThumbFallback]">$INFO[ListItem.Art(thumb)]</value>
@@ -631,8 +663,8 @@
         <value condition="String.IsEqual(ListItem.DBtype,artist) | String.IsEqual(ListItem.DBtype,album) | String.IsEqual(ListItem.DBtype,song) | String.IsEqual(ListItem.DBtype,musicvideo)">special://skin/extras/backgrounds/fallbacks/music.jpg</value>
         <value condition="String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,video)">special://skin/extras/backgrounds/fallbacks/tv.jpg</value>
 
-        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Integer.IsGreater(Container(9989).NumItems,0) + !$EXP[HomeWidgetParentUsesThumbFallback]">$VAR[GlobalFanart_MultiWidgets_Parent]</value>
-        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Control.IsVisible(993100) + !$EXP[HomeWidgetParentUsesThumbFallback]">$VAR[GlobalFanart_MultiWidgets_Spotlight]</value>
+        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Integer.IsGreater(Container(9989).NumItems,0) + !$EXP[HomeWidgetMenuUsesLogoFallback]">$VAR[GlobalFanart_MultiWidgets_Parent]</value>
+        <value condition="!ControlGroup(301).HasFocus() + !Skin.HasSetting(home.dontshowfanart) + Control.IsVisible(993100) + !$EXP[HomeWidgetMenuUsesLogoFallback]">$VAR[GlobalFanart_MultiWidgets_Spotlight]</value>
 
 		<value>$VAR[GlobalFanart_Fallback]</value>
 	</variable>
@@ -840,6 +872,30 @@
     <include name="FadetimeSuperSlow"><fadetime>3600</fadetime></include>
     <include name="FadetimeDefault"><fadetime>BackgroundFanartFadetime</fadetime></include>
 
+    <include name="TherandHomeSectionTitleLabel">
+        <param name="description" default="Home section title" />
+        <param name="top" />
+        <param name="height" />
+        <param name="font" />
+        <param name="visible" />
+        <definition>
+            <control type="label" description="$PARAM[description]">
+                <visible>$PARAM[visible]</visible>
+                <left>60</left>
+                <top>$PARAM[top]</top>
+                <width>1800</width>
+                <height>$PARAM[height]</height>
+                <align>center</align>
+                <aligny>center</aligny>
+                <font>$PARAM[font]</font>
+                <textcolor>$VAR[HomeSectionTitleColor]</textcolor>
+                <shadowcolor>AA000000</shadowcolor>
+                <label>$INFO[Container(300).ListItem.Label]</label>
+                <include>Animation.Background.OpenClose</include>
+            </control>
+        </definition>
+    </include>
+
     <include name="GlobalBackground">        
         <include condition="!Skin.HasSetting(global.showvideo)">GlobalVideoWindowHidden</include>
         <include>GlobalVideoWindow</include>
@@ -935,6 +991,7 @@
             <visible>![Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] | $EXP[InfoDialogsActive] + [!Window.IsVisible(home) | !$EXP[InfoDialogsExtendedBackground]]</visible>
 			<include>Animation.BackgroundHideView</include>
  	        <control type="multiimage" description="Fanart">
+	            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
 	            <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -950,7 +1007,24 @@
 	            <include>Animation.AutoTrailer.FadeOut.Background</include>
 	        </control>
 
+            <!-- Encoded texture URIs and ordinary image files are not directories; use a normal image control. -->
+            <control type="image" description="Fanart single texture">
+                <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+	            <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive]]</visible>
+	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
+	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
+	            <include condition="![Window.IsVisible(home) + [$EXP[HomeIsSpotlight] | $EXP[HomeIsClassic]]]">GlobalBackgroundFade</include>
+                <include>Dimensions_Fullscreen</include>
+	            <include>Animation.Background.OpenClose</include>
+	            <include>BackgroundFanartFadetime</include>
+                <aspectratio>scale</aspectratio>
+                <texture background="true">$VAR[GlobalFanart]</texture>
+	            <include>Animation.Animate.Fanart</include>
+	            <include>Animation.AutoTrailer.FadeOut.Background</include>
+            </control>
+
  	        <control type="multiimage" description="Fanart">
+	            <visible>!$EXP[GlobalFanartBlurUsesImageControl]</visible>
 	            <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -965,6 +1039,21 @@
 	            <include>Animation.Animate.Fanart</include>
 	            <include>Animation.AutoTrailer.FadeOut.Background</include>
 	        </control>
+
+            <control type="image" description="Blurred fanart single texture">
+                <visible>$EXP[GlobalFanartBlurUsesImageControl]</visible>
+	            <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive]]</visible>
+	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
+	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
+                <include>GlobalBackgroundFadeBlur</include>
+	            <include>Dimensions_Fullscreen</include>
+	            <include>Animation.Background.OpenClose</include>
+	            <include>BackgroundFanartFadetime</include>
+                <aspectratio>scale</aspectratio>
+                <texture background="true">$VAR[GlobalFanart_Blur]</texture>
+	            <include>Animation.Animate.Fanart</include>
+	            <include>Animation.AutoTrailer.FadeOut.Background</include>
+            </control>
 		
 	        <!-- Final Overlays -->
 	        <control type="image" description="FanartOverlay">
@@ -977,6 +1066,7 @@
 
         <!-- Netflix Clean -->
         <control type="multiimage" description="Fanart">
+	        <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
 	        <visible>Window.IsVisible(home) + Skin.HasSetting(homemenu.clean.flix) + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
 	        <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -990,9 +1080,24 @@
 	        <include>Animation.Animate.Fanart</include>
 	        <include>Animation.AutoTrailer.FadeOut.Background</include>
         </control>
+
+        <control type="image" description="Netflix clean single fanart">
+	        <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+	        <visible>Window.IsVisible(home) + Skin.HasSetting(homemenu.clean.flix) + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
+	        <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
+            <include>Animation.Background.OpenClose</include>
+	        <include>Dimensions_Fullscreen</include>
+            <include>GlobalBackgroundFadeCleanFlix</include>
+	        <include>BackgroundFanartFadetime</include>
+	        <aspectratio>scale</aspectratio>
+	        <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-clean.png">$VAR[GlobalFanart]</texture>
+	        <include>Animation.Animate.Fanart</include>
+	        <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
         
         <!-- Netflix Preview Window -->
         <control type="multiimage" description="Fanart">
+            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
             <visible>[Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
             <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -1016,6 +1121,133 @@
             <include>Animation.AutoTrailer.FadeOut.Background</include>
         </control>
 
+        <control type="image" description="Netflix preview single fanart">
+            <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>[Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
+            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
+            <include>Animation.Background.OpenClose</include>
+            <include>Dimensions_Fullscreen</include>
+            <animation effect="fade" start="0" end="100" time="350" tween="sine" easing="in" reversible="false">Visible</animation>
+            <animation effect="fade" end="0" start="100" time="150">Hidden</animation>
+            <animation effect="fade" end="30" start="30" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),30)">Conditional</animation>
+            <animation effect="fade" end="40" start="40" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),40)">Conditional</animation>
+            <animation effect="fade" end="50" start="50" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),50)">Conditional</animation>
+            <animation effect="fade" end="60" start="60" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),60) | String.IsEmpty(Skin.String(FadeNetflixPreview)) | String.IsEqual(Skin.String(FadeNetflixPreview),default)">Conditional</animation>
+            <animation effect="fade" end="70" start="70" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),70)">Conditional</animation>
+            <animation effect="fade" end="80" start="80" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),80)">Conditional</animation>
+            <animation effect="fade" end="90" start="90" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),90)">Conditional</animation>
+            <animation effect="fade" end="100" start="100" time="0" condition="Integer.IsEqual(Skin.String(FadeNetflixPreview),100)">Conditional</animation>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/netflix-combined.png">$VAR[GlobalFanart]</texture>
+            <include>Animation.Animate.Fanart</include>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+
+        <!-- Per-section images are rendered directly from SkinShortcuts.  This bypasses
+             GlobalFanart path classification and works with /storage paths, special://
+             paths, URLs and Kodi image:// textures. -->
+        <control type="image" description="Explicit home section background">
+            <visible>$EXP[HomeMenuOwnsFocus] + !String.IsEmpty(Container(300).ListItem.Property(background))</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$INFO[Container(300).ListItem.Property(background)]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <!-- Add-ons such as Jacktook often expose fanart as image:// textures.  Draw
+             focused non-Catch-up artwork directly instead of routing it through the
+             multiimage control used for slideshow folders. -->
+        <control type="image" description="Focused general widget fanart">
+            <visible>$EXP[HomeWidgetFocusHasGeneralArtFanart]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <control type="image" description="Focused general widget property fanart">
+            <visible>$EXP[HomeWidgetFocusHasGeneralPropertyFanart]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$INFO[ListItem.Property(fanart)]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <control type="image" description="Focused general widget landscape fallback">
+            <visible>$EXP[HomeWidgetFocusUsesGeneralLandscape]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$INFO[ListItem.Art(landscape)]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <control type="image" description="Focused general widget thumbnail fallback">
+            <visible>$EXP[HomeWidgetFocusUsesGeneralThumb]</visible>
+            <left>800</left>
+            <top>0</top>
+            <width>1120</width>
+            <height>630</height>
+            <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$VAR[GlobalFanart_GeneralThumbFallback]</texture>
+            <imagefilter>linear</imagefilter>
+            <diffusefilter>linear</diffusefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <!-- Before a widget receives focus, show the selected replay provider logo instead of stale item artwork. -->
+        <control type="image" description="Replay provider logo fallback">
+            <visible>$EXP[HomeWidgetMenuUsesLogoFallback]</visible>
+            <left>1120</left>
+            <top>70</top>
+            <width>700</width>
+            <height>500</height>
+            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
+            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$INFO[Container(300).ListItem.Art(thumb)]</texture>
+            <imagefilter>linear</imagefilter>
+            <diffusefilter>linear</diffusefilter>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+        <!-- Prefer genuine broadcaster fanart from TF1+ and France.tv over compact fallbacks. -->
+        <control type="image" description="Focused replay real artwork">
+            <visible>Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + $EXP[HomeWidgetFocusPrefersRealFanart] + $EXP[HomeWidgetFocusHasRealArtFanart]</visible>
+            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
+            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
+            <include>Dimensions_Fullscreen</include>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$INFO[ListItem.Art(fanart)]</texture>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+        <control type="image" description="Focused replay real property artwork">
+            <visible>Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + $EXP[HomeWidgetFocusPrefersRealFanart] + !$EXP[HomeWidgetFocusHasRealArtFanart] + $EXP[HomeWidgetFocusHasRealPropertyFanart]</visible>
+            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
+            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
+            <include>Dimensions_Fullscreen</include>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$INFO[ListItem.Property(fanart)]</texture>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
         <!-- Keep low-resolution landscape thumbnails out of the fullscreen fanart layer. -->
         <control type="image" description="Widget landscape thumbnail fallback fanart">
             <visible>$EXP[HomeWidgetUsesLandscapeThumbFallback]</visible>
@@ -1027,20 +1259,38 @@
             <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
             <include>Animation.Background.OpenClose</include>
             <include>BackgroundFanartFadetime</include>
-            <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+            <aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
             <texture background="true" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
         </control>
 
-        <!-- France.tv uses portrait or square thumbnails when no 16:9 artwork is available. -->
+        <!-- A soft enlarged copy fills the empty area behind portrait artwork. -->
+        <control type="image" description="Widget portrait thumbnail ambient fill">
+            <visible>$EXP[HomeWidgetUsesPortraitThumbFallback]</visible>
+            <left>800</left>
+            <top>0</top>
+            <width>1120</width>
+            <height>630</height>
+            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
+            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio scalediffuse="true" align="right" aligny="top">scale</aspectratio>
+            <texture background="true" colordiffuse="55FFFFFF" diffuse="special://skin/extras/backgrounds/overlays/widget-fallback-fade.png">$VAR[GlobalFanart_WidgetThumbFallback]</texture>
+            <imagefilter>linear</imagefilter>
+            <diffusefilter>linear</diffusefilter>
+            <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+        <!-- Poster and square widgets keep their complete artwork, enlarged without distortion. -->
         <control type="image" description="Widget portrait thumbnail fallback fanart">
             <visible>$EXP[HomeWidgetUsesPortraitThumbFallback]</visible>
-            <left>1120</left>
-            <top>0</top>
-            <width>800</width>
-            <height>630</height>
+            <left>900</left>
+            <top>-85</top>
+            <width>1020</width>
+            <height>800</height>
             <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
             <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
             <include>Animation.Background.OpenClose</include>
@@ -1051,6 +1301,232 @@
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
         </control>
+
+        <!-- YouTube keeps a warm, stable full-screen background unless this section has its own explicit image. -->
+        <control type="image" description="YouTube fixed background">
+            <visible>$EXP[HomeUseFixedYouTubeBackground]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio scalediffuse="true">scale</aspectratio>
+            <texture background="true">special://skin/extras/backgrounds/fallbacks/youtube.jpg</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <!-- Optional per-section title. The text follows the editable home-menu label. -->
+
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Roboto home section title" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmall" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Roboto home section title bold" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Condensed home section title" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallCondensed" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Condensed home section title bold" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallCondensedBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Regular home section title" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallRegular" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Regular home section title bold" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallRegularBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Mono home section title" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallMono" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Mono home section title bold" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallMonoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Noto home section title" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallNoto" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Small Noto home section title bold" />
+            <param name="top" value="270" />
+            <param name="height" value="170" />
+            <param name="font" value="TherandTitleSmallNotoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Roboto home section title" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMedium" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Roboto home section title bold" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Condensed home section title" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumCondensed" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Condensed home section title bold" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumCondensedBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Regular home section title" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumRegular" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Regular home section title bold" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumRegularBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Mono home section title" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumMono" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Mono home section title bold" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumMonoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Noto home section title" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumNoto" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Medium Noto home section title bold" />
+            <param name="top" value="220" />
+            <param name="height" value="230" />
+            <param name="font" value="TherandTitleMediumNotoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Roboto home section title" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLarge" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Roboto home section title bold" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)] + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Condensed home section title" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeCondensed" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Condensed home section title bold" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeCondensedBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Regular home section title" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeRegular" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Regular home section title bold" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeRegularBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Mono home section title" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeMono" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Mono home section title bold" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeMonoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Noto home section title" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeNoto" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + !$EXP[HomeSectionTitleIsBold]" />
+        </include>
+        <include content="TherandHomeSectionTitleLabel">
+            <param name="description" value="Large Noto home section title bold" />
+            <param name="top" value="145" />
+            <param name="height" value="340" />
+            <param name="font" value="TherandTitleLargeNotoBold" />
+            <param name="visible" value="$EXP[HomeSectionTitleEnabled] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto) + $EXP[HomeSectionTitleIsBold]" />
+        </include>
     </include>
 
     <include name="GlobalBackgroundExtended">
@@ -1060,6 +1536,7 @@
             <texture colordiffuse="Background">special://skin/extras/backgrounds/overlays/bg.jpg</texture>
         </control>
         <control type="multiimage" description="Fanart">
+            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
             <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
@@ -1071,7 +1548,19 @@
             <imagepath background="true">$VAR[GlobalFanart]</imagepath>
             <include>Animation.Animate.Fanart</include>
         </control>
+        <control type="image" description="Extended wrapped fanart">
+            <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
+            <include>Dimensions_Fullscreen</include>
+            <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
+            <include>GlobalBackgroundFade</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$VAR[GlobalFanart]</texture>
+            <include>Animation.Animate.Fanart</include>
+        </control>
         <control type="multiimage" description="Fanart">
+            <visible>!$EXP[GlobalFanartBlurUsesImageControl]</visible>
             <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
@@ -1081,6 +1570,17 @@
             <randomize>true</randomize>
             <aspectratio>scale</aspectratio>
             <imagepath background="true">$VAR[GlobalFanart_Blur]</imagepath>
+            <include>Animation.Animate.Fanart</include>
+        </control>
+        <control type="image" description="Extended wrapped blurred fanart">
+            <visible>$EXP[GlobalFanartBlurUsesImageControl]</visible>
+            <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
+            <include>Dimensions_Fullscreen</include>
+            <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
+            <include>GlobalBackgroundFadeBlur</include>
+            <include>BackgroundFanartFadetime</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true">$VAR[GlobalFanart_Blur]</texture>
             <include>Animation.Animate.Fanart</include>
         </control>
         <control type="image" description="FanartOverlay">

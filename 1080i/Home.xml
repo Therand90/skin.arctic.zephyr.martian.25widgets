@@ -11,27 +11,11 @@
     <onload condition="!$EXP[HomeIsModernMultiWidgets] + !$EXP[HomeIsVerticalMultiWidgets]">SetProperty(TMDbHelper.WidgetContainer,301,home)</onload>
     <onload>ClearProperty(TMDbHelper.HideView,Home)</onload>
     <onunload>ClearProperty(TMDbHelper.WidgetContainer,home)</onunload>
+    <onunload>ClearProperty(TherandReplay.ActiveContainer,home)</onunload>
+    <onunload>ClearProperty(TherandReplay.ActiveAspect,home)</onunload>
     <onunload condition="Skin.HasSetting(home.netflix.autoplay.trailer)">ClearProperty(listitem.trailer,home)</onunload>
     <controls>
         <include>GlobalBackground</include>
-
-        <!-- A submenu shortcut may define its own fixed image. Keep the main-menu
-             background as the fallback whenever the focused submenu has none. -->
-        <control type="image" description="Focused submenu fixed background">
-            <visible>!Control.HasFocus(300) + !String.IsEmpty(ListItem.Property(background))</visible>
-            <include>Dimensions_Fullscreen</include>
-            <include condition="Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFadeCleanFlix</include>
-            <include condition="!Skin.HasSetting(homemenu.clean.flix)">GlobalBackgroundFade</include>
-            <include>Animation.Background.OpenClose</include>
-            <include>BackgroundFanartFadetime</include>
-            <aspectratio>scale</aspectratio>
-            <texture background="true">$INFO[ListItem.Property(background)]</texture>
-        </control>
-        <control type="image" description="Focused submenu background overlay">
-            <visible>!Control.HasFocus(300) + !String.IsEmpty(ListItem.Property(background))</visible>
-            <include>Dimensions_Fullscreen</include>
-            <texture colordiffuse="FloorFade">special://skin/extras/backgrounds/overlays/floor.png</texture>
-        </control>
 
         <!-- Hidden Lists -->
         <include>HomeBackgroundPlaylist</include>

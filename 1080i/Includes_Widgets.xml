@@ -4,6 +4,7 @@
     <include name="DefMultiWidgetContainer">
         <param name="height" value="$PARAM[height]" default="325"/>
         <param name="orientation" value="$PARAM[orientation]" default="horizontal"/>
+        <param name="artaspect" value="$PARAM[artaspect]" default="Poster"/>
         <param name="movement" default="0" />
         <param name="autoscroll" default="true" />
         <definition>
@@ -51,6 +52,8 @@
             </include>
             <include condition="!Skin.HasSetting(widgets.fade)">Animation.Vertical.Widgets.Container</include>
             <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
+            <onfocus>SetProperty(TherandReplay.ActiveContainer,$PARAM[id],Home)</onfocus>
+            <onfocus>SetProperty(TherandReplay.ActiveAspect,$PARAM[artaspect],Home)</onfocus>
             <onfocus condition="Skin.HasSetting(extended.nowplaying) + Window.IsVisible(Home) + Skin.HasSetting(home.nowplaying.info.auto.show)">SetProperty(nowplayingautoshowtimer,1,home)</onfocus>
             <onunfocus>ClearProperty(nowplayingautoshowtimer,home)</onunfocus>
             <onfocus condition="Integer.IsGreater(Container(993100).NumItems,0) + Control.IsVisible(993100)">SetProperty(BackToId,993100,Home)</onfocus>
@@ -2347,36 +2350,43 @@
     
     <include name="MultiWidgetsHeader">
 
+        <!-- While the main menu owns focus, show the section name instead of the first widget item. -->
+        <include content="MultiWidgetsHeaderLabel">
+            <param name="label" value="$INFO[Container(300).ListItem.Label]" />
+            <param name="visible" value="$EXP[HomeMenuOwnsFocus] + !$EXP[HomeSectionTitleEnabled]" />
+            <param name="id" value="$PARAM[id]" />
+        </include>
+
         <!-- Episodes -->
         <include content="MultiWidgetsHeaderLabel">
             <param name="label" value="$INFO[Container($PARAM[id]).ListItem.Title]" />
-            <param name="visible" value="!String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + !Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)" />
+            <param name="visible" value="ControlGroup(301).HasFocus() + !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + !Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix)" />
             <param name="id" value="$PARAM[id]" />
         </include>
         
         <include content="MultiWidgetsHeaderLabel">
             <param name="label" value="$INFO[Container($PARAM[id]).ListItem.TvShowTitle,, - ]$INFO[Container($PARAM[id]).ListItem.Title]" />
-            <param name="visible" value="!String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + [[$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + [Skin.HasSetting(homemenu.netflix) | Skin.HasSetting(homemenu.clean.flix)]]" />
+            <param name="visible" value="ControlGroup(301).HasFocus() + !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + [[$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + [Skin.HasSetting(homemenu.netflix) | Skin.HasSetting(homemenu.clean.flix)]]" />
             <param name="id" value="$PARAM[id]" />
         </include>
 
         <!-- All Other -->
         <include content="MultiWidgetsHeaderLabel">
             <param name="label" value="$INFO[Container($PARAM[id]).ListItem.Label]" />
-            <param name="visible" value="!String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + String.IsEmpty(Container($PARAM[id]).ListItem.Property(Item))" />
+            <param name="visible" value="ControlGroup(301).HasFocus() + !String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + !String.IsEqual(Container($PARAM[id]).ListItem.DBType,episode) + String.IsEmpty(Container($PARAM[id]).ListItem.Property(Item))" />
             <param name="id" value="$PARAM[id]" />
         </include>
 
         <!-- PVR -->
         <include content="MultiWidgetsHeaderLabel">
             <param name="label" value="$INFO[Container($PARAM[id]).ListItem.Title]" />
-            <param name="visible" value="String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + !String.IsEmpty(Container($PARAM[id]).ListItem.Title)" />
+            <param name="visible" value="ControlGroup(301).HasFocus() + String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + !String.IsEmpty(Container($PARAM[id]).ListItem.Title)" />
             <param name="id" value="$PARAM[id]" />
         </include>
 
         <include content="MultiWidgetsHeaderLabel">
             <param name="label" value="$INFO[Container($PARAM[id]).ListItem.Label]" />
-            <param name="visible" value="String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEmpty(Container($PARAM[id]).ListItem.Title)" />
+            <param name="visible" value="ControlGroup(301).HasFocus() + String.StartsWith(Container($PARAM[id]).ListItem.FolderPath,pvr://) + String.IsEmpty(Container($PARAM[id]).ListItem.Title)" />
             <param name="id" value="$PARAM[id]" />
         </include>
 
@@ -2385,6 +2395,7 @@
     <include name="MultiWidgetsPlotLabel">
         <control type="grouplist">
             <height>$PARAM[plotmaxheight]</height>
+            <visible>ControlGroup(301).HasFocus()</visible>
             <visible>!String.IsEmpty(Window(home).Property(TherandReplay.Plot.$PARAM[id])) | !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Album_Description)) | [!String.IsEmpty(Container($PARAM[id]).ListItem.Plot) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Title) + !String.IsEqual(Container($PARAM[id]).ListItem.Plot,Container($PARAM[id]).ListItem.Label)] | !String.IsEmpty(Container($PARAM[id]).ListItem.Property(Artist_Description)) | !String.IsEmpty(Container($PARAM[id]).ListItem.AddonDescription) | !String.IsEmpty(Window(home).Property(TMDbHelper.ListItem.Biography)) | String.IsEqual(Container($PARAM[id]).ListItem.DBType,file)</visible>
             <include content="def_width" condition="Skin.HasSetting(homemenu.netflix)">
                 <param name="width" value="100%" />
@@ -2498,6 +2509,7 @@
 
     <include name="MultiWidgetsSubLabel">
         <control type="grouplist">
+            <visible>ControlGroup(301).HasFocus()</visible>
             <orientation>vertical</orientation>
             <itemgap>0</itemgap>
             

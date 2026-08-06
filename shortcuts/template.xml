@@ -494,6 +494,7 @@
 	                    <param name="height" value="$SKINSHORTCUTS[layoutHeight]"/>
 	                    <param name="height2" value="$SKINSHORTCUTS[layoutHeight2]"/>
 	                    <param name="orientation" value="$SKINSHORTCUTS[orientation]"/>
+                        <param name="artaspect" value="$PYTHON[widgetAspectCheck if widgetAspectCheck else 'Poster']"/>
                         <param name="movement" value="$PYTHON[int(autoLimit) - 1]"/>
                         <param name="autoscroll" value="$SKINSHORTCUTS[autoscroll]"/>
                     </include>

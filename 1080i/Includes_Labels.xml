@@ -558,6 +558,38 @@
         <value condition="String.IsEqual(Container(211).ListItem.Property(widgetaspect),LandscapePosterSmall)">$LOCALIZE[31704]</value>
     </variable>
 
+    <variable name="Label_Home_Section_Title_Size">
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleSize),Small)">$LOCALIZE[31995]</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleSize),Medium)">$LOCALIZE[31605]</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleSize),Large)">$LOCALIZE[31606]</value>
+        <value>$LOCALIZE[31604]</value>
+    </variable>
+
+    <variable name="Label_Home_Section_Title_Color">
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FFFFFFFF)">Blanc / White</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FFFF3B30)">Rouge / Red</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FFFF9500)">Orange</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FF34C759)">Vert / Green</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FF0A84FF)">Bleu / Blue</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FFBF5AF2)">Violet / Purple</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FFFF2D55)">Rose / Pink</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleColor),FF000000)">Noir / Black</value>
+        <value>Jaune / Yellow</value>
+    </variable>
+
+    <variable name="Label_Home_Section_Title_Font">
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleFont),Condensed)">$LOCALIZE[31999]</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleFont),Regular)">Roboto Regular</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleFont),Mono)">Roboto Mono</value>
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleFont),Noto)">Noto Sans</value>
+        <value>Roboto Light</value>
+    </variable>
+
+    <variable name="Label_Home_Section_Title_Bold">
+        <value condition="String.IsEqual(Container(211).ListItem.Property(homeTitleBold),true)">$LOCALIZE[107]</value>
+        <value>$LOCALIZE[106]</value>
+    </variable>
+
     <variable name="Label_Widget_SortBy">
         <value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortby),name)">$LOCALIZE[551]</value>
         <value condition="String.IsEqual(Container(211).ListItem.Property(widgetSortby),random)">$LOCALIZE[590]</value>

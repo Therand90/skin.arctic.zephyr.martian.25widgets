@@ -90,6 +90,34 @@
     <property property="widgetLimit" label="100 ">$NUMBER[100]</property>
     <property property="widgetLimit" label="$LOCALIZE[31821]" condition="[Skin.HasSetting(home.classicwidgets) | Skin.HasSetting(home.vertical) | Skin.HasSetting(homemenu.netflix) | Skin.HasSetting(home.modernwidgets)] + !Skin.HasSetting(homemenu.clean.flix)">Auto</property>
 
+    <!-- Optional title shown behind each home section while the main menu owns focus. -->
+    <propertySettings property="homeTitleSize" buttonID="9120" title="$LOCALIZE[31994]" />
+    <property property="homeTitleSize" label="$LOCALIZE[31995]">Small</property>
+    <property property="homeTitleSize" label="$LOCALIZE[31605]">Medium</property>
+    <property property="homeTitleSize" label="$LOCALIZE[31606]">Large</property>
+
+    <propertySettings property="homeTitleColor" buttonID="9121" showNone="False" title="$LOCALIZE[31996]" />
+    <property property="homeTitleColor" label="Blanc / White">FFFFFFFF</property>
+    <property property="homeTitleColor" label="Jaune / Yellow">FFFFFF00</property>
+    <property property="homeTitleColor" label="Rouge / Red">FFFF3B30</property>
+    <property property="homeTitleColor" label="Orange">FFFF9500</property>
+    <property property="homeTitleColor" label="Vert / Green">FF34C759</property>
+    <property property="homeTitleColor" label="Bleu / Blue">FF0A84FF</property>
+    <property property="homeTitleColor" label="Violet / Purple">FFBF5AF2</property>
+    <property property="homeTitleColor" label="Rose / Pink">FFFF2D55</property>
+    <property property="homeTitleColor" label="Noir / Black">FF000000</property>
+
+    <propertySettings property="homeTitleFont" buttonID="9122" showNone="False" title="$LOCALIZE[31997]" />
+    <property property="homeTitleFont" label="Roboto Light">Roboto</property>
+    <property property="homeTitleFont" label="$LOCALIZE[31999]">Condensed</property>
+    <property property="homeTitleFont" label="Roboto Regular">Regular</property>
+    <property property="homeTitleFont" label="Roboto Mono">Mono</property>
+    <property property="homeTitleFont" label="Noto Sans">Noto</property>
+
+    <propertySettings property="homeTitleBold" buttonID="9123" showNone="False" title="$LOCALIZE[31998]" />
+    <property property="homeTitleBold" label="$LOCALIZE[106]">false</property>
+    <property property="homeTitleBold" label="$LOCALIZE[107]">true</property>
+
     <override action="ActivateWindow(1111)">
         <action>SetProperty(WindowTitle,$VAR[HubWindowTitle],Home)</action>
         <action>SetProperty(WindowIcon,$VAR[HubWindowIcon],Home)</action>

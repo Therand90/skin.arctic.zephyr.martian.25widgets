@@ -2387,6 +2387,30 @@ msgctxt "#31993"
 msgid "Timed change of colour scheme"
 msgstr "Changement des couleurs planifié"
 
+msgctxt "#31994"
+msgid "Home section title size"
+msgstr "Taille du titre de la section sur l’accueil"
+
+msgctxt "#31995"
+msgid "Small"
+msgstr "Petit"
+
+msgctxt "#31996"
+msgid "Home section title colour"
+msgstr "Couleur du titre de la section sur l’accueil"
+
+msgctxt "#31997"
+msgid "Home section title font"
+msgstr "Police du titre de la section sur l’accueil"
+
+msgctxt "#31998"
+msgid "Bold home section title"
+msgstr "Titre de la section en gras"
+
+msgctxt "#31999"
+msgid "Roboto Condensed"
+msgstr "Roboto condensée"
+
 #~ msgctxt "#31722"
 #~ msgid "Extras"
 #~ msgstr "Extras"

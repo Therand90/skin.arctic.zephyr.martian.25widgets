@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.3" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
+<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.10" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="script.skinvariables" version="2.1.33" />
@@ -30,7 +30,7 @@
             <screenshot>resources/screenshot-09.jpg</screenshot>
             <screenshot>resources/screenshot-10.jpg</screenshot>
         </assets>
-        <news>[CR][B]3.19.11+25widgets.3[/B][CR]- Based on Arctic: Zephyr (martian) 3.19.10 for Kodi 21 Omega[CR]- Supports up to 25 SkinShortcuts widgets[CR]- Preserves initial widget focus and wrap navigation[CR]- Adds compact landscape and portrait thumbnail fallbacks for replay widgets[CR]- Ignores generic Catch-up TV &amp; More fanart, including URL-encoded paths[CR]- Keeps the same first replay artwork before and after widget focus[CR]- Integrates service.therand.replaymetadata plots[CR]- Hides duplicate title-as-plot fallbacks</news>
+        <news>[CR][B]3.19.11+25widgets.10[/B][CR]- Makes per-section font and bold switching fully dynamic[CR]- Uses the real bold font files for Roboto, Condensed and Noto[CR]- Preserves the custom, Cinema, YouTube and replay background fixes from .9</news>
         <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht.</summary>
         <summary lang="en">Clean, minimal, elegant, simple, light.</summary>
         <summary lang="en_AU">Clean, minimal, elegant, simple, light.</summary>
