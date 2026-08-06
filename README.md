@@ -4,14 +4,13 @@ Fork personnel maintenu par **Therand90**, conçu pour une installation Kodi / L
 
 Ce projet part de **Arctic: Zephyr (martian)**, lui-même issu du travail de **jurialmunkey**, **beatmasterrs** et **martian89**. Le fork conserve leur identité visuelle, mais son fonctionnement d’accueil s’est progressivement éloigné de l’original afin de mieux répondre à notre usage quotidien.
 
-> Version stable actuelle : `3.19.11+25widgets.12` — Kodi 21 Omega.
+> Version stable actuelle : `3.19.11+25widgets.13` — Kodi 21 Omega.
 
 ## Ce que ce fork apporte
 
 - jusqu’à **25 widgets configurables** par section d’accueil ;
 - navigation retravaillée entre le menu et les listes de widgets ;
-- titres de section personnalisables : taille, couleur, police et gras ;
-- titres des entrées de sous-menu personnalisables avec les mêmes options sur `develop` ;
+- titres des sections principales et des entrées de sous-menu personnalisables : taille, couleur, police et gras ;
 - meilleure gestion des arrière-plans personnalisés, Cinéma, YouTube et replay ;
 - arrière-plan fixe configurable pour chaque entrée de sous-menu ;
 - rendu direct des images de sous-menu compatible avec `/storage`, `special://`, les URL et les textures `image://` de Kodi ;
@@ -30,7 +29,7 @@ Le détail des différences fonctionnelles est conservé dans [`docs/THERAND_CUS
 | `master` | version stable, testée sur Kodi avant publication |
 | `develop` | prochaine version et améliorations en cours |
 
-Les tags `25widgets.10-working` et `25widgets.12-working` identifient les checkpoints réellement testés sur Kodi.
+Les tags `25widgets.10-working`, `25widgets.12-working` et `25widgets.13-working` identifient les checkpoints réellement testés sur Kodi.
 
 ## Installation
 
