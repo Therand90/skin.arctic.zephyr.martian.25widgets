@@ -1,0 +1,32 @@
+name: Tag 25widgets.12 working checkpoint
+
+on:
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out stable master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Create validated checkpoint tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Therand90"
+          git config user.email "135005486+Therand90@users.noreply.github.com"
+          if git rev-parse -q --verify refs/tags/25widgets.12-working >/dev/null; then
+            echo "Tag already exists"
+            exit 0
+          fi
+          git tag -a 25widgets.12-working -m "Kodi-tested 3.19.11+25widgets.12 checkpoint"
+          git push origin refs/tags/25widgets.12-working
