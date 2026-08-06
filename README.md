@@ -1,46 +1,68 @@
-# Arctic: Zephyr (martian) [![License](https://img.shields.io/badge/license-CC--NC--SA%203.0-green)](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+# Arctic: Zephyr (martian) + 25 widgets
 
-<img src="https://github.com/martian89/skin.arctic.zephyr.martian/blob/master/icon.png" width="256" height="256" />
+Fork personnel maintenu par **Therand90**, conçu pour une installation Kodi / LibreELEC orientée widgets, télévision, replay et cinéma.
 
-For more information and support please visit the [Kodi Community Forum](https://forum.kodi.tv/showthread.php?tid=382650)
+Ce projet part de **Arctic: Zephyr (martian)**, lui-même issu du travail de **jurialmunkey**, **beatmasterrs** et **martian89**. Le fork conserve leur identité visuelle, mais son fonctionnement d’accueil s’est progressivement éloigné de l’original afin de mieux répondre à notre usage quotidien.
 
-## In this version
+> Version stable actuelle : `3.19.11+25widgets.10` — Kodi 21 Omega.
 
-This fork is based on Arctic: Zephyr (martian) 3.19.10 for Kodi 21 Omega and increases the number of multi-widgets from 9 to 25.
+## Ce que ce fork apporte
+
+- jusqu’à **25 widgets configurables** par section d’accueil ;
+- navigation retravaillée entre le menu et les listes de widgets ;
+- titres de section personnalisables : taille, couleur, police et gras ;
+- meilleure gestion des arrière-plans personnalisés, Cinéma, YouTube et replay ;
+- arrière-plan fixe configurable pour chaque entrée de sous-menu sur `develop` ;
+- repli intelligent sur les vignettes lorsque le fanart est absent ou générique ;
+- affichage adapté aux vignettes paysage, portrait et carrées ;
+- intégration facultative avec `service.therand.replaymetadata` pour enrichir les résumés de replay ;
+- filtrage des faux résumés identiques au titre ;
+- ressources et traductions supplémentaires nécessaires aux options propres au fork.
+
+Le détail des différences fonctionnelles est conservé dans [`docs/THERAND_CUSTOMIZATIONS.md`](docs/THERAND_CUSTOMIZATIONS.md). L’historique des checkpoints importants se trouve dans [`CHANGELOG.md`](CHANGELOG.md).
+
+## Branches
+
+| Branche | Rôle |
+|---|---|
+| `master` | version stable, testée sur Kodi avant publication |
+| `develop` | prochaine version et améliorations en cours |
+
+Le tag `25widgets.10-working` désigne la copie exacte du checkpoint fonctionnel actuellement installé sur Kodi.
 
 ## Installation
 
-Download the latest ZIP from:
-https://github.com/Therand90/skin.arctic.zephyr.martian.25widgets/releases
+1. Télécharger le ZIP d’une version publiée dans les **Releases** GitHub.
+2. Dans Kodi, activer **Sources inconnues** dans `Paramètres > Système > Extensions`.
+3. Ouvrir `Extensions > Installer depuis un fichier ZIP`.
+4. Sélectionner l’archive du skin.
+5. Conserver une sauvegarde de `userdata/addon_data/skin.arctic.zephyr.martian.25widgets` avant une mise à jour importante.
 
-Instructions:
+Les builds provenant de `develop` sont destinés aux tests et peuvent nécessiter un rechargement du skin ou une reconstruction de certains widgets SkinShortcuts.
 
-1. Enable "Unknown Sources" in Kodi Settings > System > Add-ons
-2. Download the latest release ZIP from the link above
-3. Install the ZIP with Kodi's "Install from zip file" option
+## Services compagnons
 
+Le skin fonctionne seul. Certaines fonctions de replay sont toutefois prévues pour coopérer avec le service facultatif :
 
-## Media flags
+- `service.therand.replaymetadata` — résumés et métadonnées de replay mis en cache par widget.
 
-Media can be flagged with following media source flags in Arctic: Zephyr (martian):
+L’absence du service ne doit pas empêcher le skin de démarrer : les métadonnées Kodi classiques restent utilisées en repli.
 
-* **Bluray**, if the filename contains BLURAY, BDRIP or BLU-RAY.
-* **HDDVD**, if the filename contains HDDVD.
-* **DVD**, if the filename contains DVD.
-* **SDTV**, if the filename contains PDTV, SDTV or SD-TV.
-* **HDTV**, if the filename contains HDTV, HD-TV, or DSR.
-* **Web**, if the filename contains .WEB., WEB-DL, WEBDL or WEBRIP.
+## Méthode de développement
 
-On Kodi versions prior to Kodi 22 Piers HDR10+, Atmos and DTS:X could not be detected during scraping. To flag your media correctly on older versions of Kodi you can use the following flags:
+Toute modification suit désormais ce cycle :
 
-* **HDR10+**, if the filename contains HDR10PLUS.
-* **Atmos**, if the filename contains ATMOS. 
-* **DTS:X**, if the filename contains DTSX oder DTS-X.
- 
-## License 
+1. travail sur `develop` ;
+2. validation XML et contrôle du diff ;
+3. test réel sur Kodi / LibreELEC ;
+4. commit et push du checkpoint validé ;
+5. tag de sauvegarde avant l’amélioration suivante ;
+6. fusion dans `master` uniquement après validation.
 
-This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
-To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/
-or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+## Crédits et licence
 
-Color schemes from Arctic Fuse 2 (https://github.com/jurialmunkey/skin.arctic.fuse.2) are licensed under the Creative Commons Attribution Non-Commercial Share-Alike 4.0 Unported License.
+Merci à **jurialmunkey**, **beatmasterrs** et **martian89** pour les fondations du skin et les années de travail qui rendent ce fork possible.
+
+Le projet reste distribué sous **Creative Commons Attribution-NonCommercial-ShareAlike 3.0**. Les éléments provenant d’Arctic Fuse 2 conservent leur licence **CC BY-NC-SA 4.0** respective. Consultez [`LICENSE.txt`](LICENSE.txt) et les licences incluses avec les ressources concernées.
+
+Ce dépôt est un fork communautaire indépendant. Les problèmes propres à cette version doivent être signalés sur le dépôt Therand90, pas auprès des auteurs d’origine.
