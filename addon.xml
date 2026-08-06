@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.10" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
+<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.12" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="script.skinvariables" version="2.1.33" />
@@ -30,7 +30,7 @@
             <screenshot>resources/screenshot-09.jpg</screenshot>
             <screenshot>resources/screenshot-10.jpg</screenshot>
         </assets>
-        <news>[CR][B]3.19.11+25widgets.10[/B][CR]- Makes per-section font and bold switching fully dynamic[CR]- Uses the real bold font files for Roboto, Condensed and Noto[CR]- Preserves the custom, Cinema, YouTube and replay background fixes from .9</news>
+        <news>[CR][B]3.19.11+25widgets.12[/B][CR]- Adds a fixed background selector to submenu entries[CR]- Renders submenu images directly to support /storage, special:// and image:// paths[CR]- Adds personalized fork documentation and changelog</news>
         <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht.</summary>
         <summary lang="en">Clean, minimal, elegant, simple, light.</summary>
         <summary lang="en_AU">Clean, minimal, elegant, simple, light.</summary>
