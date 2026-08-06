@@ -4,12 +4,17 @@ Les versions intermédiaires non publiées ne sont listées que lorsqu’elles c
 
 ## Unreleased — `develop`
 
+- personnalisation du titre de chaque entrée de sous-menu : taille, couleur, police et gras.
+
+## 3.19.11+25widgets.12
+
 - ajout d’un arrière-plan fixe configurable pour chaque entrée de sous-menu ;
-- correction de l’écran noir lors de l’utilisation d’un chemin `/storage`, `special://` ou `image://` : le fond du sous-menu est maintenant rendu comme une texture directe au lieu de passer par le moteur de slideshow global ;
-- exclusion du menu d’alimentation, des widgets et du mode `playlistBackground` ;
+- correction de l’écran noir avec les chemins `/storage`, `special://`, URL ou `image://` grâce à un rendu direct de la texture ;
+- exclusion du menu d’alimentation, de l’éditeur de widgets et du mode `playlistBackground` ;
 - réécriture du README pour présenter le fork Therand90 ;
 - ajout d’une documentation fonctionnelle des personnalisations ;
-- mise à jour de l’URL source de l’extension vers le dépôt du fork.
+- mise à jour de l’URL source de l’extension vers le dépôt du fork ;
+- checkpoint testé sur Kodi / LibreELEC avant fusion dans `master`.
 
 ## 3.19.11+25widgets.10
 
