@@ -317,25 +317,25 @@
                     <label>31994</label>
                     <label2>$VAR[Label_Home_Section_Title_Size]</label2>
                     <include>Def_Skinshortcuts_Buttons</include>
-                    <visible>$EXP[Skinshortcuts_Mainmenu_Active]</visible>
+                    <visible>[!String.IsEqual(Window.Property(groupname),powermenu) + String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))]</visible>
                 </control>
                 <control type="button" id="9121" description="Home section title colour">
                     <label>31996</label>
                     <label2>$VAR[Label_Home_Section_Title_Color]</label2>
                     <include>Def_Skinshortcuts_Buttons</include>
-                    <visible>$EXP[Skinshortcuts_Mainmenu_Active] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
+                    <visible>[!String.IsEqual(Window.Property(groupname),powermenu) + String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
                 </control>
                 <control type="button" id="9122" description="Home section title font">
                     <label>31997</label>
                     <label2>$VAR[Label_Home_Section_Title_Font]</label2>
                     <include>Def_Skinshortcuts_Buttons</include>
-                    <visible>$EXP[Skinshortcuts_Mainmenu_Active] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
+                    <visible>[!String.IsEqual(Window.Property(groupname),powermenu) + String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
                 </control>
                 <control type="button" id="9123" description="Home section title bold">
                     <label>31998</label>
                     <label2>$VAR[Label_Home_Section_Title_Bold]</label2>
                     <include>Def_Skinshortcuts_Buttons</include>
-                    <visible>$EXP[Skinshortcuts_Mainmenu_Active] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
+                    <visible>[!String.IsEqual(Window.Property(groupname),powermenu) + String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))] + ![String.IsEmpty(Container(211).ListItem.Property(homeTitleSize)) | String.IsEqual(Container(211).ListItem.Property(homeTitleSize),None)]</visible>
                 </control>
 
                 <include content="Def_Skinshortcuts_WidgetSettings">
