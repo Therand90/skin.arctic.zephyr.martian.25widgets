@@ -30,20 +30,11 @@ jobs:
 
           includes_path = Path("1080i/Includes.xml")
           includes = includes_path.read_text(encoding="utf-8")
-          old = """\t\t<!-- Weather -->
-                  <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
-           
-          \t\t<!-- Extra Fanart -->"""
-          new = """\t\t<!-- Weather -->
-                  <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
-
-                  <!-- Fixed background for the focused home submenu item -->
-                  <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background)) + !String.IsEqual(Container(302).ListItem.Property(background),playlistBackground)">$INFO[Container(302).ListItem.Property(background)]</value>
-           
-          \t\t<!-- Extra Fanart -->"""
-          if includes.count(old) != 1:
-              raise SystemExit(f"Unexpected Includes.xml target count: {includes.count(old)}")
-          includes_path.write_text(includes.replace(old, new, 1), encoding="utf-8")
+          weather = '        <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>'
+          replacement = weather + '\n\n        <!-- Fixed background for the focused home submenu item -->\n        <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background)) + !String.IsEqual(Container(302).ListItem.Property(background),playlistBackground)">$INFO[Container(302).ListItem.Property(background)]</value>'
+          if includes.count(weather) != 1:
+              raise SystemExit(f"Unexpected Includes.xml weather target count: {includes.count(weather)}")
+          includes_path.write_text(includes.replace(weather, replacement, 1), encoding="utf-8")
 
           shortcuts_path = Path("1080i/script-skinshortcuts.xml")
           shortcuts = shortcuts_path.read_text(encoding="utf-8")
@@ -58,14 +49,14 @@ jobs:
                   ET.parse(path)
           ET.parse("addon.xml")
 
-      - name: Commit feature and remove temporary workflow
+      - name: Commit feature and remove temporary files
         shell: bash
         run: |
           set -euo pipefail
-          rm -f .github/workflows/apply-submenu-backgrounds.yml
+          rm -f .github/workflows/apply-submenu-backgrounds.yml docs/.submenu-trigger
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 1080i/Includes.xml 1080i/script-skinshortcuts.xml .github/workflows/apply-submenu-backgrounds.yml
+          git add 1080i/Includes.xml 1080i/script-skinshortcuts.xml .github/workflows/apply-submenu-backgrounds.yml docs/.submenu-trigger
           git diff --cached --check
           git commit -m "Add fixed backgrounds to submenu entries"
           git push origin HEAD:develop
