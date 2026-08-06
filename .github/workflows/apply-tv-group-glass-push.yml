@@ -1,0 +1,45 @@
+name: Push TV group glass cards to develop
+
+on:
+  push:
+    branches: [feature/tv-group-glass-run]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out develop
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Apply feature
+        run: python3 .github/scripts/apply_tv_group_glass.py
+
+      - name: Validate XML and diff
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          xmls = list(Path('.').rglob('*.xml'))
+          for path in xmls:
+              ET.parse(path)
+          text = Path('1080i/Includes_Widgets.xml').read_text(encoding='utf-8')
+          for marker in ['HomeWidgetIsPVRChannelGroup', 'def_widgetpvrchannelgroup', 'B2070B10', '$VAR[ColorHighlight]', 'effect="zoom" start="100" end="103"']:
+              if marker not in text:
+                  raise SystemExit(f'Missing marker: {marker}')
+          print(f'Validated {len(xmls)} XML files')
+          PY
+          git diff --check
+
+      - name: Commit to develop
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1080i/Includes_Widgets.xml README.md CHANGELOG.md docs/THERAND_CUSTOMIZATIONS.md
+          git commit -m "Style TV channel groups as compact glass cards"
+          git push origin HEAD:develop
