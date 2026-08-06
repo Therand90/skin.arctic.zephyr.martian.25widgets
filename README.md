@@ -11,6 +11,7 @@ Ce projet part de **Arctic: Zephyr (martian)**, lui-même issu du travail de **j
 - jusqu’à **25 widgets configurables** par section d’accueil ;
 - navigation retravaillée entre le menu et les listes de widgets ;
 - titres de section personnalisables : taille, couleur, police et gras ;
+- titres des entrées de sous-menu personnalisables avec les mêmes options sur `develop` ;
 - meilleure gestion des arrière-plans personnalisés, Cinéma, YouTube et replay ;
 - arrière-plan fixe configurable pour chaque entrée de sous-menu ;
 - rendu direct des images de sous-menu compatible avec `/storage`, `special://`, les URL et les textures `image://` de Kodi ;

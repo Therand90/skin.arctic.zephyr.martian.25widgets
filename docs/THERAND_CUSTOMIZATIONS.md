@@ -49,6 +49,10 @@ Le bouton **Arrière-plan** est également proposé lors de l’édition d’une
 
 Le chemin choisi est rendu directement par un contrôle `image`, comme pour les arrière-plans explicites du menu principal. Il ne passe pas par la variable globale utilisée pour les dossiers de slideshow. Cela évite qu’une image unique provenant d’un chemin `/storage`, `special://` ou `image://` soit interprétée comme un dossier et produise un écran noir.
 
+### Titres de sous-menu — `develop`
+
+Chaque entrée de sous-menu peut définir les mêmes options de titre que les sections principales : taille, couleur, famille de police et variante grasse. Lorsque le sous-menu prend le focus, le grand titre utilise le libellé et les propriétés de cette entrée ; le retour au menu principal restaure immédiatement le titre de la section parente.
+
 ### Replay et fanart
 
 - détection des faux fanarts provenant de Catch-up TV & More ;
