@@ -704,6 +704,9 @@
 
 		<!-- Weather -->
         <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
+
+        <!-- Fixed background for the focused home submenu item -->
+        <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background)) + !String.IsEqual(Container(302).ListItem.Property(background),playlistBackground)">$INFO[Container(302).ListItem.Property(background)]</value>
  
 		<!-- Extra Fanart -->
         <value condition="!String.IsEmpty(Control.GetLabel(4399)) + Skin.HasSetting(EnableExtraFanart) + !Skin.HasSetting(global.hidefanart) + !String.IsEqual(ListItem.DBType,season) + !Container.Content(seasons) + ![String.IsEqual(ListItem.DBtype,episode) + [!String.IsEmpty(ListItem.Art(thumb)) + Skin.HasSetting(background.episodes.use.thumbnail)] | [!String.IsEmpty(ListItem.Art(season.fanart)) + String.IsEqual(ListItem.Art(fanart),ListItem.Art(tvshow.fanart))]]">$INFO[Control.GetLabel(4399)]</value>
