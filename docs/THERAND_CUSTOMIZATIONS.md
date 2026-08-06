@@ -47,6 +47,8 @@ Les polices Roboto, Condensed, Mono et Noto utilisent les ressources adaptées a
 
 Le bouton **Arrière-plan** est également proposé lors de l’édition d’une entrée de sous-menu, sauf pour le menu d’alimentation et l’éditeur de widgets. Quand le sous-menu possède le focus, son image fixe remplace temporairement le fond de la section parente. La valeur spéciale `playlistBackground` reste exclue pour préserver son fonctionnement dynamique.
 
+Le chemin choisi est rendu directement par un contrôle `image`, comme pour les arrière-plans explicites du menu principal. Il ne passe pas par la variable globale utilisée pour les dossiers de slideshow. Cela évite qu’une image unique provenant d’un chemin `/storage`, `special://` ou `image://` soit interprétée comme un dossier et produise un écran noir.
+
 ### Replay et fanart
 
 - détection des faux fanarts provenant de Catch-up TV & More ;
