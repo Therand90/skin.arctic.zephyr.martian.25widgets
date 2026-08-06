@@ -1,0 +1,71 @@
+name: Apply submenu backgrounds
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out develop
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          fetch-depth: 0
+
+      - name: Patch submenu background support
+        shell: python
+        run: |
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          includes_path = Path("1080i/Includes.xml")
+          includes = includes_path.read_text(encoding="utf-8")
+          old = """\t\t<!-- Weather -->
+                  <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
+           
+          \t\t<!-- Extra Fanart -->"""
+          new = """\t\t<!-- Weather -->
+                  <value condition="Window.IsVisible(weather) + [$EXP[HasWeatherFanartSingle] | $EXP[HasWeatherFanartMulti]]">$VAR[Image_WeatherCurrent]</value>
+
+                  <!-- Fixed background for the focused home submenu item -->
+                  <value condition="Window.IsVisible(home) + Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(background)) + !String.IsEqual(Container(302).ListItem.Property(background),playlistBackground)">$INFO[Container(302).ListItem.Property(background)]</value>
+           
+          \t\t<!-- Extra Fanart -->"""
+          if includes.count(old) != 1:
+              raise SystemExit(f"Unexpected Includes.xml target count: {includes.count(old)}")
+          includes_path.write_text(includes.replace(old, new, 1), encoding="utf-8")
+
+          shortcuts_path = Path("1080i/script-skinshortcuts.xml")
+          shortcuts = shortcuts_path.read_text(encoding="utf-8")
+          old = '<visible>$EXP[Skinshortcuts_Mainmenu_Active] | String.IsEqual(Window(Home).Property(Backg),yes)</visible>'
+          new = '<visible>[!String.IsEqual(Window.Property(groupname),powermenu) + String.IsEmpty(Window(Home).Property(skinshortcuts-Widget))] | String.IsEqual(Window(Home).Property(Backg),yes)</visible>'
+          if shortcuts.count(old) != 1:
+              raise SystemExit(f"Unexpected script-skinshortcuts.xml target count: {shortcuts.count(old)}")
+          shortcuts_path.write_text(shortcuts.replace(old, new, 1), encoding="utf-8")
+
+          for folder in ("1080i", "shortcuts"):
+              for path in Path(folder).rglob("*.xml"):
+                  ET.parse(path)
+          ET.parse("addon.xml")
+
+      - name: Commit feature and remove temporary workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/apply-submenu-backgrounds.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1080i/Includes.xml 1080i/script-skinshortcuts.xml .github/workflows/apply-submenu-backgrounds.yml
+          git diff --cached --check
+          git commit -m "Add fixed backgrounds to submenu entries"
+          git push origin HEAD:develop
