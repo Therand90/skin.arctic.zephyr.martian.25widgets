@@ -2,7 +2,7 @@ name: Apply TV group glass cards
 
 on:
   pull_request:
-    branches: [master]
+    branches: [feature/tv-group-glass]
 
 permissions:
   contents: write
