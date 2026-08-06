@@ -35,13 +35,13 @@
 
         <control type="image">
             <visible>!Integer.IsOdd(ListItem.CurrentItem)</visible>
-            <texture flipx="false">background/vignetted.png</texture>
+            <texture flipx="false">special://skin/extras/backgrounds/overlays/vignetted.png</texture>
             <animation effect="fade" start="0" end="100" time="400">Visible</animation>
             <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
         </control>
         <control type="image">
             <visible>Integer.IsOdd(ListItem.CurrentItem)</visible>
-            <texture flipx="true">background/vignetted.png</texture>
+            <texture flipx="true">special://skin/extras/backgrounds/overlays/vignetted.png</texture>
             <animation effect="fade" start="0" end="100" time="400">Visible</animation>
             <animation effect="fade" start="100" end="0" time="400">Hidden</animation>
         </control>
@@ -84,7 +84,7 @@
 		            <itemgap>0</itemgap>
 		            <usecontrolcoords>true</usecontrolcoords>
                     <visible>!String.IsEmpty(Container(1297).ListItem.Plot)</visible>
-					<include content="Def_Flags_Furniture_Small">
+					<include content="Furniture_RatingFlags">
 		                <param name="Star" value="ScreensaverFlagstar" />
 			            <param name="color" value="$VAR[ColorHighlight]" />
 		            </include>                
@@ -138,7 +138,7 @@
 		            <itemgap>0</itemgap>
 		            <usecontrolcoords>true</usecontrolcoords>
                     <visible>!String.IsEmpty(Container(1297).ListItem.Plot)</visible>
-					<include content="Def_Flags_Furniture_Small">
+					<include content="Furniture_RatingFlags">
 		                <param name="Star" value="ScreensaverFlagstar" />
 			            <param name="color" value="$VAR[ColorHighlight]" />
 		            </include>                

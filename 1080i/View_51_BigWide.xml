@@ -7,7 +7,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(51)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="group">
                 <top>PosterPad</top>
                 <left>SidePad</left>
@@ -20,7 +19,7 @@
                     <bottom>-8</bottom>
                     <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
                 </control>
-                <control type="fixedlist" id="51">
+                <control type="wraplist" id="51">
                     <visible>$EXP[Exp_View_51]</visible>
                     <width>1112</width>
                     <right>0</right>
@@ -52,7 +51,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImageFanart]</texture>
+                            <texture background="true" diffuse="diffuse/lovefilmthumb.png">$VAR[FanartImage]</texture>
                         </control>
                     </focusedlayout>
                 </control>
@@ -126,11 +125,10 @@
                     <param name="top" value="-8" />
                 </include>
             </control>
-            <control type="scrollbar" id="1639">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1639"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1639" />
+                <param name="jumpbar" value="true" />
+            </include>
         </control>
     </include>
 
@@ -317,11 +315,10 @@
                     <visible>Skin.HasSetting(global.showborders)</visible>
                 </control>
             </control>
-            <control type="scrollbar" id="1637">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1637"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1637" />
+                <param name="jumpbar" value="true" />
+            </include>
         </control>
     </include>
 
@@ -383,7 +380,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedN3]</label>
+                        <label>$VAR[LabelPercentWatched_-3]</label>
                         <visible>!String.IsEqual(ListItem(-3).Label,..)</visible>
                     </control>
                 </control>
@@ -435,7 +432,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedN2]</label>
+                        <label>$VAR[LabelPercentWatched_-2]</label>
                         <visible>!String.IsEqual(ListItem(-2).Label,..)</visible>
                     </control>
                 </control>
@@ -487,7 +484,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedN1]</label>
+                        <label>$VAR[LabelPercentWatched_-1]</label>
                         <visible>!String.IsEqual(ListItem(-1).Label,..)</visible>
                     </control>
                 </control>
@@ -539,7 +536,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedP3]</label>
+                        <label>$VAR[LabelPercentWatched_3]</label>
                         <visible>!String.IsEqual(ListItem(3).Label,..)</visible>
                     </control>
                 </control>
@@ -591,7 +588,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedP2]</label>
+                        <label>$VAR[LabelPercentWatched_2]</label>
                         <visible>!String.IsEqual(ListItem(2).Label,..)</visible>
                     </control>
                 </control>
@@ -643,7 +640,7 @@
                         <font>WatchedIcon</font>
                         <textcolor>PanelWhite70</textcolor>
                         <selectedcolor>PanelWhite70</selectedcolor>
-                        <label>$VAR[LabelPercentWatchedP1]</label>
+                        <label>$VAR[LabelPercentWatched_1]</label>
                         <visible>!String.IsEqual(ListItem(1).Label,..)</visible>
                     </control>
                 </control>
@@ -667,7 +664,7 @@
                     <bottom>10</bottom>
                     <texture colordiffuse="Fallback" border="4" background="true">common/box.png</texture>
                 </control>
-                <control type="fixedlist" id="51">
+                <control type="wraplist" id="51">
                     <visible>$EXP[Exp_View_51]</visible>
                     <left>0</left>
                     <right>0</right>
@@ -689,7 +686,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture background="true" diffuse="diffuse/bigwiderolodex.png">$VAR[FanartImageFanart]</texture>
+                            <texture background="true" diffuse="diffuse/bigwiderolodex.png">$VAR[FanartImage]</texture>
                         </control>
                     </itemlayout>
                     <focusedlayout height="640" width="1138">
@@ -699,7 +696,7 @@
                             <width>100%</width>
                             <height>100%</height>
                             <aspectratio scalediffuse="false">scale</aspectratio>
-                            <texture background="true" diffuse="diffuse/bigwiderolodex.png">$VAR[FanartImageFanart]</texture>
+                            <texture background="true" diffuse="diffuse/bigwiderolodex.png">$VAR[FanartImage]</texture>
                         </control>
                     </focusedlayout>
                 </control>
@@ -787,11 +784,10 @@
                     <visible>Skin.HasSetting(global.showborders)</visible>
                 </control>
             </control>
-            <control type="scrollbar" id="1638">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1638"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1638" />
+                <param name="jumpbar" value="true" />
+            </include>
         </control>
     </include>
 
@@ -800,7 +796,6 @@
             <top>-215</top>
             <left>-70</left>
         </control>
-        <include>ViewSlideForJumpBar</include>
         <top>PosterPad</top>
         <left>SidePad</left>
         <right>SidePad</right>
@@ -812,7 +807,7 @@
             <bottom>-8</bottom>
             <texture border="15" colordiffuse="Panel">common/rounded-shadow8.png</texture>
         </control>
-        <control type="fixedlist" id="51">
+        <control type="wraplist" id="51">
             <visible>$EXP[Exp_View_51]</visible>
             <left>0</left>
             <right>0</right>
@@ -834,7 +829,7 @@
                     <width>1920</width>
                     <height>1080</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImageFanart]</texture>
+                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
                 </control>
             </itemlayout>
             <focusedlayout height="640" width="1760">
@@ -844,7 +839,7 @@
                     <width>1920</width>
                     <height>1080</height>
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImageFanart]</texture>
+                    <texture background="true" diffuse="diffuse/lovefilm.png">$VAR[FanartImage]</texture>
                 </control>
             </focusedlayout>
         </control>

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: XBMC Skins\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-02-01 11:11+0800\n"
+"PO-Revision-Date: 2026-07-12 08:30+0800\n"
 "Last-Translator: wabisabi926\n"
 "Language-Team: \n"
 "Language: zh_CN\n"
@@ -17,9 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 3.5\n"
 
-msgctxt "#31000"
-msgid "Limit number of items in widget"
-msgstr "小组件中项目数上限"
+msgctxt "#31001"
+msgid "Prefer landscape art"
+msgstr "更喜欢横版艺术图"
 
 msgctxt "#31002"
 msgid "Animated posters"
@@ -27,15 +27,7 @@ msgstr "动态海报"
 
 msgctxt "#31003"
 msgid "Animated fanarts"
-msgstr "动态同人画"
-
-msgctxt "#31004"
-msgid "Show discart (fanart views)"
-msgstr "显示光盘图（同人画视图）"
-
-msgctxt "#31005"
-msgid "Alternate case (fanart views)"
-msgstr "替换外壳（同人画视图）"
+msgstr "动态背景图"
 
 msgctxt "#31007"
 msgid "Title-overlays (symbols-view, deprecated)"
@@ -51,11 +43,11 @@ msgstr "滚动整个页面"
 
 msgctxt "#31010"
 msgid "Alternate case"
-msgstr "替换外壳"
+msgstr "替换盒套"
 
 msgctxt "#31011"
 msgid "Show CD and case"
-msgstr "显示光盘图与外壳"
+msgstr "显示光盘封面与盒套"
 
 msgctxt "#31013"
 msgid "Feature ends at"
@@ -63,14 +55,14 @@ msgstr "播放结束于"
 
 msgctxt "#31014"
 msgid "Netflix"
-msgstr "奈飞"
+msgstr "网飞"
 
 msgctxt "#31017"
-msgid "Colored icon media flags"
+msgid "Coloured icon media flags"
 msgstr "彩色图标媒体标识"
 
 msgctxt "#31019"
-msgid "Supported Addons"
+msgid "Supported add-ons"
 msgstr "支持的插件"
 
 msgctxt "#31020"
@@ -91,7 +83,7 @@ msgstr "奖项"
 
 msgctxt "#31025"
 msgid "Show clearLogo"
-msgstr "显示 ClearLogo"
+msgstr "显示透明徽标"
 
 msgctxt "#31026"
 msgid "Videolyrics"
@@ -99,7 +91,7 @@ msgstr "视频歌词"
 
 msgctxt "#31027"
 msgid "Shifted"
-msgstr "轮换"
+msgstr "偏移"
 
 msgctxt "#31028"
 msgid "Widgets fade animation"
@@ -115,7 +107,7 @@ msgstr "显示 PVR 技术信息"
 
 msgctxt "#31036"
 msgid "Fullscreen Fanart"
-msgstr "全屏同人画"
+msgstr "全屏背景图"
 
 msgctxt "#31037"
 msgid "Extended Info"
@@ -182,7 +174,7 @@ msgid "Movie Sets"
 msgstr "电影合集"
 
 msgctxt "#31053"
-msgid "New Tv Shows"
+msgid "New TV Shows"
 msgstr "新电视剧"
 
 msgctxt "#31054"
@@ -190,11 +182,11 @@ msgid "Recently Watched TV Shows"
 msgstr "最近观看的电视剧"
 
 msgctxt "#31056"
-msgid "Random Tv Shows"
+msgid "Random TV Shows"
 msgstr "随机电视剧"
 
 msgctxt "#31057"
-msgid "Top Rated Tv Shows"
+msgid "Top Rated TV Shows"
 msgstr "最高分电视剧"
 
 msgctxt "#31058"
@@ -241,17 +233,21 @@ msgctxt "#31068"
 msgid "Random Artists"
 msgstr "随机艺术家"
 
+msgctxt "#31069"
+msgid "Next Up"
+msgstr "下个播放"
+
 msgctxt "#31071"
 msgid "Show fanart/landscape view"
-msgstr "显示同人画/场景贴图视图"
+msgstr "显示背景图/横版图视图"
 
 msgctxt "#31072"
 msgid "Poster Flix"
-msgstr "奈飞型海报"
+msgstr "网飞风格海报"
 
 msgctxt "#31073"
 msgid "Show clearlogo instead of title"
-msgstr "显示 ClearLogo 而非标题"
+msgstr "显示透明徽标而非标题"
 
 msgctxt "#31074"
 msgid "Enable blur"
@@ -271,15 +267,15 @@ msgstr "全局选项"
 
 msgctxt "#31079"
 msgid "Show discart"
-msgstr "显示光盘图"
+msgstr "显示光盘封面"
 
 msgctxt "#31081"
 msgid "Double-Flix"
-msgstr "双重奈飞型"
+msgstr "双列网飞风格"
 
 msgctxt "#31082"
 msgid "Flip poster/fanart"
-msgstr "切换显示海报/同人画"
+msgstr "切换显示海报/背景图"
 
 msgctxt "#31083"
 msgid "Show list instead of posters"
@@ -287,11 +283,11 @@ msgstr "显示列表而非海报"
 
 msgctxt "#31084"
 msgid "Show clearlogo on top instead on fanart"
-msgstr "显示 CLearLogo 在同人画上方而非表面"
+msgstr "显示透明徽标在背景图上方而非表面"
 
 msgctxt "#31085"
 msgid "Fanart & poster 2"
-msgstr "同人画＆海报 2"
+msgstr "背景图＆海报 2"
 
 msgctxt "#31086"
 msgid "Show extended infos on list"
@@ -303,23 +299,23 @@ msgstr "集已观看"
 
 msgctxt "#31088"
 msgid "h"
-msgstr "h"
+msgstr "小时"
 
 msgctxt "#31089"
 msgid "m"
-msgstr "m"
+msgstr "分钟"
 
 msgctxt "#31090"
 msgid "Show duration as hours and minutes"
-msgstr "将时长显示为小时和分钟"
+msgstr "将时长显示为“小时”和“分钟”"
 
 msgctxt "#31091"
 msgid "Double-Flix Banner"
-msgstr "双重奈飞型横幅"
+msgstr "双列网飞风格横幅"
 
 msgctxt "#31092"
 msgid "Flip fanart/banner"
-msgstr "切换显示同人画/横幅"
+msgstr "切换显示背景图/横幅"
 
 msgctxt "#31093"
 msgid "Hourly forecast"
@@ -347,7 +343,7 @@ msgstr "翻转列表和信息"
 
 msgctxt "#31099"
 msgid "Vertical Shifted"
-msgstr "垂直轮换"
+msgstr "垂直偏移"
 
 msgctxt "#31100"
 msgid "Defaults"
@@ -355,7 +351,7 @@ msgstr "默认"
 
 msgctxt "#31101"
 msgid "items"
-msgstr "项目"
+msgstr "项"
 
 msgctxt "#31102"
 msgid "min"
@@ -371,7 +367,7 @@ msgstr "已用内存"
 
 msgctxt "#31105"
 msgid "Spotlight"
-msgstr "推荐"
+msgstr "精选推荐"
 
 msgctxt "#31106"
 msgid "Finishes at"
@@ -431,7 +427,7 @@ msgstr "动态艺术家幻灯片"
 
 msgctxt "#31121"
 msgid "Show fanart"
-msgstr "显示同人画"
+msgstr "显示背景图"
 
 msgctxt "#31122"
 msgid "     Settings"
@@ -446,9 +442,24 @@ msgid "Set your favourite settings"
 msgstr "确定你的收藏设置"
 
 msgctxt "#31126"
-msgid "Accent colors"
+msgid "Accent colours"
 msgstr "高亮颜色"
 
+msgctxt "#31127"
+msgid "Video sources"
+msgstr "视频源"
+
+msgctxt "#31128"
+msgid "Music sources"
+msgstr "音乐源"
+
+msgctxt "#31129"
+msgid "Picture sources"
+msgstr "图片源"
+
+msgctxt "#31130"
+msgid "File sources"
+msgstr "文件源"
 msgctxt "#31133"
 msgid "Hide watched"
 msgstr "隐藏已观看"
@@ -479,7 +490,7 @@ msgstr "使用底置列表"
 
 msgctxt "#31143"
 msgid "Set weather fanart"
-msgstr "设置天气同人画"
+msgstr "设置天气背景图"
 
 msgctxt "#31144"
 msgid "Widgets"
@@ -491,7 +502,7 @@ msgstr "显示天气"
 
 msgctxt "#31146"
 msgid "Animate fanart"
-msgstr "动态同人画"
+msgstr "动态背景图"
 
 msgctxt "#31147"
 msgid "Extra Info"
@@ -503,7 +514,7 @@ msgstr "首尾相接列表"
 
 msgctxt "#31149"
 msgid "Replace widget fanart with background"
-msgstr "替换小组件同人画"
+msgstr "替换小组件背景图"
 
 msgctxt "#31150"
 msgid "Set fallback image"
@@ -542,7 +553,7 @@ msgid "Movies by"
 msgstr "电影出自"
 
 msgctxt "#31160"
-msgid "Tv Shows by"
+msgid "TV Shows by"
 msgstr "电视剧出自"
 
 msgctxt "#31161"
@@ -551,7 +562,7 @@ msgstr "[B]配置系统设置[/B][CR][CR] •     设置和校准显示器[CR] �
 
 msgctxt "#31162"
 msgid "[B]Configure Add-Ons[/B][CR][CR] •     Manage your installed Add-ons[CR] •     Install Add-ons from kodi.tv[CR] •     Modify Add-on settings"
-msgstr "[B]配置插件[/B][CR][CR] •     管理已安装插件[CR] •     从kodi.tv安装插件[CR] •     修改插件设置"
+msgstr "[B]配置插件[/B][CR][CR] •     管理已安装插件[CR] •     从 kodi.tv 安装插件[CR] •     修改插件设置"
 
 msgctxt "#31163"
 msgid "[B]Configure TV Settings[/B][CR][CR] •     Change full screen info[CR] •     Manage EPG data settings"
@@ -559,7 +570,7 @@ msgstr "[B]配置电视设置[/B][CR][CR] •     更改全屏信息[CR] •    
 
 msgctxt "#31164"
 msgid "[B]Configure Service Settings[/B][CR][CR] •     Control via UPnP and HTTP[CR] •     Configure file sharing[CR] •     Enable Zeroconf[CR] •     Configure AirPlay"
-msgstr "[B]配置服务设置[/B][CR][CR] •     通过UPnP和HTTP控制[CR] •     配置共享[CR] •     启用Zeroconf[CR] •     配置AirPlay"
+msgstr "[B]配置服务设置[/B][CR][CR] •     通过 UPnP 和 HTTP 控制[CR] •     配置共享[CR] •     启用 Zeroconf[CR] •     配置 AirPlay"
 
 msgctxt "#31165"
 msgid "[B]Configure Profile Settings[/B][CR][CR] •     Setup user profiles[CR] •     Enable login screen[CR] •     Set master locks[CR] •     Control access to content"
@@ -567,7 +578,7 @@ msgstr "[B]设置配置文件[/B][CR][CR] •     设置用户配置文件[CR] �
 
 msgctxt "#31166"
 msgid "[B]Configure Skin Settings[/B][CR][CR] •     Customise the home screen[CR] •     Set background options[CR] •     Configure OSD options[CR] •     Enable add-on support[CR] •     Disable screen elements"
-msgstr "[B]配置皮肤设置[/B][CR][CR] •     自定义主屏幕[CR] •     设置背景选项[CR] •     配置OSD选项[CR] •     启用附加支持[CR] •     禁用屏幕元素"
+msgstr "[B]配置皮肤设置[/B][CR][CR] •     自定义主屏幕[CR] •     设置背景选项[CR] •     配置 OSD 选项[CR] •     启用附加支持[CR] •     禁用屏幕元素"
 
 msgctxt "#31167"
 msgid "[B]View System Information[/B][CR][CR] •     Summary[CR] •     Storage[CR] •     Network[CR] •     Video[CR] •     Hardware[CR] •     PVR Backend"
@@ -615,7 +626,7 @@ msgstr "您确定要删除设置快捷方式吗？[CR]在删除此快捷方式�
 
 msgctxt "#31178"
 msgid "Hub items"
-msgstr "媒体中心项目"
+msgstr "分类中心项"
 
 msgctxt "#31180"
 msgid "Cast of"
@@ -627,7 +638,7 @@ msgstr "类似于"
 
 msgctxt "#31182"
 msgid "Fanart of"
-msgstr "同人画来自"
+msgstr "背景图来自"
 
 msgctxt "#31183"
 msgid "Youtube videos of"
@@ -711,7 +722,7 @@ msgstr "使用水平子菜单"
 
 msgctxt "#31203"
 msgid "Artwork Beef"
-msgstr "媒体封面优化插件"
+msgstr "艺术图优化插件"
 
 msgctxt "#31204"
 msgid "Similar to"
@@ -747,7 +758,7 @@ msgstr "最高分"
 
 msgctxt "#31212"
 msgid "Airing"
-msgstr "放送中"
+msgstr "正在播出"
 
 msgctxt "#31213"
 msgid "Today"
@@ -767,19 +778,19 @@ msgstr "曲目列表出自"
 
 msgctxt "#31217"
 msgid "Show clearart with seekbar"
-msgstr "使用搜索栏显示 clearart"
+msgstr "使用搜索栏显示透明艺术图"
 
 msgctxt "#31218"
 msgid "Show numeric rating"
-msgstr "显示评分数字"
+msgstr "显示数字评分"
 
 msgctxt "#31219"
 msgid "Show reflections"
-msgstr "显示反射效果"
+msgstr "显示倒影效果"
 
 msgctxt "#31220"
 msgid "Next Aired"
-msgstr "接下来放送"
+msgstr "下次播出"
 
 msgctxt "#31221"
 msgid "Studio"
@@ -799,7 +810,7 @@ msgstr "类似"
 
 msgctxt "#31225"
 msgid "Fanart"
-msgstr "同人画"
+msgstr "背景图"
 
 msgctxt "#31226"
 msgid "Youtube"
@@ -835,11 +846,7 @@ msgstr "死于"
 
 msgctxt "#31234"
 msgid "Fanart overlay"
-msgstr "同人画叠加层"
-
-msgctxt "#31235"
-msgid "Show banner?"
-msgstr "显示横幅？"
+msgstr "背景图叠加层"
 
 msgctxt "#31236"
 msgid "Now playing..."
@@ -850,11 +857,11 @@ msgid "Use minimal busy loader in header"
 msgstr "在标题中使用负载最小的加载程序"
 
 msgctxt "#31238"
-msgid "Select highlight color"
+msgid "Select highlight colour"
 msgstr "选择高亮颜色"
 
 msgctxt "#31239"
-msgid "Current Color"
+msgid "Current Colour"
 msgstr "当前颜色"
 
 msgctxt "#31240"
@@ -927,11 +934,11 @@ msgstr "主页"
 
 msgctxt "#31258"
 msgid "Fanart Thumbs"
-msgstr "同人画缩略图"
+msgstr "背景图缩略图"
 
 msgctxt "#31259"
 msgid "Show extra fanart"
-msgstr "显示额外同人画"
+msgstr "显示额外背景图"
 
 msgctxt "#31260"
 msgid "Set weather icons"
@@ -955,7 +962,7 @@ msgstr "附加列表"
 
 msgctxt "#31265"
 msgid "Fanart"
-msgstr "插图"
+msgstr "背景图"
 
 msgctxt "#31266"
 msgid "Widget"
@@ -987,11 +994,11 @@ msgstr "多图"
 
 msgctxt "#31273"
 msgid "Hub widget"
-msgstr "中心小组件"
+msgstr "分类中心小组件"
 
 msgctxt "#31274"
 msgid "Most played Song"
-msgstr "最常播放歌曲"
+msgstr "最常播放的歌曲"
 
 msgctxt "#31275"
 msgid "[B]Configure Interface Settings[/B][CR][CR] •     Skin[CR] •     Region[CR] •     Control[CR] •     Screensaver[CR] •     Master Lock[CR]"
@@ -1003,11 +1010,11 @@ msgstr "[B]配置媒体库设置[/B][CR][CR] •     显示[CR] •     导航[C
 
 msgctxt "#31277"
 msgid "[B]Configure Player Settings[/B][CR][CR] •     Playback Actions[CR] •     How Content is Played[CR]"
-msgstr "[B]配置播放器设置[/B][CR][CR] •     回放动作[CR] •     内容播放方式[CR]"
+msgstr "[B]配置播放器设置[/B][CR][CR] •     播放动作[CR] •     内容播放方式[CR]"
 
 msgctxt "#31278"
 msgid "Download all artwork"
-msgstr "下载所有艺术作品"
+msgstr "下载所有艺术图片"
 
 msgctxt "#31279"
 msgid "Video decoder"
@@ -1027,11 +1034,11 @@ msgstr "特殊功能"
 
 msgctxt "#31283"
 msgid "Select artwork"
-msgstr "选择艺术作品"
+msgstr "选择艺术图片"
 
 msgctxt "#31284"
 msgid "Download artwork"
-msgstr "下载艺术作品"
+msgstr "下载艺术图片"
 
 msgctxt "#31285"
 msgid "Top Songs"
@@ -1067,7 +1074,7 @@ msgstr "频道列表"
 
 msgctxt "#31294"
 msgid "Side"
-msgstr "侧面"
+msgstr "侧边"
 
 msgctxt "#31296"
 msgid "This is your personal rating and will not be published."
@@ -1079,10 +1086,10 @@ msgstr "      "
 
 msgctxt "#31299"
 msgid "Show plot on HUB"
-msgstr "在媒体中心显示情节"
+msgstr "在分类中心显示剧情简介"
 
 msgctxt "#31300"
-msgid "Colors"
+msgid "Colours"
 msgstr "颜色"
 
 msgctxt "#31301"
@@ -1103,11 +1110,11 @@ msgstr "视图"
 
 msgctxt "#31305"
 msgid "Hubs"
-msgstr "媒体中心"
+msgstr "分类中心"
 
 msgctxt "#31307"
 msgid "ClearArt"
-msgstr "ClearART"
+msgstr "透明艺术图"
 
 msgctxt "#31308"
 msgid "Blur-Settings"
@@ -1166,7 +1173,7 @@ msgid "New Unwatched Episodes"
 msgstr "未观看的新剧集"
 
 msgctxt "#31323"
-msgid "New Unwatched Tv Shows"
+msgid "New Unwatched TV Shows"
 msgstr "未观看的新电视剧"
 
 msgctxt "#31324"
@@ -1175,7 +1182,7 @@ msgstr "搜索结果出自"
 
 msgctxt "#31325"
 msgid "Side Cards"
-msgstr "侧滑卡片"
+msgstr "侧边卡片"
 
 msgctxt "#31326"
 msgid "Show temperature and icon"
@@ -1187,11 +1194,11 @@ msgstr "季信息"
 
 msgctxt "#31330"
 msgid "ClearLogo"
-msgstr "ClearLOGO"
+msgstr "透明徽标"
 
 msgctxt "#31331"
 msgid "Show ClearLogo/Art"
-msgstr "显示 ClearLogo/Art"
+msgstr "显示透明徽标/艺术图"
 
 msgctxt "#31332"
 msgid "More of"
@@ -1222,20 +1229,16 @@ msgid "25"
 msgstr "25"
 
 msgctxt "#31340"
-msgid "Auto-scrolling"
+msgid "Autoscroll"
 msgstr "自动滚动"
 
 msgctxt "#31341"
-msgid "Widget-listtype"
-msgstr "小组件-列表模式"
+msgid "Recommended Movies"
+msgstr "推荐电影"
 
 msgctxt "#31342"
-msgid "List"
-msgstr "列表"
-
-msgctxt "#31343"
-msgid "Fixed list"
-msgstr "固定列表"
+msgid "Recommended TV Shows"
+msgstr "推荐电视剧"
 
 msgctxt "#31347"
 msgid "Weather Icons"
@@ -1259,7 +1262,7 @@ msgstr "影片地区图标"
 
 msgctxt "#31354"
 msgid "Animate fanart/slideshow"
-msgstr "动态显示同人画/幻灯片"
+msgstr "动态显示背景图/幻灯片"
 
 msgctxt "#31355"
 msgid "Normal"
@@ -1286,12 +1289,12 @@ msgid "Log off: $INFO[system.profilename]"
 msgstr "注销：$INFO[system.profilename]"
 
 msgctxt "#31361"
-msgid "Delete/Disable Settings Menu Item?"
-msgstr "删除/禁用设置菜单项？"
+msgid "Customise Widgets"
+msgstr "自定义小组件"
 
 msgctxt "#31362"
-msgid "Are you sure you want to remove the Settings menu item?[CR]Please ensure that you have an alternative method of accessing Settings before you remove this menu item."
-msgstr "您确定要删除设置菜单项吗？[CR]在删除此菜单项之前，请确保您有其他访问设置的方法。"
+msgid "Customise Hub Menu"
+msgstr "自定义中心菜单"
 
 msgctxt "#31363"
 msgid "Power menu"
@@ -1309,9 +1312,13 @@ msgctxt "#31366"
 msgid "Show Filenames"
 msgstr "显示文件名"
 
+msgctxt "#31368"
+msgid "Show unwatched episodes count"
+msgstr "显示未观看的剧集数"
+
 msgctxt "#31369"
 msgid "Shifted ClearArt"
-msgstr "轮换带 ClearArt"
+msgstr "偏移透明艺术图"
 
 msgctxt "#31370"
 msgid "Year of release"
@@ -1331,7 +1338,7 @@ msgstr "[B]配置 LibreELEC 设置[/B][CR][CR] •     系统设置[CR] •     
 
 msgctxt "#31374"
 msgid "[B]Configure CoreELEC Settings[/B][CR][CR] •     Setup system settings[CR] •     Configure system updatesSetup and calibrate network[CR] •     Setup and calibrate network[CR] •     Configure connections [CR]"
-msgstr "[B]配置 LibreELEC 设置[/B][CR][CR] •     系统设置[CR] •     配置系统更新与校准网络[CR] •     设置与校准网络[CR] •     配置连接[CR]"
+msgstr "[B]配置 CoreELEC 设置[/B][CR][CR] •     系统设置[CR] •     配置系统更新与校准网络[CR] •     设置与校准网络[CR] •     配置连接[CR]"
 
 msgctxt "#31379"
 msgid "Size of Icons"
@@ -1351,7 +1358,7 @@ msgstr "中心"
 
 msgctxt "#31383"
 msgid "Fanart with ClearLogo"
-msgstr "带 ClearLogo 的同人画"
+msgstr "带透明徽标的背景图"
 
 msgctxt "#31384"
 msgid "Fullsize EPG"
@@ -1363,7 +1370,7 @@ msgstr "使用用户自定义图标替换系统天气图标"
 
 msgctxt "#31387"
 msgid "DiscArt Fallback-Type"
-msgstr "光盘图默认样式"
+msgstr "光盘封面默认样式"
 
 msgctxt "#31388"
 msgid "CD"
@@ -1371,7 +1378,7 @@ msgstr "光盘"
 
 msgctxt "#31389"
 msgid "Fake CD"
-msgstr "仿冒光盘"
+msgstr "模拟光盘"
 
 msgctxt "#31390"
 msgid "Vinyl"
@@ -1379,11 +1386,7 @@ msgstr "黑胶"
 
 msgctxt "#31391"
 msgid "Prefer tags instead of rating"
-msgstr "首选标签而不是评级"
-
-msgctxt "#31392"
-msgid "Limit number of items in hub"
-msgstr "媒体中心项目数上限"
+msgstr "首选标签而不是评分"
 
 msgctxt "#31393"
 msgid "Show icons only"
@@ -1394,7 +1397,7 @@ msgid "Multi-Widgets"
 msgstr "多小组件"
 
 msgctxt "#31395"
-msgid "Gradient color for "
+msgid "Gradient colour for "
 msgstr "渐变叠加到 "
 
 msgctxt "#31396"
@@ -1413,14 +1416,6 @@ msgctxt "#31401"
 msgid "Aspect ratio"
 msgstr "宽高比例"
 
-msgctxt "#31402"
-msgid "Select aspect ratio for square widget"
-msgstr "选择方形小组件的比例类型"
-
-msgctxt "#31403"
-msgid "Scale"
-msgstr "缩放"
-
 msgctxt "#31404"
 msgid "Sunrise at"
 msgstr "日出于"
@@ -1428,14 +1423,6 @@ msgstr "日出于"
 msgctxt "#31405"
 msgid "Sunset at"
 msgstr "日落于"
-
-msgctxt "#31406"
-msgid "Square small"
-msgstr "小方框"
-
-msgctxt "#31407"
-msgid "Square medium"
-msgstr "中方框"
 
 msgctxt "#31410"
 msgid "Home menu bar"
@@ -1453,29 +1440,9 @@ msgctxt "#31413"
 msgid "Weather location"
 msgstr "天气位置"
 
-msgctxt "#31414"
-msgid "Widget 1"
-msgstr "小组件 1"
-
-msgctxt "#31415"
-msgid "Widget 2"
-msgstr "小组件 2"
-
-msgctxt "#31416"
-msgid "Widget 3"
-msgstr "小组件 3"
-
-msgctxt "#31417"
-msgid "Widget 4"
-msgstr "小组件 4"
-
-msgctxt "#31418"
-msgid "Widget 5"
-msgstr "小组件 5"
-
 msgctxt "#31421"
 msgid "Images"
-msgstr "插图"
+msgstr "图像"
 
 msgctxt "#31422"
 msgid "Big wide"
@@ -1494,12 +1461,12 @@ msgid "Seconds"
 msgstr "秒"
 
 msgctxt "#31429"
-msgid "more..."
-msgstr "更多…"
+msgid "Show more..."
+msgstr "显示更多..."
 
 msgctxt "#31430"
-msgid "item"
-msgstr "项目"
+msgid "Limited widgets have \"more items\" object"
+msgstr "有“更多选项”物体的有限小部件"
 
 msgctxt "#31431"
 msgid "Use old Arctic Zephyr window animation"
@@ -1526,8 +1493,8 @@ msgid "Most played Songs"
 msgstr "最常播放的歌曲"
 
 msgctxt "#31437"
-msgid "Use old jumpbar (requires script.embuary.helper)"
-msgstr "使用旧式跳转条（需要 script.embuary.helper）"
+msgid "Use Skin Info Service alphabet scrollbar"
+msgstr "使用 Skin Info Service 字母滚动条"
 
 msgctxt "#31438"
 msgid "Genre Poster"
@@ -1559,7 +1526,7 @@ msgstr "德国电视广播内容"
 
 msgctxt "#31448"
 msgid "Debugging"
-msgstr "调试中"
+msgstr "正在调试"
 
 msgctxt "#31451"
 msgid "Play next episode"
@@ -1568,14 +1535,6 @@ msgstr "播放下一集"
 msgctxt "#31452"
 msgid "Widget"
 msgstr "小组件"
-
-msgctxt "#31453"
-msgid "Edge distance"
-msgstr "边缘距离"
-
-msgctxt "#31454"
-msgid "30px"
-msgstr "30px"
 
 msgctxt "#31455"
 msgid "Path intros"
@@ -1595,23 +1554,23 @@ msgstr "视频预览"
 
 msgctxt "#31459"
 msgid "DiscArt"
-msgstr "光盘图"
+msgstr "光盘封面"
 
 msgctxt "#31460"
 msgid "Fake Blu-ray"
-msgstr "仿冒蓝光"
+msgstr "模拟蓝光"
 
 msgctxt "#31461"
 msgid "Artwork section"
-msgstr "艺术作品部分"
+msgstr "艺术图片部分"
 
 msgctxt "#31462"
 msgid "Landscape"
-msgstr "场景贴图"
+msgstr "横版图"
 
 msgctxt "#31463"
 msgid "Artwork of"
-msgstr "艺术作品出自"
+msgstr "艺术图片出自"
 
 msgctxt "#31464"
 msgid "Movies and episodes"
@@ -1630,16 +1589,12 @@ msgid "disabled"
 msgstr "已禁用"
 
 msgctxt "#31468"
-msgid "Required addons"
+msgid "Required add-ons"
 msgstr "必需的插件"
 
 msgctxt "#31469"
-msgid "Recommended addons"
+msgid "Recommended add-ons"
 msgstr "推荐的插件"
-
-msgctxt "#31472"
-msgid "CoreELEC Settings"
-msgstr "Coreelec 设置"
 
 msgctxt "#31473"
 msgid "Custom widget"
@@ -1651,19 +1606,23 @@ msgstr "配置自定义小组件"
 
 msgctxt "#31475"
 msgid "Netflix fanart window"
-msgstr "奈飞同人画窗口"
+msgstr "网飞风格背景图窗口"
 
 msgctxt "#31476"
 msgid "Boxed Set"
-msgstr "盒装套装"
+msgstr "合集"
 
 msgctxt "#31477"
-msgid "Widget 6"
-msgstr "小组件 6"
+msgid "Select icon"
+msgstr "选择图标"
 
 msgctxt "#31478"
 msgid "Indicators"
 msgstr "指示器"
+
+msgctxt "#31479"
+msgid "Content type"
+msgstr "内容类型"
 
 msgctxt "#31480"
 msgid "HDR"
@@ -1683,7 +1642,7 @@ msgstr "音频频道"
 
 msgctxt "#31484"
 msgid "Spotlight widget path"
-msgstr "聚光灯小组件路径"
+msgstr "“精选推荐”小组件路径"
 
 msgctxt "#31485"
 msgid "Origin"
@@ -1698,7 +1657,7 @@ msgid "CPU"
 msgstr "处理器"
 
 msgctxt "#31489"
-msgid "Underlined homemenu items"
+msgid "Underlined home menu items"
 msgstr "带下划线的主菜单项"
 
 msgctxt "#31492"
@@ -1733,21 +1692,25 @@ msgctxt "#31500"
 msgid "Prefer percentage"
 msgstr "首选百分比"
 
+msgctxt "#31501"
+msgid "[B]Manage Files[/B][CR][CR] •     Copy[CR] •     Move[CR] •     Delete[CR] •     Rename[CR] •     Manage Source"
+msgstr "[B]文件管理[/B][CR][CR] • 复制[CR] • 移动[CR] • 删除[CR] • 重命名[CR] • 管理媒体源"
+
 msgctxt "#31502"
 msgid "On back, widgets do not return to initial position"
-msgstr "返回时，小组件不会返回初始位置"
+msgstr "按“返回键”，小组件不会返回初始位置"
 
 msgctxt "#31503"
 msgid "On up, when at first widget, do not jump back to last widget"
-msgstr "当处于第一个小组件时按上键，不要跳回最后一个小组件"
+msgstr "在顶部小组件按“上键”时，不跳转到最后一个小组件"
 
 msgctxt "#31504"
 msgid "On down, when at last widget, widgets do not return to initial position"
-msgstr "当处于最后一个小组件时按下键，不要跳回第一个小组件"
+msgstr "在底部小组件按“下键”时，小组件不返回初始位置"
 
 msgctxt "#31505"
 msgid "On up/down at first/last widget, go to last/first widget"
-msgstr "当处于第一个/最后一个小组件时按下键/上键，前往最后一个/第一个小组件"
+msgstr "小组件上下循环滚动"
 
 msgctxt "#31508"
 msgid "Global"
@@ -1773,6 +1736,10 @@ msgctxt "#31513"
 msgid "Override play function with TMDB helper play function"
 msgstr "使用 TMDB 播放功能覆盖自带播放功能"
 
+msgctxt "#31514"
+msgid "Skin Playlists"
+msgstr "皮肤专属播放列表"
+
 msgctxt "#31516"
 msgid "Last Played Radio Channels"
 msgstr "上次播放的广播频道"
@@ -1782,7 +1749,7 @@ msgid "Mini-EPG (vertical, only 5 Items)"
 msgstr "迷你 EPG（垂直，仅 5 项）"
 
 msgctxt "#31518"
-msgid "Unwatched Tv Shows"
+msgid "Unwatched TV Shows"
 msgstr "未收看的电视剧"
 
 msgctxt "#31520"
@@ -1795,11 +1762,11 @@ msgstr "海报墙"
 
 msgctxt "#31522"
 msgid "Poster Flix Seasons"
-msgstr "奈飞型季海报"
+msgstr "网飞风格季海报"
 
 msgctxt "#31523"
 msgid "Fanart Flix"
-msgstr "奈飞型同人画"
+msgstr "网飞风格背景图"
 
 msgctxt "#31524"
 msgid "IMDb Position"
@@ -1859,11 +1826,11 @@ msgstr "备用图像"
 
 msgctxt "#31568"
 msgid "ClearLogo/Art"
-msgstr "ClearLOGO/ART"
+msgstr "透明徽标/艺术图"
 
 msgctxt "#31569"
 msgid "Clearlogo instead of title"
-msgstr "显示 ClearLogo 而非标题"
+msgstr "显示透明徽标而非标题"
 
 msgctxt "#31576"
 msgid "Scrollbar"
@@ -1883,7 +1850,7 @@ msgstr "启用标题自动滚动"
 
 msgctxt "#31593"
 msgid "Enable auto playing trailers in flix views"
-msgstr "在奈飞型视图中启用自动播放预告片"
+msgstr "在网飞风格视图中启用自动播放预告片"
 
 msgctxt "#31594"
 msgid "Stop playback on next"
@@ -1891,11 +1858,11 @@ msgstr "停止播放下一个"
 
 msgctxt "#31595"
 msgid "Try to hide black bars"
-msgstr "尝试隐藏黑条"
+msgstr "尝试自动隐藏黑边"
 
 msgctxt "#31596"
 msgid "playing"
-msgstr "播放中"
+msgstr "正在播放"
 
 msgctxt "#31597"
 msgid "paused"
@@ -1903,7 +1870,7 @@ msgstr "已暂停"
 
 msgctxt "#31598"
 msgid "caching"
-msgstr "缓存中"
+msgstr "正在缓存"
 
 msgctxt "#31599"
 msgid "Auto start delay"
@@ -1927,7 +1894,7 @@ msgstr "最大"
 
 msgctxt "#31607"
 msgid "On back, jump to first item in widget list"
-msgstr "按下返回，回到小组件列表中第一个项目"
+msgstr "按“返回键”，跳转到小组件列表中第一项"
 
 msgctxt "#31608"
 msgid "After that, focus home menu"
@@ -1935,15 +1902,11 @@ msgstr "之后，聚焦主菜单"
 
 msgctxt "#31623"
 msgid "If home menu is focused, jump to widgets on back"
-msgstr "在主菜单按下返回，跳转到小组件"
-
-msgctxt "#31625"
-msgid "Disable addons fanart"
-msgstr "禁用插件同人画"
+msgstr "当主菜单处于聚焦状态时，按“返回键”跳转到小组件"
 
 msgctxt "#31630"
 msgid "Hub widget content type"
-msgstr "媒体中心小组件的内容样式"
+msgstr "分类中心小组件的内容样式"
 
 msgctxt "#31631"
 msgid "Playback action when video info dialog is shown"
@@ -1951,15 +1914,11 @@ msgstr "显示视频信息对话框时开始播放"
 
 msgctxt "#31632"
 msgid "Stop playback when item is no longer focused"
-msgstr "当项目不再聚焦时停止播放"
-
-msgctxt "#31643"
-msgid "LibreELEC Settings"
-msgstr "LibreELEC 设置"
+msgstr "当项不再聚焦时停止播放"
 
 msgctxt "#31650"
 msgid "Is playing"
-msgstr "播放中"
+msgstr "正在播放"
 
 msgctxt "#31651"
 msgid "Icon"
@@ -1978,8 +1937,8 @@ msgid "Now playing..."
 msgstr "当前播放..."
 
 msgctxt "#31667"
-msgid "Animated artwork"
-msgstr "动态艺术图片"
+msgid "Artwork"
+msgstr "艺术图"
 
 msgctxt "#31668"
 msgid "Path to additional animated posters"
@@ -2010,7 +1969,7 @@ msgid "Show detailed info when video starts (in seconds)"
 msgstr "视频开始时显示详细信息（秒）"
 
 msgctxt "#31679"
-msgid "Color presets"
+msgid "Colour presets"
 msgstr "颜色预设"
 
 msgctxt "#31680"
@@ -2037,29 +1996,25 @@ msgctxt "#31693"
 msgid "Online"
 msgstr "在线"
 
-msgctxt "#31694"
-msgid "Game studio/flag icons"
-msgstr "游戏工作室/旗帜图标"
-
 msgctxt "#31699"
-msgid "Pick a color..."
+msgid "Pick a colour..."
 msgstr "选择一种颜色..."
 
 msgctxt "#31700"
-msgid "Set color"
+msgid "Set colour"
 msgstr "设置颜色"
+
+msgctxt "#31702"
+msgid "Use thumb for episodes background"
+msgstr "将缩略图用于剧集背景"
 
 msgctxt "#31703"
 msgid "Small landscape"
-msgstr "小场景贴图"
+msgstr "小横版图"
 
 msgctxt "#31704"
-msgid "Small fanart"
-msgstr "小同人画"
-
-msgctxt "#31705"
-msgid "Small poster fanart"
-msgstr "小海报同人画"
+msgid "Small poster landscape"
+msgstr "小海报横版"
 
 msgctxt "#31707"
 msgid "Rating stars"
@@ -2079,11 +2034,11 @@ msgstr "评分设置"
 
 msgctxt "#31713"
 msgid "Additional rating for movies 1"
-msgstr "电影额外评分1"
+msgstr "电影额外评分 1"
 
 msgctxt "#31714"
 msgid "Additional rating for movies 2"
-msgstr "电影额外评分2"
+msgstr "电影额外评分 2"
 
 msgctxt "#31715"
 msgid "Additional rating for TV shows"
@@ -2104,6 +2059,7 @@ msgstr "Metacritic 评分"
 msgctxt "#31720"
 msgid "Rotten Tomatoes"
 msgstr "烂番茄"
+
 msgctxt "#31806"
 msgid "Age"
 msgstr "年龄"
@@ -2126,15 +2082,31 @@ msgstr "闻名于"
 
 msgctxt "#31818"
 msgid "Crew membership"
-msgstr "剧组成员资格"
+msgstr "剧组成员身份"
 
 msgctxt "#31819"
 msgid "Crew membership of"
-msgstr "剧组成员资格"
+msgstr "剧组成员所属"
 
 msgctxt "#31820"
 msgid "Prevent reload"
 msgstr "防止重新加载"
+
+msgctxt "#31821"
+msgid "Auto-fit to width"
+msgstr "自动适应宽度"
+
+msgctxt "#31822"
+msgid "Limit"
+msgstr "限制"
+
+msgctxt "#31823"
+msgid "Autoscroll time interval"
+msgstr "自动滚动时间间隔"
+
+msgctxt "#31824"
+msgid "Hub-Limit"
+msgstr "Hub 数量限制"
 
 msgctxt "#31900"
 msgid "OSD position"
@@ -2143,6 +2115,10 @@ msgstr "OSD 位置"
 msgctxt "#31901"
 msgid "Bottom"
 msgstr "底部"
+
+msgctxt "#31902"
+msgid "Onyx"
+msgstr "玛瑙黑"
 
 msgctxt "#31903"
 msgid "Cloudiness"
@@ -2220,21 +2196,9 @@ msgctxt "#31954"
 msgid "Purple"
 msgstr "紫色"
 
-msgctxt "#31955"
-msgid "Blue"
-msgstr "蓝色"
-
-msgctxt "#31956"
-msgid "Green"
-msgstr "绿色"
-
 msgctxt "#31957"
 msgid "Pink"
 msgstr "粉红色"
-
-msgctxt "#31958"
-msgid "Orange"
-msgstr "橙色"
 
 msgctxt "#31959"
 msgid "Slate"
@@ -2261,15 +2225,15 @@ msgid "Simple Gray"
 msgstr "简约灰色"
 
 msgctxt "#31965"
-msgid "Highlight color"
+msgid "Highlight colour"
 msgstr "高亮颜色"
 
 msgctxt "#31966"
-msgid "Gradient color"
+msgid "Gradient colour"
 msgstr "渐变色"
 
 msgctxt "#31967"
-msgid "Customise color settings"
+msgid "Customise colour settings"
 msgstr "自定义颜色设置"
 
 msgctxt "#31968"
@@ -2328,13 +2292,9 @@ msgctxt "#31981"
 msgid "Default (Unicode)"
 msgstr "默认值（Unicode）"
 
-msgctxt "#31982"
-msgid "Lock position of focused item"
-msgstr "锁定聚焦项目的位置"
-
 msgctxt "#31983"
 msgid "User rating overrides Kodi rating"
-msgstr "用户评级优先于 Kodi 评级"
+msgstr "用户评分优先于 Kodi 评分"
 
 msgctxt "#31984"
 msgid "Timer status"
@@ -2373,5 +2333,5 @@ msgid "Prefer online artwork"
 msgstr "优先选择在线艺术图片"
 
 msgctxt "#31993"
-msgid "Timed change of color scheme"
+msgid "Timed change of colour scheme"
 msgstr "定时切换配色方案"

@@ -6,7 +6,6 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(500)</visible>
-            <include>ViewSlideForJumpBar</include>
             <control type="group">
                 <control type="panel" id="500">
                     <visible>$EXP[Exp_View_500] | Window.IsVisible(pictures) | Window.IsVisible(programs)</visible>
@@ -27,7 +26,7 @@
                         <control type="group">
                             <height>280</height>
                             <width>280</width>
-                            <include content="include.widget.landscape">
+                            <include content="include.widget.thumb">
                                 <param name="id" value="500"/>
                                 <param name="height" value="280"/>
                             </include>
@@ -48,9 +47,10 @@
                         <control type="group">
                             <height>280</height>
                             <width>280</width>
-                            <include content="include.widget.landscape.focus">
+                            <include content="include.widget.thumb">
                                 <param name="id" value="500"/>
                                 <param name="height" value="280"/>
+                                <param name="focused" value="true" />
                             </include>
                         </control>
                         <control type="label">
@@ -67,11 +67,10 @@
                     </focusedlayout>
                 </control>
             </control>
-            <control type="scrollbar" id="1635">
-                <include content="scrollbar_vertical">
-                    <param name="scrollid" value="1635"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar">
+                <param name="id" value="1635" />
+                <param name="jumpbar" value="true" />
+            </include>
         </control>
     </include>
 </includes>

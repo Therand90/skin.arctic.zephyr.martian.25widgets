@@ -10,7 +10,8 @@
     <onload>ClearProperty(SkinSplashStarted,home)</onload>
 
     <!-- First start settings -->
-    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(use.new.jumpbar)</onload>
+    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(TMDbHelper.Blur.Radius,30)</onload>
+    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(AutoScrollTime,20s)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(global.hidecirles)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(show.reflections)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(homemenu.netflix)</onload>
@@ -21,10 +22,9 @@
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(view.netflix.clearlogo)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(extended.nowplaying)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(disable.only.hide.menu.items)</onload>
-    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(WidgetLimit,25)</onload>
-    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetString(HubLimit,25)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(furniture.flagicons)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(furniture.weatherleft)</onload>
+    <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(ShowUnwatchedEpisodes)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(osd.usetheme)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(musicosd.showvideolyrics)</onload>
     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(ShowClearArtOSD)</onload>
@@ -33,8 +33,7 @@
     <onunload>ClearProperty(StartupReplaceWindow,Home)</onunload>
       
     <!-- Go home -->
-    <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow)) + !Skin.HasSetting(disable.startup.window)">ReplaceWindow(1198)</onload>
-    <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow)) + Skin.HasSetting(disable.startup.window)">ReplaceWindow($INFO[System.StartupWindow])</onload>    
+    <onload condition="String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow(1198)</onload>
     <onload condition="!String.IsEmpty(Window(Home).Property(StartupReplaceWindow))">ReplaceWindow($INFO[Window(Home).Property(StartupReplaceWindow)])</onload>
     <controls/>
 </window>

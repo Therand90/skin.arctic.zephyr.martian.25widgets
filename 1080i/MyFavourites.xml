@@ -12,7 +12,7 @@
     <controls>
         <include>GlobalBackground</include>
         <include>View_Includes</include>
-        <include>JumpBarHorizontal2</include>
+        <include>Furniture_Jumpbar</include>
         <include>Furniture_Header</include>
         <include>Furniture_NowPlaying</include>
         <include>Furniture_Clock</include>
@@ -67,6 +67,7 @@
                 <control type="edit" id="19">
                     <label>587</label>
                     <description>Filter (hidden)</description>
+                    <align>left</align>
                     <include>DefContextButtonGradient</include>
                     <visible>!Container.CanFilterAdvanced</visible>
                 </control>
@@ -91,7 +92,6 @@
                     <label>137</label>
                     <onclick>SetFocus(50)</onclick>
                     <include content="Def_GlobalSearch_Actions">
-                        <param name="query" value="tvshows=true&amp;movies=true&amp;episodes=true&amp;actors=true" />
                     </include>
                 </control>
                 <include>ButtonPlaylist</include>

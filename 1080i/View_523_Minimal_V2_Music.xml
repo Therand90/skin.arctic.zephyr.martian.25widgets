@@ -33,11 +33,12 @@
             <control type="group">
                 <width>325</width>
                 <left>70</left>
-	            <include content="include.widget.square.focus">
+	            <include content="include.widget.square">
 	                <param name="id" value="523"/>
 	                <param name="distance" value="10"/>
 	                <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
 	                <param name="aspectratio" value="scale"/>
+                    <param name="focused" value="true" />
 	            </include>
             </control>
         </focusedlayout>
@@ -50,20 +51,19 @@
             <visible>Control.IsVisible(523)</visible>
             <include>ViewSlideForJumpBar</include>
             <include>View_523_Minimal_V2_Content_Music</include>
-            <control type="scrollbar" id="1644">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1644"/>
-                    <param name="jumpbar" value="true"/>
-                    <param name="bottom" value="200"/>
-                </include>
-            </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1644" />
+                <param name="jumpbar" value="true" />
+            </include>
             <control type="list" id="5231">
                 <include>HiddenListControl</include>
                 <content>$INFO[Container(523).ListItem.DBID,musicdb://artists/,/]</content>
             </control>
-	        <control type="fixedlist" id="523">
-	            <include>523Content</include>
-	        </control>
+            <include content="DefListControl">
+                <param name="id" value="523" />
+                <param name="nowrap" value="Skin.HasSetting(view.netflix.nowrap)" />
+                <include>523Content</include>
+            </include>
         </control>
     </include>
 

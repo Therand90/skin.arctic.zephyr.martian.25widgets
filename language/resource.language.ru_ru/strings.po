@@ -7,19 +7,19 @@ msgstr ""
 "Project-Id-Version: XBMC Skins\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-09-05 16:54+0000\n"
-"Last-Translator: Alexey <signfinder@gmail.com>\n"
+"PO-Revision-Date: 2026-05-27 15:16+0000\n"
+"Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-arctic-zephyr-mod/ru_ru/>\n"
 "Language: ru_ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.13.1\n"
+"X-Generator: Weblate 2026.5\n"
 
-msgctxt "#31000"
-msgid "Limit number of items in widget"
-msgstr "Ограничение элементов в виджете"
+msgctxt "#31001"
+msgid "Prefer landscape art"
+msgstr "Предпочитать пейзажный формат  изображения"
 
 msgctxt "#31002"
 msgid "Animated posters"
@@ -28,14 +28,6 @@ msgstr "Анимированные постеры"
 msgctxt "#31003"
 msgid "Animated fanarts"
 msgstr "Анимированный фан-арт"
-
-msgctxt "#31004"
-msgid "Show discart (fanart views)"
-msgstr "Обложка дисков (просмотр фан-артов)"
-
-msgctxt "#31005"
-msgid "Alternate case (fanart views)"
-msgstr "Альтернативная обложка (просмотр фан-артов)"
 
 msgctxt "#31007"
 msgid "Title-overlays (symbols-view, deprecated)"
@@ -66,11 +58,11 @@ msgid "Netflix"
 msgstr "Netflix"
 
 msgctxt "#31017"
-msgid "Colored icon media flags"
+msgid "Coloured icon media flags"
 msgstr "Цветные иконки медиафлагов"
 
 msgctxt "#31019"
-msgid "Supported Addons"
+msgid "Supported add-ons"
 msgstr "Поддерживаемые аддоны"
 
 msgctxt "#31020"
@@ -178,7 +170,7 @@ msgid "Movie Sets"
 msgstr "Киноколлекции"
 
 msgctxt "#31053"
-msgid "New Tv Shows"
+msgid "New TV Shows"
 msgstr "Новые сериалы"
 
 msgctxt "#31054"
@@ -186,11 +178,11 @@ msgid "Recently Watched TV Shows"
 msgstr "Недавно добавленные сериалы"
 
 msgctxt "#31056"
-msgid "Random Tv Shows"
+msgid "Random TV Shows"
 msgstr "Случайные сериалы"
 
 msgctxt "#31057"
-msgid "Top Rated Tv Shows"
+msgid "Top Rated TV Shows"
 msgstr "Лучшие сериалы"
 
 msgctxt "#31058"
@@ -236,6 +228,10 @@ msgstr "Случайные альбомы"
 msgctxt "#31068"
 msgid "Random Artists"
 msgstr "Случайные исполнители"
+
+msgctxt "#31069"
+msgid "Next Up"
+msgstr "Следующий"
 
 msgctxt "#31071"
 msgid "Show fanart/landscape view"
@@ -438,7 +434,7 @@ msgid "Set your favourite settings"
 msgstr "Установить любимые настройки"
 
 msgctxt "#31126"
-msgid "Accent colors"
+msgid "Accent colours"
 msgstr "Цвета акцента"
 
 msgctxt "#31133"
@@ -534,7 +530,7 @@ msgid "Movies by"
 msgstr "Фильмы от"
 
 msgctxt "#31160"
-msgid "Tv Shows by"
+msgid "TV Shows by"
 msgstr "Сериалы от"
 
 msgctxt "#31161"
@@ -829,10 +825,6 @@ msgctxt "#31234"
 msgid "Fanart overlay"
 msgstr "Наложение фан-арта"
 
-msgctxt "#31235"
-msgid "Show banner?"
-msgstr "Показать баннер?"
-
 msgctxt "#31236"
 msgid "Now playing..."
 msgstr "Сейчас воспроизводится…"
@@ -842,11 +834,11 @@ msgid "Use minimal busy loader in header"
 msgstr "Использовать минималистичный индикатор загрузки в заголовке"
 
 msgctxt "#31238"
-msgid "Select highlight color"
+msgid "Select highlight colour"
 msgstr "Выбрать основной цвет"
 
 msgctxt "#31239"
-msgid "Current Color"
+msgid "Current Colour"
 msgstr "Текущий цвет"
 
 msgctxt "#31240"
@@ -1070,7 +1062,7 @@ msgid "Show plot on HUB"
 msgstr "Показать сюжет на хабе"
 
 msgctxt "#31300"
-msgid "Colors"
+msgid "Colours"
 msgstr "Цвета"
 
 msgctxt "#31301"
@@ -1154,7 +1146,7 @@ msgid "New Unwatched Episodes"
 msgstr "Новые непросмотренные серии"
 
 msgctxt "#31323"
-msgid "New Unwatched Tv Shows"
+msgid "New Unwatched TV Shows"
 msgstr "Новые непросмотренные сериалы"
 
 msgctxt "#31324"
@@ -1210,20 +1202,8 @@ msgid "25"
 msgstr "25"
 
 msgctxt "#31340"
-msgid "Auto-scrolling"
+msgid "Autoscroll"
 msgstr "Автопролистывание"
-
-msgctxt "#31341"
-msgid "Widget-listtype"
-msgstr "Тип списка виджета"
-
-msgctxt "#31342"
-msgid "List"
-msgstr "Список"
-
-msgctxt "#31343"
-msgid "Fixed list"
-msgstr "Фиксированный список"
 
 msgctxt "#31348"
 msgid "Movie Genre Icons"
@@ -1265,14 +1245,6 @@ msgctxt "#31360"
 msgid "Log off: $INFO[system.profilename]"
 msgstr "Выйти: $INFO[system.profilename]"
 
-msgctxt "#31361"
-msgid "Delete/Disable Settings Menu Item?"
-msgstr "Удалить/Выключить пункт меню настроек?"
-
-msgctxt "#31362"
-msgid "Are you sure you want to remove the Settings menu item?[CR]Please ensure that you have an alternative method of accessing Settings before you remove this menu item."
-msgstr "Вы уверены, что хотите удалить пункт настроек из меню?[CR]Пожалуйста, удостоверьтесь, что у Вас есть альтернативный метод доступа к настройкам перед тем, как удалять этот пункт."
-
 msgctxt "#31363"
 msgid "Power menu"
 msgstr "Меню выключения"
@@ -1288,6 +1260,10 @@ msgstr "Использовать трейлеры IMDb"
 msgctxt "#31366"
 msgid "Show Filenames"
 msgstr "Показать имена файлов"
+
+msgctxt "#31368"
+msgid "Show unwatched episodes count"
+msgstr "Показать количество непросмотренных серий"
 
 msgctxt "#31369"
 msgid "Shifted ClearArt"
@@ -1357,10 +1333,6 @@ msgctxt "#31391"
 msgid "Prefer tags instead of rating"
 msgstr "Предпочитать теги вместо рейтинга"
 
-msgctxt "#31392"
-msgid "Limit number of items in hub"
-msgstr "Лимит на количество предметов в хабе"
-
 msgctxt "#31393"
 msgid "Show icons only"
 msgstr "Показывать только иконки"
@@ -1370,7 +1342,7 @@ msgid "Multi-Widgets"
 msgstr "Мульти-виджеты"
 
 msgctxt "#31395"
-msgid "Gradient color for "
+msgid "Gradient colour for "
 msgstr "Цвет градиента для "
 
 msgctxt "#31396"
@@ -1389,14 +1361,6 @@ msgctxt "#31401"
 msgid "Aspect ratio"
 msgstr "Соотношение сторон"
 
-msgctxt "#31402"
-msgid "Select aspect ratio for square widget"
-msgstr "Выбрать соотношение сторон для квадратного виджета"
-
-msgctxt "#31403"
-msgid "Scale"
-msgstr "Масштаб"
-
 msgctxt "#31404"
 msgid "Sunrise at"
 msgstr "Рассвет в"
@@ -1404,14 +1368,6 @@ msgstr "Рассвет в"
 msgctxt "#31405"
 msgid "Sunset at"
 msgstr "Закат в"
-
-msgctxt "#31406"
-msgid "Square small"
-msgstr "Квадрат (маленький)"
-
-msgctxt "#31407"
-msgid "Square medium"
-msgstr "Квадрат (средний)"
 
 msgctxt "#31410"
 msgid "Home menu bar"
@@ -1429,26 +1385,6 @@ msgctxt "#31413"
 msgid "Weather location"
 msgstr "Местоположение для погоды"
 
-msgctxt "#31414"
-msgid "Widget 1"
-msgstr "Виджет 1"
-
-msgctxt "#31415"
-msgid "Widget 2"
-msgstr "Виджет 2"
-
-msgctxt "#31416"
-msgid "Widget 3"
-msgstr "Виджет 3"
-
-msgctxt "#31417"
-msgid "Widget 4"
-msgstr "Виджет 4"
-
-msgctxt "#31418"
-msgid "Widget 5"
-msgstr "Виджет 5"
-
 msgctxt "#31421"
 msgid "Images"
 msgstr "Изображения"
@@ -1462,12 +1398,12 @@ msgid "Seconds"
 msgstr "Секунды"
 
 msgctxt "#31429"
-msgid "more..."
-msgstr "ещё..."
+msgid "Show more..."
+msgstr "Показать больше..."
 
 msgctxt "#31430"
-msgid "item"
-msgstr "предмет"
+msgid "Limited widgets have \"more items\" object"
+msgstr "Ограниченные виджеты имеют объект «больше элементов»"
 
 msgctxt "#31431"
 msgid "Use old Arctic Zephyr window animation"
@@ -1492,10 +1428,6 @@ msgstr "Недавно добавленные песни"
 msgctxt "#31436"
 msgid "Most played Songs"
 msgstr "Самые популярные песни"
-
-msgctxt "#31437"
-msgid "Use old jumpbar (requires script.embuary.helper)"
-msgstr "Использовать старую полосу перемотки (требуется script.embuary.helper)"
 
 msgctxt "#31438"
 msgid "Genre Poster"
@@ -1536,14 +1468,6 @@ msgstr "Воспроизвести следующую серию"
 msgctxt "#31452"
 msgid "Widget"
 msgstr "Виджет"
-
-msgctxt "#31453"
-msgid "Edge distance"
-msgstr "Дистанция от границы"
-
-msgctxt "#31454"
-msgid "30px"
-msgstr "30пикс"
 
 msgctxt "#31455"
 msgid "Path intros"
@@ -1598,16 +1522,12 @@ msgid "disabled"
 msgstr "выключено"
 
 msgctxt "#31468"
-msgid "Required addons"
+msgid "Required add-ons"
 msgstr "Необходимые дополнения"
 
 msgctxt "#31469"
-msgid "Recommended addons"
+msgid "Recommended add-ons"
 msgstr "Рекомендованные дополнения"
-
-msgctxt "#31472"
-msgid "CoreELEC Settings"
-msgstr "Настройки CoreELEC"
 
 msgctxt "#31473"
 msgid "Custom widget"
@@ -1626,12 +1546,16 @@ msgid "Boxed Set"
 msgstr "Киноколлекция"
 
 msgctxt "#31477"
-msgid "Widget 6"
-msgstr "Виджет 6"
+msgid "Select icon"
+msgstr "Выбрать иконку"
 
 msgctxt "#31478"
 msgid "Indicators"
 msgstr "Индикаторы"
+
+msgctxt "#31479"
+msgid "Content type"
+msgstr "Тип содержимого"
 
 msgctxt "#31480"
 msgid "HDR"
@@ -1666,7 +1590,7 @@ msgid "CPU"
 msgstr "Процессор"
 
 msgctxt "#31489"
-msgid "Underlined homemenu items"
+msgid "Underlined home menu items"
 msgstr "Подчеркнуть предметы главного меню"
 
 msgctxt "#31492"
@@ -1750,7 +1674,7 @@ msgid "Mini-EPG (vertical, only 5 Items)"
 msgstr "Мини-телегид (вертикальный, только 5 предметов)"
 
 msgctxt "#31518"
-msgid "Unwatched Tv Shows"
+msgid "Unwatched TV Shows"
 msgstr "Непросмотренные сериалы"
 
 msgctxt "#31520"
@@ -1897,10 +1821,6 @@ msgctxt "#31623"
 msgid "If home menu is focused, jump to widgets on back"
 msgstr "Если выбрано главное меню, при нажатии \"назад\" выбрать виджеты"
 
-msgctxt "#31625"
-msgid "Disable addons fanart"
-msgstr "Отключить фанарт для дополнений"
-
 msgctxt "#31630"
 msgid "Hub widget content type"
 msgstr "Тип контента в виджете хаба"
@@ -1912,10 +1832,6 @@ msgstr "Действие воспроизведения когда показы�
 msgctxt "#31632"
 msgid "Stop playback when item is no longer focused"
 msgstr "Остановить воспроизведение когда предмет больше не выбран"
-
-msgctxt "#31643"
-msgid "LibreELEC Settings"
-msgstr "Настройки LibreELEC"
 
 msgctxt "#31650"
 msgid "Is playing"
@@ -1936,10 +1852,6 @@ msgstr "Сейчас воспроизводится"
 msgctxt "#31663"
 msgid "Now playing..."
 msgstr "Сейчас играет..."
-
-msgctxt "#31667"
-msgid "Animated artwork"
-msgstr "Анимирование картинки"
 
 msgctxt "#31668"
 msgid "Path to additional animated posters"
@@ -1970,7 +1882,7 @@ msgid "Show detailed info when video starts (in seconds)"
 msgstr "Показывать подробности при старте видео (в секундах)"
 
 msgctxt "#31679"
-msgid "Color presets"
+msgid "Colour presets"
 msgstr "Цветовые предустановки"
 
 msgctxt "#31680"
@@ -1997,41 +1909,33 @@ msgctxt "#31693"
 msgid "Online"
 msgstr "В сети"
 
-msgctxt "#31694"
-msgid "Game studio/flag icons"
-msgstr "Игровая студия / значки флагов"
-
 msgctxt "#31699"
-msgid "Pick a color..."
-msgstr ""
+msgid "Pick a colour..."
+msgstr "Выбрать цвет…"
 
 msgctxt "#31700"
-msgid "Set color"
-msgstr ""
+msgid "Set colour"
+msgstr "Указать цвет"
+
+msgctxt "#31702"
+msgid "Use thumb for episodes background"
+msgstr "Использовать эскиз для фона серий"
 
 msgctxt "#31703"
 msgid "Small landscape"
-msgstr ""
-
-msgctxt "#31704"
-msgid "Small fanart"
-msgstr ""
-
-msgctxt "#31705"
-msgid "Small poster fanart"
-msgstr ""
+msgstr "Мелкие горизонтальные"
 
 msgctxt "#31707"
 msgid "Rating stars"
-msgstr ""
+msgstr "Звёзды оценок"
 
 msgctxt "#31708"
 msgid "Auto show now playing info after 5 seconds delay if hidden"
-msgstr ""
+msgstr "Автоматически отображать информацию «сейчас играет» с задержкой в 5 секунд, если она скрыта"
 
 msgctxt "#31711"
 msgid "Wikipedia"
-msgstr ""
+msgstr "Википедия"
 
 msgctxt "#31806"
 msgid "Age"
@@ -2056,6 +1960,18 @@ msgstr "Известность за"
 msgctxt "#31820"
 msgid "Prevent reload"
 msgstr "Запретить перезагрузку"
+
+msgctxt "#31821"
+msgid "Auto-fit to width"
+msgstr "Автоподгонка по ширине"
+
+msgctxt "#31822"
+msgid "Limit"
+msgstr "Ограничение"
+
+msgctxt "#31823"
+msgid "Autoscroll time interval"
+msgstr "Интервал времени автопрокрутки"
 
 msgctxt "#31905"
 msgid "Nodes"
@@ -2121,6 +2037,42 @@ msgctxt "#31952"
 msgid "Creator"
 msgstr "Создатель"
 
+msgctxt "#31954"
+msgid "Purple"
+msgstr "Фиолетовый"
+
+msgctxt "#31957"
+msgid "Pink"
+msgstr "Розовый"
+
+msgctxt "#31959"
+msgid "Slate"
+msgstr "Сланец"
+
+msgctxt "#31960"
+msgid "Coal"
+msgstr "Угольный"
+
+msgctxt "#31961"
+msgid "Aqua"
+msgstr "Аква"
+
+msgctxt "#31962"
+msgid "Tropical Sunset"
+msgstr "Тропический закат"
+
+msgctxt "#31963"
+msgid "Miami Vaporwave"
+msgstr "Майами Вейпорвейв"
+
+msgctxt "#31964"
+msgid "Simple Gray"
+msgstr ""
+
+msgctxt "#31971"
+msgid "Midnight Purple"
+msgstr "Полуночный пурпурный"
+
 msgctxt "#31976"
 msgid "Use dark theme"
 msgstr "Использовать темную тему"
@@ -2136,23 +2088,3 @@ msgstr "Предустановки визуализации"
 msgctxt "#31980"
 msgid "Pause video when opening info"
 msgstr "Пауза видео при открытии информации"
-
-#~ msgctxt "#31722"
-#~ msgid "Extras"
-#~ msgstr "Дополнительно"
-
-#~ msgctxt "#31179"
-#~ msgid "Show clearlogo"
-#~ msgstr "Показывать прозрачное лого"
-
-#~ msgctxt "#31007"
-#~ msgid "Title-overlays (symbole-view)"
-#~ msgstr "Наложения титров (представление символов)"
-
-#~ msgctxt "#31017"
-#~ msgid "Colored icons"
-#~ msgstr "Цветные иконки"
-
-#~ msgctxt "#31022"
-#~ msgid "Video Information Dialog"
-#~ msgstr "Информация о видео"

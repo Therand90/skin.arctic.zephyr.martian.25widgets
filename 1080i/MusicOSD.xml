@@ -2,7 +2,6 @@
 <!-- Foundation -->
 <window id="120">
     <onunload>ClearProperty(SetUserRating,home)</onunload>
-    <onunload>ClearProperty(osdshowinfo,home)</onunload>
     <include condition="!Player.PauseEnabled">OSDFocusStop</include>
     <include condition="Player.PauseEnabled">OSDFocusPause</include>
     <controls>
@@ -50,7 +49,7 @@
             </animation>
             <animation effect="fade" start="100" end="0" time="150" condition="Window.IsVisible(DialogPlayerProcessInfo.xml)">Conditional</animation>
             <animation effect="slide" start="0,0" end="-215,0" time="150" condition="Skin.HasSetting(musicosd.disableposter)">Conditional</animation>
-            <animation effect="slide" start="0,0" end="-60,0" time="150" condition="!Skin.HasSetting(musicosd.disableposter) + Skin.HasSetting(musicosd.hidedisc)">Conditional</animation>
+            <animation effect="slide" start="0,0" end="-60,0" time="150" condition="!Skin.HasSetting(musicosd.disableposter) + [Skin.HasSetting(musicosd.hidedisc) | MusicPlayer.Content(LiveTV)]">Conditional</animation>
 
             <control type="grouplist" id="101">
                 <align>center</align>
@@ -80,7 +79,8 @@
                 <animation effect="fade" start="100" end="90" condition="true">Conditional</animation>
             </control>
             <control type="group">
-                <posy>294</posy>
+                <visible>!MusicPlayer.Content(LiveTV)</visible>
+                <posy>294</posy>              
                 <control type="group">
                     <right>8</right>
                     <centertop>69</centertop>
@@ -168,30 +168,7 @@
                         <itemgap>12</itemgap>
                         <usecontrolcoords>true</usecontrolcoords>
                         <visible>true</visible>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic1"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic2"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic3"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic4"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic5"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
-                        <include content="Def_Flag">
-                            <param name="Star" value="FlagstarMusic1"/>
-							<param name="color" value="$VAR[OSDRatingFlagsColor]" />
-                        </include>
+                        <include>MusicOSDRatingFlags</include>
                     </control>
                     <control type="label" description="AlbumYear">
                         <align>center</align>
@@ -208,11 +185,11 @@
                         <font>Small</font>
                         <align>center</align>
                         <textcolor>$VAR[OSDPanelWhite70]</textcolor>
-                        <label>$INFO[Player.Time]$INFO[Player.Duration,  /  ,]</label>
+                        <label>$INFO[Player.Time]$INFO[Player.Duration, / ,]</label>
                     </control>
                 </control>
-                <include content="scrollbar_dialog">
-                    <param name="scrollid" value="6077"/>
+                <include content="Furniture_Scrollbar_Dialog">
+                    <param name="id" value="6077"/>
                     <param name="onleft" value="9100"/>
                     <param name="onright" value="14"/>
                     <param name="posy" value="400"/>

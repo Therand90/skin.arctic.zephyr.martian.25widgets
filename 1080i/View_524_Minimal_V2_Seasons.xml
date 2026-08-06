@@ -31,9 +31,10 @@
             <control type="group">
                 <width>424</width>
                 <left>70</left>
-	            <include content="include.widget.season.focus">
+	            <include content="include.widget.season">
 	                <param name="id" value="524"/>
 	                <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
+                    <param name="focused" value="true" />
 	            </include>
             </control>     
         </focusedlayout>
@@ -44,17 +45,17 @@
         <control type="group">
             <include>Animation.Common</include>
             <visible>Control.IsVisible(524)</visible>
+            <include>ViewSlideForJumpBar</include>
             <include>View_521_Minimal_V2_Content</include>
-            <control type="scrollbar" id="1645">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1645"/>
-                    <param name="jumpbar" value="false"/>
-                    <param name="bottom" value="200"/>
-                </include>
-            </control>
-	        <control type="fixedlist" id="524">
-	            <include>524Content</include>
-	        </control>
+            <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1645" />
+                <param name="jumpbar" value="true" />
+            </include>
+            <include content="DefListControl">
+                <param name="id" value="524" />
+                <param name="nowrap" value="Skin.HasSetting(view.netflix.nowrap)" />
+                <include>524Content</include>
+            </include>
         </control>
     </include>
 </includes>

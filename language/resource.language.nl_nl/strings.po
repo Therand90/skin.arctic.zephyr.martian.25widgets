@@ -17,10 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.8.2\n"
 
-msgctxt "#31000"
-msgid "Limit number of items in widget"
-msgstr "Beperk aantal items in widget"
-
 msgctxt "#31002"
 msgid "Animated posters"
 msgstr "Geanimeerde posters"
@@ -28,14 +24,6 @@ msgstr "Geanimeerde posters"
 msgctxt "#31003"
 msgid "Animated fanarts"
 msgstr "Geanimeerde fan-art"
-
-msgctxt "#31004"
-msgid "Show discart (fanart views)"
-msgstr "Toon discart (fanart weergaves)"
-
-msgctxt "#31005"
-msgid "Alternate case (fanart views)"
-msgstr "Alternatieve hoes (fanart weergaves)"
 
 msgctxt "#31007"
 msgid "Title-overlays (symbols-view, deprecated)"
@@ -66,11 +54,11 @@ msgid "Netflix"
 msgstr "Netflix"
 
 msgctxt "#31017"
-msgid "Colored icon media flags"
+msgid "Coloured icon media flags"
 msgstr "Gekleurde media informatie iconen"
 
 msgctxt "#31019"
-msgid "Supported Addons"
+msgid "Supported add-ons"
 msgstr "Ondersteunde add-ons"
 
 msgctxt "#31020"
@@ -182,7 +170,7 @@ msgid "Movie Sets"
 msgstr "Speelfilm collecties"
 
 msgctxt "#31053"
-msgid "New Tv Shows"
+msgid "New TV Shows"
 msgstr "Nieuwe series"
 
 msgctxt "#31054"
@@ -190,11 +178,11 @@ msgid "Recently Watched TV Shows"
 msgstr "Onlangs bekeken tv series"
 
 msgctxt "#31056"
-msgid "Random Tv Shows"
+msgid "Random TV Shows"
 msgstr "Willekeurige series"
 
 msgctxt "#31057"
-msgid "Top Rated Tv Shows"
+msgid "Top Rated TV Shows"
 msgstr "Best gewaarde series"
 
 msgctxt "#31058"
@@ -240,6 +228,10 @@ msgstr "Willekeurige albums"
 msgctxt "#31068"
 msgid "Random Artists"
 msgstr "Willekeurige artiesten"
+
+msgctxt "#31069"
+msgid "Next Up"
+msgstr "Volgende"
 
 msgctxt "#31071"
 msgid "Show fanart/landscape view"
@@ -442,7 +434,7 @@ msgid "Set your favourite settings"
 msgstr "Stel je favoriete instellingen in"
 
 msgctxt "#31126"
-msgid "Accent colors"
+msgid "Accent colours"
 msgstr "Accentkleuren"
 
 msgctxt "#31133"
@@ -538,7 +530,7 @@ msgid "Movies by"
 msgstr "Speelfilms door"
 
 msgctxt "#31160"
-msgid "Tv Shows by"
+msgid "TV Shows by"
 msgstr "Series door"
 
 msgctxt "#31161"
@@ -833,10 +825,6 @@ msgctxt "#31234"
 msgid "Fanart overlay"
 msgstr "Fanart overlay"
 
-msgctxt "#31235"
-msgid "Show banner?"
-msgstr "Toon banner?"
-
 msgctxt "#31236"
 msgid "Now playing..."
 msgstr "Speelt..."
@@ -846,11 +834,11 @@ msgid "Use minimal busy loader in header"
 msgstr "Gebruik minimalistische bezig-animatie in kop"
 
 msgctxt "#31238"
-msgid "Select highlight color"
+msgid "Select highlight colour"
 msgstr "Selecteer accentkleur"
 
 msgctxt "#31239"
-msgid "Current Color"
+msgid "Current Colour"
 msgstr "Huidige kleur"
 
 msgctxt "#31240"
@@ -1074,7 +1062,7 @@ msgid "Show plot on HUB"
 msgstr "Toon plot op hub"
 
 msgctxt "#31300"
-msgid "Colors"
+msgid "Colours"
 msgstr "Kleuren"
 
 msgctxt "#31301"
@@ -1158,7 +1146,7 @@ msgid "New Unwatched Episodes"
 msgstr "Nieuwe niet-bekeken afleveringen"
 
 msgctxt "#31323"
-msgid "New Unwatched Tv Shows"
+msgid "New Unwatched TV Shows"
 msgstr "Nieuwe niet bekeken series"
 
 msgctxt "#31324"
@@ -1214,20 +1202,8 @@ msgid "25"
 msgstr "25"
 
 msgctxt "#31340"
-msgid "Auto-scrolling"
+msgid "Autoscroll"
 msgstr "Auto-scrollen"
-
-msgctxt "#31341"
-msgid "Widget-listtype"
-msgstr "Widget-lijsttype"
-
-msgctxt "#31342"
-msgid "List"
-msgstr "Lijst"
-
-msgctxt "#31343"
-msgid "Fixed list"
-msgstr "Vaste lijst"
 
 msgctxt "#31348"
 msgid "Movie Genre Icons"
@@ -1269,14 +1245,6 @@ msgctxt "#31360"
 msgid "Log off: $INFO[system.profilename]"
 msgstr "Afmelden: $INFO[system.profilename]"
 
-msgctxt "#31361"
-msgid "Delete/Disable Settings Menu Item?"
-msgstr "Verwijder/deactiveer instellingen menu item?"
-
-msgctxt "#31362"
-msgid "Are you sure you want to remove the Settings menu item?[CR]Please ensure that you have an alternative method of accessing Settings before you remove this menu item."
-msgstr "Weet je zeker dat je het instellingen menu item wilt verwijderen?[CR]Verzeker jezelf er van dat je een alternatieve manier hebt om de instellingen te benaderen voordat je dit menu item verwijderd."
-
 msgctxt "#31363"
 msgid "Power menu"
 msgstr "Energiemenu"
@@ -1292,6 +1260,10 @@ msgstr "Gebruik IMDb trailers"
 msgctxt "#31366"
 msgid "Show Filenames"
 msgstr "Toon bestandsnamen"
+
+msgctxt "#31368"
+msgid "Show unwatched episodes count"
+msgstr "Toon niet-bekeken afleveringen teller"
 
 msgctxt "#31369"
 msgid "Shifted ClearArt"
@@ -1361,10 +1333,6 @@ msgctxt "#31391"
 msgid "Prefer tags instead of rating"
 msgstr "Geef voorkeur aan tags over waarderingen"
 
-msgctxt "#31392"
-msgid "Limit number of items in hub"
-msgstr "Beperk items in hub"
-
 msgctxt "#31393"
 msgid "Show icons only"
 msgstr "Toon alleen iconen"
@@ -1374,7 +1342,7 @@ msgid "Multi-Widgets"
 msgstr "Multi-widgets"
 
 msgctxt "#31395"
-msgid "Gradient color for "
+msgid "Gradient colour for "
 msgstr "Overgangskleur voor "
 
 msgctxt "#31396"
@@ -1393,14 +1361,6 @@ msgctxt "#31401"
 msgid "Aspect ratio"
 msgstr "Aspect ratio"
 
-msgctxt "#31402"
-msgid "Select aspect ratio for square widget"
-msgstr "Selecteer aspect ratio voor vierkant widget"
-
-msgctxt "#31403"
-msgid "Scale"
-msgstr "Schaal"
-
 msgctxt "#31404"
 msgid "Sunrise at"
 msgstr "Zonsopgang om"
@@ -1408,14 +1368,6 @@ msgstr "Zonsopgang om"
 msgctxt "#31405"
 msgid "Sunset at"
 msgstr "Zonsondergang om"
-
-msgctxt "#31406"
-msgid "Square small"
-msgstr "Vierkant (klein)"
-
-msgctxt "#31407"
-msgid "Square medium"
-msgstr "Vierkant (middel)"
 
 msgctxt "#31410"
 msgid "Home menu bar"
@@ -1433,26 +1385,6 @@ msgctxt "#31413"
 msgid "Weather location"
 msgstr "Weer locatie"
 
-msgctxt "#31414"
-msgid "Widget 1"
-msgstr "Widget 1"
-
-msgctxt "#31415"
-msgid "Widget 2"
-msgstr "Widget 2"
-
-msgctxt "#31416"
-msgid "Widget 3"
-msgstr "Widget 3"
-
-msgctxt "#31417"
-msgid "Widget 4"
-msgstr "Widget 4"
-
-msgctxt "#31418"
-msgid "Widget 5"
-msgstr "Widget 5"
-
 msgctxt "#31421"
 msgid "Images"
 msgstr "Afbeeldingen"
@@ -1466,12 +1398,12 @@ msgid "Seconds"
 msgstr "Seconden"
 
 msgctxt "#31429"
-msgid "more..."
-msgstr "meer..."
+msgid "Show more..."
+msgstr "Laat meer zien..."
 
 msgctxt "#31430"
-msgid "item"
-msgstr "item"
+msgid "Limited widgets have \"more items\" object"
+msgstr "Beperkte widgets hebben een object \"meer items\""
 
 msgctxt "#31431"
 msgid "Use old Arctic Zephyr window animation"
@@ -1496,10 +1428,6 @@ msgstr "Onlangs toegevoegde nummers"
 msgctxt "#31436"
 msgid "Most played Songs"
 msgstr "Meest afgespeelde nummers"
-
-msgctxt "#31437"
-msgid "Use old jumpbar (requires script.embuary.helper)"
-msgstr "Gebruik oude jumpbalk (vereist script.embuary.helper)"
 
 msgctxt "#31438"
 msgid "Genre Poster"
@@ -1540,14 +1468,6 @@ msgstr "Speel volgende episode af"
 msgctxt "#31452"
 msgid "Widget"
 msgstr "Widget"
-
-msgctxt "#31453"
-msgid "Edge distance"
-msgstr "Randafstand"
-
-msgctxt "#31454"
-msgid "30px"
-msgstr "30px"
 
 msgctxt "#31455"
 msgid "Path intros"
@@ -1602,16 +1522,12 @@ msgid "disabled"
 msgstr "uitgeschakeld"
 
 msgctxt "#31468"
-msgid "Required addons"
+msgid "Required add-ons"
 msgstr "Vereist add-ons"
 
 msgctxt "#31469"
-msgid "Recommended addons"
+msgid "Recommended add-ons"
 msgstr "Aanbevolen add-ons"
-
-msgctxt "#31472"
-msgid "CoreELEC Settings"
-msgstr "CoreELEC instellingen"
 
 msgctxt "#31473"
 msgid "Custom widget"
@@ -1630,12 +1546,16 @@ msgid "Boxed Set"
 msgstr "Boxset"
 
 msgctxt "#31477"
-msgid "Widget 6"
-msgstr "Widget 6"
+msgid "Select icon"
+msgstr "Selecteer icoon"
 
 msgctxt "#31478"
 msgid "Indicators"
 msgstr "Indicatoren"
+
+msgctxt "#31479"
+msgid "Content type"
+msgstr "Inhoudstype"
 
 msgctxt "#31480"
 msgid "HDR"
@@ -1670,7 +1590,7 @@ msgid "CPU"
 msgstr "CPU"
 
 msgctxt "#31489"
-msgid "Underlined homemenu items"
+msgid "Underlined home menu items"
 msgstr "Onderstreepte startmenu items"
 
 msgctxt "#31492"
@@ -1754,7 +1674,7 @@ msgid "Mini-EPG (vertical, only 5 Items)"
 msgstr "Mini-EPG (vertikaal, 5 items)"
 
 msgctxt "#31518"
-msgid "Unwatched Tv Shows"
+msgid "Unwatched TV Shows"
 msgstr "Niet bekeken series"
 
 msgctxt "#31520"
@@ -1901,10 +1821,6 @@ msgctxt "#31623"
 msgid "If home menu is focused, jump to widgets on back"
 msgstr "Als het startmenu is gefocust, spring dan naar de widgets achter"
 
-msgctxt "#31625"
-msgid "Disable addons fanart"
-msgstr "Deactiveer fanart add-on"
-
 msgctxt "#31630"
 msgid "Hub widget content type"
 msgstr "Hub widget inhoudtype"
@@ -1916,10 +1832,6 @@ msgstr "Afspeelactie wanneer de videodialoog wordt getoond"
 msgctxt "#31632"
 msgid "Stop playback when item is no longer focused"
 msgstr "Stop met afspelen wanneer het item niet meer in focus is"
-
-msgctxt "#31643"
-msgid "LibreELEC Settings"
-msgstr "LibreELEC instellingen"
 
 msgctxt "#31650"
 msgid "Is playing"
@@ -1940,10 +1852,6 @@ msgstr "Speelt"
 msgctxt "#31663"
 msgid "Now playing..."
 msgstr "Speelt..."
-
-msgctxt "#31667"
-msgid "Animated artwork"
-msgstr "Geanimeerd artwork"
 
 msgctxt "#31668"
 msgid "Path to additional animated posters"
@@ -1974,7 +1882,7 @@ msgid "Show detailed info when video starts (in seconds)"
 msgstr "Toon gedetailleerde informatie wanneer de video begint (in seconden)"
 
 msgctxt "#31679"
-msgid "Color presets"
+msgid "Colour presets"
 msgstr "Kleuren voorinstellingen"
 
 msgctxt "#31680"
@@ -2001,29 +1909,21 @@ msgctxt "#31693"
 msgid "Online"
 msgstr "Online"
 
-msgctxt "#31694"
-msgid "Game studio/flag icons"
-msgstr "Game studio/information iconen"
-
 msgctxt "#31699"
-msgid "Pick a color..."
+msgid "Pick a colour..."
 msgstr "Kies een kleur..."
 
 msgctxt "#31700"
-msgid "Set color"
+msgid "Set colour"
 msgstr "Stel kleur in"
+
+msgctxt "#31702"
+msgid "Use thumb for episodes background"
+msgstr "Gebruik miniatuur voor afleveringen achtergrond"
 
 msgctxt "#31703"
 msgid "Small landscape"
 msgstr "Landschap (klein)"
-
-msgctxt "#31704"
-msgid "Small fanart"
-msgstr "Fanart (klein)"
-
-msgctxt "#31705"
-msgid "Small poster fanart"
-msgstr "Poster fanart (klein)"
 
 msgctxt "#31707"
 msgid "Rating stars"
@@ -2056,6 +1956,14 @@ msgstr "Opbrengsten"
 msgctxt "#31817"
 msgid "Known for"
 msgstr "Gekend van"
+
+msgctxt "#31821"
+msgid "Auto-fit to width"
+msgstr "Automatisch aanpassen aan de breedte"
+
+msgctxt "#31822"
+msgid "Limit"
+msgstr "Limiet"
 
 msgctxt "#31906"
 msgid "Autohide seekbar after pausing"

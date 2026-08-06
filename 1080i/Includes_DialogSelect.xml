@@ -4,8 +4,8 @@
         <param name="buttons" default="DialogSelectDefaultButtons"/>
 
         <definition>
-            <include content="scrollbar_dialog">
-                <param name="scrollid" value="1723"/>
+            <include content="Furniture_Scrollbar_Dialog">
+                <param name="id" value="1723"/>
                 <param name="onleft" value="100"/>
                 <param name="onright" value="101"/>
             </include>
@@ -83,6 +83,9 @@
 	                <pagecontrol>1723</pagecontrol>
                     <include content="Def_ThumbnailListLayout">
                         <param name="focused" value="Control.HasFocus(6)" />
+                        <param name="detailed" value="!$EXP[IsSkinshortcuts]" />
+                        <param name="indicators" value="!$EXP[IsSkinshortcuts]" />
+                        <param name="default_icon" value="$EXP[IsDefaultIcon_C6]" />
                     </include>
 	            </control>
 			</control>
@@ -95,9 +98,19 @@
                 <posy>351</posy>
                 <width>300</width>
                 <height>450</height>
-                <texture fallback="DefaultAddonNone.png">$VAR[DialogSelectImageBig]</texture>
+                <texture fallback="DefaultAddonNone.png">$VAR[Image_ListItem_DialogSelect_C6]</texture>
                 <aspectratio align="center" aligny="bottom">keep</aspectratio>
-                <visible>Control.IsVisible(6)</visible>
+                <visible>Control.IsVisible(6) + !$EXP[IsDefaultIcon_C6]</visible>
+            </control>
+            <control type="image">
+                <description>Large Icon Image</description>
+                <posx>738</posx>
+                <posy>351</posy>
+                <width>300</width>
+                <height>450</height>
+                <texture colordiffuse="Black70" fallback="DefaultAddonNone.png">$VAR[Image_ListItem_DialogSelect_C6]</texture>
+                <aspectratio align="center" aligny="bottom">keep</aspectratio>
+                <visible>Control.IsVisible(6) + $EXP[IsDefaultIcon_C6]</visible>
             </control>
         </include>
     </include>
@@ -159,7 +172,7 @@
 	                        <font>Tiny</font>
 	                        <textoffsetx>5</textoffsetx>
 	                        <label>$VAR[DialogSelectGameLabelLeft]</label>
-	                        <textcolor>Dark2</textcolor>
+	                        <textcolor>Black70</textcolor>
 	                    </control>
 	                    <control type="label">
 	                        <top>274</top>
@@ -170,7 +183,7 @@
 	                        <font>Tiny</font>
 	                        <textoffsetx>5</textoffsetx>
 	                        <label>$VAR[DialogSelectGameLabelRight]</label>
-	                        <textcolor>Dark2</textcolor>
+	                        <textcolor>Black70</textcolor>
 	                    </control>
 					</itemlayout>
 					<focusedlayout width="400" height="325">
@@ -222,7 +235,7 @@
 	                        <font>Tiny</font>
 	                        <textoffsetx>5</textoffsetx>
 	                        <label>$VAR[DialogSelectGameLabelLeft]</label>
-	                        <textcolor>Dark2</textcolor>
+	                        <textcolor>Black70</textcolor>
 	                    </control>
 	                    <control type="label">
 	                        <top>274</top>
@@ -233,14 +246,14 @@
 	                        <font>Tiny</font>
 	                        <textoffsetx>5</textoffsetx>
 	                        <label>$VAR[DialogSelectGameLabelRight]</label>
-	                        <textcolor>Dark2</textcolor>
+	                        <textcolor>Black70</textcolor>
 	                    </control>
 					</focusedlayout>
                 </control>
             </control>
             
-            <include content="scrollbar_dialog">
-                <param name="scrollid" value="1723"/>
+            <include content="Furniture_Scrollbar_Dialog">
+                <param name="id" value="1723"/>
                 <param name="height" value="643" />
                 <param name="onleft" value="100"/>
                 <param name="onright" value="101"/>
@@ -717,9 +730,8 @@
 	<include name="DialogSelectViewtype">
 		<include content="DefDialogSelectViewtype">
 			<param name="header_id" value="1" />
-			<param name="image" value="$VAR[ImageViewSelector]" />
+			<param name="image" value="$VAR[Image_ViewSelector_Preview]" />
 			<param name="control_id" value="3" />
-			<param name="scrollid" value="1600" />
 			
 			<control type="list" id="3">
 				<left>8</left>

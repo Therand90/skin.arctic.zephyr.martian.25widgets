@@ -6,7 +6,6 @@
         <description>List View (id=509)</description>
         <control type="group">
             <include>Animation.Common</include>
-            <include>ViewSlideForJumpBar</include>
             <visible>Control.IsVisible(509)</visible>
             <control type="label">
                 <visible>!Skin.HasSetting(509clearlogo) | [!$EXP[TitleClearlogoAvailable] + Skin.HasSetting(509clearlogo)]</visible>
@@ -54,9 +53,10 @@
                 <focusedlayout height="395" width="222" condition="!Skin.HasSetting(509fanart)">
                     <control type="group">
                         <height>325</height>
-                        <include content="include.widget.poster.focus">
+                        <include content="include.widget.poster">
                             <param name="id" value="509"/>
                             <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
+                            <param name="focused" value="true" />
                         </include>
                     </control>
                 </focusedlayout>
@@ -82,29 +82,29 @@
                 <focusedlayout height="332" width="592.33" condition="Skin.HasSetting(509fanart) + !Skin.HasSetting(509fanartclearart)">
                     <control type="group">
                         <height>325</height>
-                        <include content="include.widget.landscape.focus">
+                        <include content="include.widget.landscape">
                             <param name="id" value="509"/>
                             <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
+                            <param name="focused" value="true" />
                         </include>
                     </control>
                 </focusedlayout>
                 <focusedlayout height="332" width="592.33" condition="Skin.HasSetting(509fanart) + Skin.HasSetting(509fanartclearart)">
                     <control type="group">
                         <height>325</height>
-                        <include content="include.widget.landscape.focus">
+                        <include content="include.widget.landscape">
                             <param name="id" value="509"/>
                             <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
-                            <param name="clearlogo" value="true"/>
+                            <param name="focused" value="true" />
                         </include>
                     </control>
                 </focusedlayout>
             </control>
-            <control type="scrollbar" id="1677">
-                <include content="scrollbar_hor">
-                    <param name="scrollid" value="1677"/>
-                    <param name="bottom" value="391"/>
-                </include>
-            </control>
+             <include content="Furniture_Scrollbar_Horizontal">
+                <param name="id" value="1677" />
+                <param name="jumpbar" value="true" />
+                <param name="bottom" value="391"/>
+            </include>
             <control type="label">
                 <top>702</top>
                 <include condition="!Skin.HasSetting(509NoCenter)">CenterInfo</include>
