@@ -29,8 +29,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat tools/release45-code.patch.gz.b64.0{1..8} \
-            | tr -d '\n\r' \
+          {
+            cat tools/release45-code.patch.gz.b64.01 \
+                tools/release45-code.patch.gz.b64.02 \
+                tools/release45-code.patch.gz.b64.03 \
+                tools/release45-code.patch.gz.b64.04 \
+                tools/release45-code.patch.gz.b64.05 \
+                tools/release45-code.patch.gz.b64.06
+            sed -e 's/VDIIEci/VDIEci/' -e 's/IJORLs4JPI/IJORJs4JPI/' \
+                tools/release45-code.patch.gz.b64.07a
+            cat tools/release45-code.patch.gz.b64.07b \
+                tools/release45-code.patch.gz.b64.08
+          } | tr -d '\n\r' \
             | base64 --decode \
             | gzip --decompress > /tmp/release45-code.patch
           git apply --check /tmp/release45-code.patch
