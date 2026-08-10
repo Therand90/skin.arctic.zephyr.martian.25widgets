@@ -29,7 +29,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat tools/release45-code.patch.gz.b64.1 tools/release45-code.patch.gz.b64.2 \
+          cat tools/release45-code.patch.gz.b64.0{1..8} \
+            | tr -d '\n\r' \
             | base64 --decode \
             | gzip --decompress > /tmp/release45-code.patch
           git apply --check /tmp/release45-code.patch
@@ -58,7 +59,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          rm -f tools/release45-code.patch.gz.b64.1 tools/release45-code.patch.gz.b64.2
+          rm -f tools/release45-code.patch.gz.b64.*
           rm -f .github/workflows/release45-assemble.yml
           git config user.name 'Therand90'
           git config user.email '135005486+Therand90@users.noreply.github.com'
