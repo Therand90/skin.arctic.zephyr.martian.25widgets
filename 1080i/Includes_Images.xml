@@ -114,8 +114,10 @@
     </variable>
 
     <variable name="PVRThumbImage">
-        <value condition="!String.IsEmpty(ListItem.EpgEventIcon)">$INFO[ListItem.EpgEventIcon]</value>
+        <!-- Therand: prefer high-resolution metadata fanart for the PVR info panel.
+             Raw EPG event icons are often small and become visibly pixelated on a projector. -->
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.EpgEventIcon)">$INFO[ListItem.EpgEventIcon]</value>
         <value>$INFO[ListItem.Icon]</value>
     </variable>
 

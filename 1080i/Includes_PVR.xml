@@ -183,14 +183,37 @@
                     <texture diffuse="diffuse/pvrinfo.png" background="true">$INFO[ListItem.Icon]</texture>
                     <fadetime>PosterFanartFadetime</fadetime>
                 </control>
+                <!-- Therand: if a true HD fanart is available, let it fill the whole programme frame. -->
                 <control type="image">
-                    <visible>!Player.HasVideo + [!String.IsEmpty(Listitem.EpgEventIcon) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart))]</visible>
+                    <visible>!Player.HasVideo + !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart))</visible>
                     <left>10</left>
                     <top>10</top>
                     <right>10</right>
                     <bottom>10</bottom>
                     <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                    <texture diffuse="diffuse/pvrinfo.png" background="true">$VAR[PVRThumbImage]</texture>
+                    <texture diffuse="diffuse/pvrinfo.png" background="true">$INFO[Window(Home).Property(TMDbHelper.ListItem.Fanart)]</texture>
+                    <fadetime>PosterFanartFadetime</fadetime>
+                </control>
+                <!-- Therand: when only a small EPG thumbnail exists, fill the frame with a dimmed enlarged version, -->
+                <!-- then overlay the original image sharply in the centre to avoid ugly cropping/pixel mush. -->
+                <control type="image">
+                    <visible>!Player.HasVideo + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart)) + !String.IsEmpty(Listitem.EpgEventIcon)</visible>
+                    <left>10</left>
+                    <top>10</top>
+                    <right>10</right>
+                    <bottom>10</bottom>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="diffuse/pvrinfo.png" background="true" colordiffuse="66FFFFFF">$INFO[ListItem.EpgEventIcon]</texture>
+                    <fadetime>PosterFanartFadetime</fadetime>
+                </control>
+                <control type="image">
+                    <visible>!Player.HasVideo + String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Fanart)) + !String.IsEmpty(Listitem.EpgEventIcon)</visible>
+                    <left>55</left>
+                    <top>20</top>
+                    <right>55</right>
+                    <bottom>20</bottom>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">keep</aspectratio>
+                    <texture diffuse="diffuse/pvrinfo.png" background="true">$INFO[ListItem.EpgEventIcon]</texture>
                     <fadetime>PosterFanartFadetime</fadetime>
                 </control>
                 <control type="image">

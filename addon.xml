@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.13" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
+<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.45" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
     <requires>
         <import addon="xbmc.gui" version="5.17.0"/>
         <import addon="script.skinvariables" version="2.1.33" />
@@ -30,7 +30,7 @@
             <screenshot>resources/screenshot-09.jpg</screenshot>
             <screenshot>resources/screenshot-10.jpg</screenshot>
         </assets>
-        <news>[CR][B]3.19.11+25widgets.13[/B][CR]- Adds per-submenu title size, colour, font and bold options[CR]- Switches title text and styling dynamically between main menu and submenu focus[CR]- Preserves the validated fixed submenu background support from .12</news>
+        <news>[CR][B]3.19.11+25widgets.45[/B][CR]- Adds inline Jacktook navigation directly inside Home widgets: pagination, series, seasons and Back history[CR]- Keeps focus inside the widget and selects the first item after navigation[CR]- Adds non-modal loading feedback and double-click protection without blocking Home[CR]- Adds compact PVR TV group cards with optional /storage/pictures/tvgroups artwork and focused fullscreen backgrounds[CR]- Improves PVR programme artwork: HD TMDb fanart first, clean EPG-thumbnail fallback[CR]- Preserves per-section and per-submenu title/background customization</news>
         <summary lang="de">Klar, minimalistisch, elegant, einfach, leicht.</summary>
         <summary lang="en">Clean, minimal, elegant, simple, light.</summary>
         <summary lang="en_AU">Clean, minimal, elegant, simple, light.</summary>
