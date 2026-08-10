@@ -13,6 +13,13 @@
     <onunload>ClearProperty(TMDbHelper.WidgetContainer,home)</onunload>
     <onunload>ClearProperty(TherandReplay.ActiveContainer,home)</onunload>
     <onunload>ClearProperty(TherandReplay.ActiveAspect,home)</onunload>
+    <onunload>ClearProperty(TherandPVR.ChannelGroups,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.Path,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.WidgetId,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.InlineId,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.Label,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.PassThrough,home)</onunload>
+    <onunload>ClearProperty(TherandInline45.NavBusy,home)</onunload>
     <onunload condition="Skin.HasSetting(home.netflix.autoplay.trailer)">ClearProperty(listitem.trailer,home)</onunload>
     <controls>
         <include>GlobalBackground</include>
@@ -52,6 +59,17 @@
         <!-- Submenus -->
         <include condition="!Skin.HasSetting(home.vertical) + Skin.HasSetting(home.submenu2) + !Skin.HasSetting(home.showicons)">HomeSubMenu2</include>
         <include condition="!Skin.HasSetting(home.vertical) + [!Skin.HasSetting(home.submenu2) | Skin.HasSetting(home.showicons)]">HomeSubMenu</include>
+
+        <!-- Therand .45: non-modal inline navigation loader.
+             Unlike DialogBusy, this never steals the active Home window. -->
+        <control type="group" id="9898">
+            <visible>String.IsEqual(Window(Home).Property(TherandInline45.NavBusy),true)</visible>
+            <left>850</left>
+            <top>455</top>
+            <include content="BusySpinner">
+                <param name="color" value="White"/>
+            </include>
+        </control>
 
         <!-- Background And Furniture For Dialogs -->
         <control type="group">
