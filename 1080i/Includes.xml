@@ -72,23 +72,27 @@
     <expression name="HomeMenuHasCustomBackground">$EXP[HomeMenuHasSectionBackground] | ![String.IsEmpty(Skin.String(home.slideshowpath)) | String.IsEqual(Skin.String(home.slideshowpath),none)]</expression>
     <expression name="HomeSectionIsYouTube">Window.IsVisible(home) + [String.Contains(Container(300).ListItem.Property(list),plugin.video.youtube) | String.Contains(Container(300).ListItem.Path,plugin.video.youtube) | String.IsEqual(Container(300).ListItem.Label,YouTube)]</expression>
     <expression name="HomeUseFixedYouTubeBackground">$EXP[HomeSectionIsYouTube] + !$EXP[HomeMenuHasSectionBackground]</expression>
-    <expression name="HomeSectionTitleEnabled">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + [[Control.HasFocus(300) + !String.IsEmpty(Container(300).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(300).ListItem.Property(homeTitleSize),None)] | [Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(302).ListItem.Property(homeTitleSize),None)]]</expression>
-    <expression name="HomeSectionTitleIsBold">[Control.HasFocus(300) + [String.IsEqual(Container(300).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),1)]] | [Control.HasFocus(302) + [String.IsEqual(Container(302).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(302).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(302).ListItem.Property(homeTitleBold),1)]]</expression>
-    <expression name="HomeSectionTitleSizeSmall">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Small)]</expression>
-    <expression name="HomeSectionTitleSizeMedium">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Medium)]</expression>
-    <expression name="HomeSectionTitleSizeLarge">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Large)]</expression>
-    <expression name="HomeSectionTitleFontRoboto">[Control.HasFocus(300) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)]] | [Control.HasFocus(302) + [String.IsEmpty(Container(302).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Roboto)]]</expression>
-    <expression name="HomeSectionTitleFontCondensed">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Condensed)]</expression>
-    <expression name="HomeSectionTitleFontRegular">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Regular)]</expression>
-    <expression name="HomeSectionTitleFontMono">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Mono)]</expression>
-    <expression name="HomeSectionTitleFontNoto">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Noto)]</expression>
+    <expression name="HomeSectionTitleEnabled">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets] | Skin.HasSetting(home.classicwidgets)] + [[Control.HasFocus(300) + !String.IsEmpty(Container(300).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(300).ListItem.Property(homeTitleSize),None)] | [Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(302).ListItem.Property(homeTitleSize),None)]] | [$EXP[HomePVRChannelGroupFocused] + !String.IsEmpty(Container(300).ListItem.Property(homeTitleSize)) + !String.IsEqual(Container(300).ListItem.Property(homeTitleSize),None)]</expression>
+    <expression name="HomeSectionTitleIsBold">[Control.HasFocus(300) + [String.IsEqual(Container(300).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),1)]] | [Control.HasFocus(302) + [String.IsEqual(Container(302).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(302).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(302).ListItem.Property(homeTitleBold),1)]] | [$EXP[HomePVRChannelGroupFocused] + [String.IsEqual(Container(300).ListItem.Property(homeTitleBold),true) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),yes) | String.IsEqual(Container(300).ListItem.Property(homeTitleBold),1)]]</expression>
+    <expression name="HomeSectionTitleSizeSmall">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Small)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Small)]</expression>
+    <expression name="HomeSectionTitleSizeMedium">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Medium)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Medium)]</expression>
+    <expression name="HomeSectionTitleSizeLarge">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleSize),Large)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleSize),Large)]</expression>
+    <expression name="HomeSectionTitleFontRoboto">[Control.HasFocus(300) + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)]] | [Control.HasFocus(302) + [String.IsEmpty(Container(302).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Roboto)]] | [$EXP[HomePVRChannelGroupFocused] + [String.IsEmpty(Container(300).ListItem.Property(homeTitleFont)) | String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Roboto)]]</expression>
+    <expression name="HomeSectionTitleFontCondensed">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Condensed)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Condensed)]</expression>
+    <expression name="HomeSectionTitleFontRegular">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Regular)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Regular)]</expression>
+    <expression name="HomeSectionTitleFontMono">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Mono)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Mono)]</expression>
+    <expression name="HomeSectionTitleFontNoto">[Control.HasFocus(300) + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto)] | [Control.HasFocus(302) + String.IsEqual(Container(302).ListItem.Property(homeTitleFont),Noto)] | [$EXP[HomePVRChannelGroupFocused] + String.IsEqual(Container(300).ListItem.Property(homeTitleFont),Noto)]</expression>
+    <!-- Therand: focused item belongs to the dedicated PVR TV channel-group widget. -->
+    <expression name="HomePVRChannelGroupFocused">Window.IsVisible(Home.xml) + ControlGroup(301).HasFocus() + [String.IsEqual(Container(300).ListItem.Property(widgetPath),pvr://channels/tv/) | String.IsEqual(Container(300).ListItem.Property(list),pvr://channels/tv/)]</expression>
+    <!-- Therand: keep the PVR group widget identified after focus returns to the home menu. -->
+    <expression name="HomePVRChannelGroupActive">Window.IsVisible(Home.xml) + [String.IsEqual(Container(300).ListItem.Property(widgetPath),pvr://channels/tv/) | String.IsEqual(Container(300).ListItem.Property(list),pvr://channels/tv/)]</expression>
     <!-- Catch-up items may be routed through plugin.video.therandtv and may expose Kodi-wrapped image:// artwork. -->
     <expression name="HomeWidgetArtIsCatchupDefaultFanart">String.Contains(ListItem.Art(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Art(fanart),fanart.jpg)</expression>
     <expression name="HomeWidgetPropertyIsCatchupDefaultFanart">String.Contains(ListItem.Property(fanart),plugin.video.catchuptvandmore) + String.Contains(ListItem.Property(fanart),fanart.jpg)</expression>
     <expression name="HomeWidgetFocusIsCatchup">ControlGroup(301).HasFocus() + [String.Contains(ListItem.FolderPath,plugin.video.catchuptvandmore) | String.Contains(ListItem.FolderPath,plugin.video.therandtv)]</expression>
     <expression name="HomeWidgetFocusIsAuvio">$EXP[HomeWidgetFocusIsCatchup] + String.Contains(ListItem.FolderPath,rtbf)</expression>
     <expression name="HomeWidgetFocusIsRTLplay">$EXP[HomeWidgetFocusIsCatchup] + String.Contains(ListItem.FolderPath,rtlplay)</expression>
-    <expression name="HomeWidgetFocusIsGeneral">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + !Control.HasFocus(300) + !$EXP[HomeWidgetFocusIsCatchup]</expression>
+    <expression name="HomeWidgetFocusIsGeneral">Window.IsVisible(home) + [$EXP[HomeIsModernMultiWidgets] | $EXP[HomeIsVerticalMultiWidgets]] + ControlGroup(301).HasFocus() + !Control.HasFocus(300) + !$EXP[HomeWidgetFocusIsCatchup] + !$EXP[HomePVRChannelGroupFocused]</expression>
     <expression name="HomeWidgetFocusHasGeneralArtFanart">$EXP[HomeWidgetFocusIsGeneral] + !String.IsEmpty(ListItem.Art(fanart))</expression>
     <expression name="HomeWidgetFocusHasGeneralPropertyFanart">$EXP[HomeWidgetFocusIsGeneral] + String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(ListItem.Property(fanart))</expression>
     <expression name="HomeWidgetFocusUsesGeneralLandscape">$EXP[HomeWidgetFocusIsGeneral] + String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Property(fanart)) + !String.IsEmpty(ListItem.Art(landscape))</expression>
@@ -608,12 +612,14 @@
     </variable>
 
     <variable name="HomeSectionTitleColor">
+        <value condition="$EXP[HomePVRChannelGroupFocused] + !String.IsEmpty(Container(300).ListItem.Property(homeTitleColor))">$INFO[Container(300).ListItem.Property(homeTitleColor)]</value>
         <value condition="Control.HasFocus(302) + !String.IsEmpty(Container(302).ListItem.Property(homeTitleColor))">$INFO[Container(302).ListItem.Property(homeTitleColor)]</value>
         <value condition="Control.HasFocus(300) + !String.IsEmpty(Container(300).ListItem.Property(homeTitleColor))">$INFO[Container(300).ListItem.Property(homeTitleColor)]</value>
         <value>FFFFFF00</value>
     </variable>
 
     <variable name="HomeSectionTitleText">
+        <value condition="$EXP[HomePVRChannelGroupFocused]">$INFO[ListItem.Label]</value>
         <value condition="Control.HasFocus(302)">$INFO[Container(302).ListItem.Label]</value>
         <value>$INFO[Container(300).ListItem.Label]</value>
     </variable>
@@ -1003,9 +1009,13 @@
         <!-- Global Fanart -->
         <control type="group">
             <visible>![Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] | $EXP[InfoDialogsActive] + [!Window.IsVisible(home) | !$EXP[InfoDialogsExtendedBackground]]</visible>
+            <!-- The PVR channel-group widget keeps the last ListItem artwork alive after
+                 focus returns to the home menu. Hide GlobalFanart for the whole active
+                 TV-group widget state so stale channel-logo collages cannot bleed through. -->
+            <visible>!$EXP[HomePVRChannelGroupActive]</visible>
 			<include>Animation.BackgroundHideView</include>
  	        <control type="multiimage" description="Fanart">
-	            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
+	            <visible>!String.StartsWith($VAR[GlobalFanart],image://) + !String.EndsWith($VAR[GlobalFanart],.jpg) + !String.EndsWith($VAR[GlobalFanart],.jpeg) + !String.EndsWith($VAR[GlobalFanart],.png) + !String.EndsWith($VAR[GlobalFanart],.webp) + !String.EndsWith($VAR[GlobalFanart],.gif)</visible>
 	            <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -1023,7 +1033,7 @@
 
             <!-- Encoded texture URIs and ordinary image files are not directories; use a normal image control. -->
             <control type="image" description="Fanart single texture">
-                <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+                <visible>String.StartsWith($VAR[GlobalFanart],image://) | String.EndsWith($VAR[GlobalFanart],.jpg) | String.EndsWith($VAR[GlobalFanart],.jpeg) | String.EndsWith($VAR[GlobalFanart],.png) | String.EndsWith($VAR[GlobalFanart],.webp) | String.EndsWith($VAR[GlobalFanart],.gif)</visible>
 	            <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) | [Window.IsVisible(home) + !$EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -1038,7 +1048,7 @@
             </control>
 
  	        <control type="multiimage" description="Fanart">
-	            <visible>!$EXP[GlobalFanartBlurUsesImageControl]</visible>
+	            <visible>!String.StartsWith($VAR[GlobalFanart_Blur],image://) + !String.EndsWith($VAR[GlobalFanart_Blur],.jpg) + !String.EndsWith($VAR[GlobalFanart_Blur],.jpeg) + !String.EndsWith($VAR[GlobalFanart_Blur],.png) + !String.EndsWith($VAR[GlobalFanart_Blur],.webp) + !String.EndsWith($VAR[GlobalFanart_Blur],.gif)</visible>
 	            <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -1055,7 +1065,7 @@
 	        </control>
 
             <control type="image" description="Blurred fanart single texture">
-                <visible>$EXP[GlobalFanartBlurUsesImageControl]</visible>
+                <visible>String.StartsWith($VAR[GlobalFanart_Blur],image://) | String.EndsWith($VAR[GlobalFanart_Blur],.jpg) | String.EndsWith($VAR[GlobalFanart_Blur],.jpeg) | String.EndsWith($VAR[GlobalFanart_Blur],.png) | String.EndsWith($VAR[GlobalFanart_Blur],.webp) | String.EndsWith($VAR[GlobalFanart_Blur],.gif)</visible>
 	            <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + [!Window.IsVisible(home) | $EXP[InfoDialogsActive]]</visible>
 	            <visible>!Skin.HasSetting(global.hidefanart) | Window.IsVisible(home)</visible>
 	            <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
@@ -1080,7 +1090,7 @@
 
         <!-- Netflix Clean -->
         <control type="multiimage" description="Fanart">
-	        <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
+	        <visible>!String.StartsWith($VAR[GlobalFanart],image://) + !String.EndsWith($VAR[GlobalFanart],.jpg) + !String.EndsWith($VAR[GlobalFanart],.jpeg) + !String.EndsWith($VAR[GlobalFanart],.png) + !String.EndsWith($VAR[GlobalFanart],.webp) + !String.EndsWith($VAR[GlobalFanart],.gif)</visible>
 	        <visible>Window.IsVisible(home) + Skin.HasSetting(homemenu.clean.flix) + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
 	        <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -1096,7 +1106,7 @@
         </control>
 
         <control type="image" description="Netflix clean single fanart">
-	        <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+	        <visible>String.StartsWith($VAR[GlobalFanart],image://) | String.EndsWith($VAR[GlobalFanart],.jpg) | String.EndsWith($VAR[GlobalFanart],.jpeg) | String.EndsWith($VAR[GlobalFanart],.png) | String.EndsWith($VAR[GlobalFanart],.webp) | String.EndsWith($VAR[GlobalFanart],.gif)</visible>
 	        <visible>Window.IsVisible(home) + Skin.HasSetting(homemenu.clean.flix) + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
 	        <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -1111,7 +1121,7 @@
         
         <!-- Netflix Preview Window -->
         <control type="multiimage" description="Fanart">
-            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>!String.StartsWith($VAR[GlobalFanart],image://) + !String.EndsWith($VAR[GlobalFanart],.jpg) + !String.EndsWith($VAR[GlobalFanart],.jpeg) + !String.EndsWith($VAR[GlobalFanart],.png) + !String.EndsWith($VAR[GlobalFanart],.webp) + !String.EndsWith($VAR[GlobalFanart],.gif)</visible>
             <visible>[Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
             <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -1136,7 +1146,7 @@
         </control>
 
         <control type="image" description="Netflix preview single fanart">
-            <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>String.StartsWith($VAR[GlobalFanart],image://) | String.EndsWith($VAR[GlobalFanart],.jpg) | String.EndsWith($VAR[GlobalFanart],.jpeg) | String.EndsWith($VAR[GlobalFanart],.png) | String.EndsWith($VAR[GlobalFanart],.webp) | String.EndsWith($VAR[GlobalFanart],.gif)</visible>
             <visible>[Window.IsVisible(Home.xml) + Skin.HasSetting(homemenu.netflix) + !Skin.HasSetting(homemenu.clean.flix) + !Skin.HasSetting(hide.homemenu.netflix.preview) | [Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(524)] + !Skin.HasSetting(hide.views.netflix.preview) + !Skin.HasSetting(TMDbHelper.EnableBlur)] + !$EXP[InfoDialogsActive] + String.IsEmpty(Window(Home).Property(TMDbHelper.HideView))</visible>
             <visible>!Player.HasMedia | [!Skin.HasSetting(global.showvideo) + Player.HasVideo] | [!Skin.HasSetting(global.showvisualisation) + Player.HasAudio] | [Skin.HasSetting(global.showvisualisation) + String.IsEmpty(Visualisation.Name) + Player.HasAudio]</visible>
             <include>Animation.Background.OpenClose</include>
@@ -1327,6 +1337,30 @@
             <imagefilter>linear</imagefilter>
             <diffusefilter>linear</diffusefilter>
             <include>Animation.AutoTrailer.FadeOut.Background</include>
+        </control>
+
+        <!-- Therand: when the PVR channel-group widget owns focus, reuse the same optional
+             custom group image as the full-screen background. Missing files simply draw
+             nothing, leaving the normal section background/fallback untouched. PNG is
+             layered after JPG so it wins when both exist. -->
+        <control type="image" description="Focused PVR TV group custom JPG background">
+            <visible>$EXP[HomePVRChannelGroupFocused]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true" colordiffuse="F2FFFFFF">$INFO[ListItem.Label,/storage/pictures/tvgroups/,.jpg]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
+        </control>
+
+        <control type="image" description="Focused PVR TV group custom PNG background">
+            <visible>$EXP[HomePVRChannelGroupFocused]</visible>
+            <include>Dimensions_Fullscreen</include>
+            <aspectratio>scale</aspectratio>
+            <texture background="true" colordiffuse="F2FFFFFF">$INFO[ListItem.Label,/storage/pictures/tvgroups/,.png]</texture>
+            <imagefilter>linear</imagefilter>
+            <include>Animation.Background.OpenClose</include>
+            <include>BackgroundFanartFadetime</include>
         </control>
 
         <!-- YouTube keeps a warm, stable full-screen background unless this section has its own explicit image. -->
@@ -1563,7 +1597,7 @@
             <texture colordiffuse="Background">special://skin/extras/backgrounds/overlays/bg.jpg</texture>
         </control>
         <control type="multiimage" description="Fanart">
-            <visible>!$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>!String.StartsWith($VAR[GlobalFanart],image://) + !String.EndsWith($VAR[GlobalFanart],.jpg) + !String.EndsWith($VAR[GlobalFanart],.jpeg) + !String.EndsWith($VAR[GlobalFanart],.png) + !String.EndsWith($VAR[GlobalFanart],.webp) + !String.EndsWith($VAR[GlobalFanart],.gif)</visible>
             <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
@@ -1576,7 +1610,7 @@
             <include>Animation.Animate.Fanart</include>
         </control>
         <control type="image" description="Extended wrapped fanart">
-            <visible>$EXP[GlobalFanartUsesImageControl]</visible>
+            <visible>String.StartsWith($VAR[GlobalFanart],image://) | String.EndsWith($VAR[GlobalFanart],.jpg) | String.EndsWith($VAR[GlobalFanart],.jpeg) | String.EndsWith($VAR[GlobalFanart],.png) | String.EndsWith($VAR[GlobalFanart],.webp) | String.EndsWith($VAR[GlobalFanart],.gif)</visible>
             <visible>!Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
@@ -1587,7 +1621,7 @@
             <include>Animation.Animate.Fanart</include>
         </control>
         <control type="multiimage" description="Fanart">
-            <visible>!$EXP[GlobalFanartBlurUsesImageControl]</visible>
+            <visible>!String.StartsWith($VAR[GlobalFanart_Blur],image://) + !String.EndsWith($VAR[GlobalFanart_Blur],.jpg) + !String.EndsWith($VAR[GlobalFanart_Blur],.jpeg) + !String.EndsWith($VAR[GlobalFanart_Blur],.png) + !String.EndsWith($VAR[GlobalFanart_Blur],.webp) + !String.EndsWith($VAR[GlobalFanart_Blur],.gif)</visible>
             <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>
@@ -1600,7 +1634,7 @@
             <include>Animation.Animate.Fanart</include>
         </control>
         <control type="image" description="Extended wrapped blurred fanart">
-            <visible>$EXP[GlobalFanartBlurUsesImageControl]</visible>
+            <visible>String.StartsWith($VAR[GlobalFanart_Blur],image://) | String.EndsWith($VAR[GlobalFanart_Blur],.jpg) | String.EndsWith($VAR[GlobalFanart_Blur],.jpeg) | String.EndsWith($VAR[GlobalFanart_Blur],.png) | String.EndsWith($VAR[GlobalFanart_Blur],.webp) | String.EndsWith($VAR[GlobalFanart_Blur],.gif)</visible>
             <visible>Skin.HasSetting(TMDbHelper.EnableBlur) + !Skin.HasSetting(global.hidefanart)</visible>
             <include>Dimensions_Fullscreen</include>
             <include condition="$EXP[InfoDialogsExtendedBackground]">Animation.FadeFromHome</include>

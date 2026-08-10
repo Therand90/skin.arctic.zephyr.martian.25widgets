@@ -2,11 +2,14 @@
 <includes>
 
     <include name="DefMultiWidgetContainer">
+        <param name="therand_inline" default="false"/>
+        <param name="therand_originalid" default="0"/>
         <param name="height" value="$PARAM[height]" default="325"/>
         <param name="orientation" value="$PARAM[orientation]" default="horizontal"/>
         <param name="artaspect" value="$PARAM[artaspect]" default="Poster"/>
         <param name="movement" default="0" />
         <param name="autoscroll" default="true" />
+        <param name="PVRChannelGroups" default="false" />
         <definition>
             <include content="def_top" condition="Skin.HasSetting(homemenu.clean.flix)">
                 <param name="top" value="200" />
@@ -54,6 +57,8 @@
             <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
             <onfocus>SetProperty(TherandReplay.ActiveContainer,$PARAM[id],Home)</onfocus>
             <onfocus>SetProperty(TherandReplay.ActiveAspect,$PARAM[artaspect],Home)</onfocus>
+            <onfocus condition="$PARAM[PVRChannelGroups]">SetProperty(TherandPVR.ChannelGroups,true,Home)</onfocus>
+            <onfocus condition="!$PARAM[PVRChannelGroups]">ClearProperty(TherandPVR.ChannelGroups,Home)</onfocus>
             <onfocus condition="Skin.HasSetting(extended.nowplaying) + Window.IsVisible(Home) + Skin.HasSetting(home.nowplaying.info.auto.show)">SetProperty(nowplayingautoshowtimer,1,home)</onfocus>
             <onunfocus>ClearProperty(nowplayingautoshowtimer,home)</onunfocus>
             <onfocus condition="Integer.IsGreater(Container(993100).NumItems,0) + Control.IsVisible(993100)">SetProperty(BackToId,993100,Home)</onfocus>
@@ -83,17 +88,20 @@
             <onfocus condition="Integer.IsGreater(Container($PARAM[baseid]02).NumItems,0) + Control.IsVisible($PARAM[baseid]02)">SetProperty(BackToId,$PARAM[baseid]02,Home)</onfocus>
             <onfocus condition="Integer.IsGreater(Container($PARAM[baseid]01).NumItems,0) + Control.IsVisible($PARAM[baseid]01)">SetProperty(BackToId,$PARAM[baseid]01,Home)</onfocus>
        
+            <!-- Therand .36: inline page closes back to the untouched original row. -->
+            <onback condition="$PARAM[therand_inline]">RunScript(special://skin/extras/therand_inline45.py,back,$PARAM[id],$PARAM[therand_originalid],$PARAM[id])</onback>
+
             <!-- Resolve the last configured widget independently of asynchronous content loading. -->
             <onfocus>SetProperty(LastId,$VAR[HomeLastWidgetId],Home)</onfocus>
 
-            <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>
-            <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>
-            <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)">PageUp</onback>            
-            <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + Skin.HasSetting(widget.items.onback.go.back.to.position.0)">SetFocus($PARAM[id],0,absolute)</onback>
-            <onback condition="[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + Skin.HasSetting(widget.items.onback.go.back.to.position.0) + Skin.HasSetting(widget.items.onback.go.back.to.position.0.setfocus.home)">SetFocus(300)</onback>            
-            <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + !Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)">SetFocus($INFO[Window(home).Property(BackToId)])</onback>
-            <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + !Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)">SetFocus(4567)</onback>
-            <onback condition="Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)">SetFocus(300)</onback>
+            <onback condition="!$PARAM[therand_inline] + [[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)]">PageUp</onback>
+            <onback condition="!$PARAM[therand_inline] + [[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)]">PageUp</onback>
+            <onback condition="!$PARAM[therand_inline] + [[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + !Skin.HasSetting(widget.items.onback.go.back.to.position.0)]">PageUp</onback>            
+            <onback condition="!$PARAM[therand_inline] + [[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + Skin.HasSetting(widget.items.onback.go.back.to.position.0)]">SetFocus($PARAM[id],0,absolute)</onback>
+            <onback condition="!$PARAM[therand_inline] + [[!Integer.IsEqual(Container($PARAM[id]).Position,0) | Container($PARAM[id]).HasPrevious] + Skin.HasSetting(widget.items.onback.go.back.to.position.0) + Skin.HasSetting(widget.items.onback.go.back.to.position.0.setfocus.home)]">SetFocus(300)</onback>            
+            <onback condition="!$PARAM[therand_inline] + [Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + !Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)]">SetFocus($INFO[Window(home).Property(BackToId)])</onback>
+            <onback condition="!$PARAM[therand_inline] + [Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + !Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)]">SetFocus(4567)</onback>
+            <onback condition="!$PARAM[therand_inline] + [Integer.IsEqual(Container($PARAM[id]).Position,0) + !Container($PARAM[id]).HasPrevious + Skin.HasSetting(disable.widgets.onback.go.back.to.position.0)]">SetFocus(300)</onback>
             <onleft condition="$EXP[HomeIsVerticalMultiWidgets]">300</onleft>
             <preloaditems>2</preloaditems>
             <focusposition>0</focusposition>
@@ -396,6 +404,7 @@
         <param name="LandscapeSmall" default="false"/>
         <param name="LandscapePosterSmall" default="false"/>
         <param name="Square" default="false"/>
+        <param name="PVRChannelGroups" default="false"/>
         <definition>
         <itemlayout height="325" width="222" condition="![$PARAM[Banner] | $PARAM[Thumbnail] | $PARAM[Landscape] | $PARAM[LandscapeSmall] | $PARAM[LandscapePosterSmall] | $PARAM[Square]]">
             <control type="group">
@@ -410,9 +419,10 @@
             <control type="group">
                 <width>325</width>
                 <include content="def_left" condition="$EXP[HomeIsModernMultiWidgets] + !Skin.HasSetting(homemenu.clean.flix)"><param name="left" value="70" /></include>
-                <include content="include.widget.square">
+                <include content="include.widget.square" condition="!$PARAM[PVRChannelGroups]">
                     <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
                 </include>
+                <include content="include.widget.pvrchannelgroup" condition="$PARAM[PVRChannelGroups]"/>
             </control>
         </itemlayout>
         <itemlayout height="325" width="562" condition="$PARAM[Landscape]">
@@ -482,10 +492,14 @@
             <control type="group">
                 <width>325</width>
                 <include content="def_left" condition="$EXP[HomeIsModernMultiWidgets] + !Skin.HasSetting(homemenu.clean.flix)"><param name="left" value="70" /></include>
-                <include content="include.widget.square">
+                <include content="include.widget.square" condition="!$PARAM[PVRChannelGroups]">
                     <param name="id" value="$PARAM[shortcutsid]"/>
                     <param name="reflections" value="Skin.HasSetting(show.reflections)"/>
                     <param name="focused" value="true" />
+                </include>
+                <include content="include.widget.pvrchannelgroup" condition="$PARAM[PVRChannelGroups]">
+                    <param name="id" value="$PARAM[shortcutsid]"/>
+                    <param name="focused" value="true"/>
                 </include>
             </control>
             <include condition="Skin.HasSetting(home.netflix.autoplay.trailer) + [$EXP[HomeIsModernMultiWidgetsNetflix] | $EXP[HomeIsVerticalMultiWidgetsNetflix] | $EXP[HomeIsCleanMinimal]]">SetAutoTrailerControl</include>
@@ -1231,6 +1245,69 @@
             <include content="def_widgetfocus" condition="$PARAM[focused]">
                 <param name="id" value="$PARAM[id]"/>
             </include>
+        </control>
+        </definition>
+    </include>
+
+    <!-- Therand: compact glass card for the PVR TV channel-group root. -->
+    <include name="include.widget.pvrchannelgroup">
+        <param name="height" default="325"/>
+        <param name="focused" default="false"/>
+        <definition>
+        <control type="group">
+            <height>$PARAM[height]</height>
+            <control type="group">
+                <left>10</left>
+                <right>10</right>
+                <top>38</top>
+                <bottom>48</bottom>
+                <animation effect="zoom" start="100" end="103" center="auto" time="150" reversible="true" condition="$PARAM[focused] + Control.HasFocus($PARAM[id])">Conditional</animation>
+                <control type="image">
+                    <left>-8</left><top>-8</top><right>-8</right><bottom>-8</bottom>
+                    <texture colordiffuse="78000000" border="18">common/rounded-shadow8.png</texture>
+                </control>
+                <control type="image">
+                    <texture colordiffuse="A8101419" border="18" background="true">common/box.png</texture>
+                </control>
+                <control type="image">
+                    <left>1</left><top>1</top><right>1</right><bottom>1</bottom>
+                    <texture colordiffuse="20FFFFFF" border="18" background="true" infill="false">common/box21.png</texture>
+                </control>
+                <!-- No PVR/logo fallback: without a custom image the glass card stays clean. -->
+<!-- Therand: optional custom image, named exactly like the PVR group label. -->
+                <control type="image">
+                    <left>12</left><top>10</top><right>12</right><bottom>56</bottom>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true">$INFO[ListItem.Label,/storage/pictures/tvgroups/,.jpg]</texture>
+                </control>
+                <control type="image">
+                    <left>12</left><top>10</top><right>12</right><bottom>56</bottom>
+                    <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                    <texture background="true">$INFO[ListItem.Label,/storage/pictures/tvgroups/,.png]</texture>
+                </control>
+                <control type="image">
+                    <left>12</left><right>12</right><bottom>10</bottom><height>44</height>
+                    <texture colordiffuse="5C000000" border="12" background="true">common/box.png</texture>
+                </control>
+                <control type="label">
+                    <left>22</left><right>22</right><bottom>11</bottom><height>42</height>
+                    <align>center</align><aligny>center</aligny><scroll>true</scroll>
+                    <font>SmallBold</font><textcolor>PanelWhite100</textcolor><selectedcolor>PanelWhite100</selectedcolor>
+                    <shadowcolor>CC000000</shadowcolor><label>$INFO[ListItem.Label]</label>
+                </control>
+                <control type="image">
+                    <left>3</left><top>3</top><right>3</right><bottom>3</bottom>
+                    <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/selectbox.png</texture>
+                    <visible>$PARAM[focused] + Control.HasFocus($PARAM[id])</visible>
+                    <include>Animation.SelectBoxHome</include>
+                </control>
+                <control type="image">
+                    <left>3</left><top>3</top><right>3</right><bottom>3</bottom>
+                    <texture colordiffuse="$VAR[ColorGradient]" border="20">common/gradient-selectbox.png</texture>
+                    <visible>$PARAM[focused] + Control.HasFocus($PARAM[id])</visible>
+                    <include>Animation.SelectBoxHome</include>
+                </control>
+            </control>
         </control>
         </definition>
     </include>
