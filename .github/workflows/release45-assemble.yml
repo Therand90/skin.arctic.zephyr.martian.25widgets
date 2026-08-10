@@ -6,6 +6,11 @@ on:
       - release/25widgets.45
     paths:
       - .github/workflows/release45-assemble.yml
+  pull_request:
+    branches:
+      - master
+    paths:
+      - .github/workflows/release45-assemble.yml
 
 permissions:
   contents: write
