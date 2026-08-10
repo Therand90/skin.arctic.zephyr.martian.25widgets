@@ -25,23 +25,40 @@ jobs:
           ref: release/25widgets.45
           fetch-depth: 0
 
-      - name: Rebuild and apply validated code patch
+      - name: Rebuild and verify validated code patch
         shell: bash
         run: |
           set -euo pipefail
-          {
-            cat tools/release45-code.patch.gz.b64.01 \
-                tools/release45-code.patch.gz.b64.02 \
-                tools/release45-code.patch.gz.b64.03 \
-                tools/release45-code.patch.gz.b64.04 \
-                tools/release45-code.patch.gz.b64.05 \
-                tools/release45-code.patch.gz.b64.06
-            sed -e 's/VDIIEci/VDIEci/' -e 's/IJORLs4JPI/IJORJs4JPI/' \
-                tools/release45-code.patch.gz.b64.07a
-            cat tools/release45-code.patch.gz.b64.07b \
-                tools/release45-code.patch.gz.b64.08
-          } | tr -d '\n\r' \
-            | base64 --decode \
+          python3 - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          parts = []
+          for n in range(1, 7):
+              parts.append(Path(f'tools/release45-code.patch.gz.b64.{n:02d}').read_text().strip())
+
+          # Part 07a suffered two transcription errors while being staged through
+          # the API. Repair the two known character positions deterministically,
+          # then verify the complete stream against the SHA-256 of the local
+          # Kodi-tested .45 patch before decoding anything.
+          p7a = Path('tools/release45-code.patch.gz.b64.07a').read_text().strip()
+          assert len(p7a) == 1251, len(p7a)
+          p7a = p7a[:408] + 'E' + p7a[410:]
+          p7a = p7a[:966] + 'J' + p7a[967:]
+          assert len(p7a) == 1250, len(p7a)
+          parts.append(p7a)
+          parts.append(Path('tools/release45-code.patch.gz.b64.07b').read_text().strip())
+          parts.append(Path('tools/release45-code.patch.gz.b64.08').read_text().strip())
+
+          payload = ''.join(parts)
+          digest = hashlib.sha256(payload.encode()).hexdigest()
+          print('base64 length:', len(payload))
+          print('base64 sha256:', digest)
+          assert len(payload) == 18820
+          assert digest == 'cc55ad6dacf141db91e7ad900d39141917741880c2198b7b897b984bc3a846cd'
+          Path('/tmp/release45-code.patch.gz.b64').write_text(payload)
+          PY
+          base64 --decode /tmp/release45-code.patch.gz.b64 \
             | gzip --decompress > /tmp/release45-code.patch
           git apply --check /tmp/release45-code.patch
           git apply /tmp/release45-code.patch
