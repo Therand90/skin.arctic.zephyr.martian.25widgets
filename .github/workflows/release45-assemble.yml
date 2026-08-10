@@ -37,10 +37,6 @@ jobs:
           for n in range(1, 7):
               parts.append(Path(f'tools/release45-code.patch.gz.b64.{n:02d}').read_text().strip())
 
-          # Part 07a suffered two transcription errors while being staged through
-          # the API. Repair the two known character positions deterministically,
-          # then verify the complete stream against the SHA-256 of the local
-          # Kodi-tested .45 patch before decoding anything.
           p7a = Path('tools/release45-code.patch.gz.b64.07a').read_text().strip()
           assert len(p7a) == 1251, len(p7a)
           p7a = p7a[:408] + 'E' + p7a[410:]
@@ -78,7 +74,7 @@ jobs:
           grep -q 'TherandInline45' shortcuts/template.xml
           grep -q 'therand_inline45.py,back' 1080i/Includes_Widgets.xml
           grep -q 'include.widget.pvrchannelgroup' 1080i/Includes_Widgets.xml
-          grep -q 'TherandPVR.ChannelGroups' 1080i/Includes.xml
+          grep -q '/storage/pictures/tvgroups/' 1080i/Includes.xml
           grep -q 'colordiffuse="66FFFFFF"' 1080i/Includes_PVR.xml
           grep -q 'version="3.19.11+25widgets.45"' addon.xml
 
