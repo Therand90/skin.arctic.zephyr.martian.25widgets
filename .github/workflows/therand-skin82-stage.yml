@@ -1,0 +1,11 @@
+name: Therand skin .82 staging probe
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "staging workflow permission probe"
