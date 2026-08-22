@@ -1,0 +1,49 @@
+--- skin-89.2/addon.xml
++++ skin-89.5/addon.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.89.2-develop" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
++<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.89.5-develop" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
+--- skin-89.2/1080i/Includes_Animations.xml
++++ skin-89.5/1080i/Includes_Animations.xml
+@@ -689,7 +689,12 @@
+     </include>
+     
+     <include name="Animation.HomeIsModernMultiWidgets">
+-        <visible>!$EXP[HideViewContent]</visible>
++        <!-- Therand .89.4: a preview resolver may transiently set HideViewContent
++             (for example while TMDb Helper / a Busy window is active). Keeping
++             the Modern Multi-Widgets parent logically visible during our inset
++             session prevents Kodi from tearing down and reloading every dynamic
++             DirectoryProvider on each trailer start/stop. -->
++        <visible>$EXP[TherandInsetPreview] | !$EXP[HideViewContent]</visible>
+@@ -708,10 +713,14 @@
+     </include>
+ 
+     <include name="Animation.NowPlaying.Widget.Fade">
+-        <animation type="Conditional" reversible="false" condition="!$EXP[TherandInsetPreview] + Skin.HasSetting(extended.nowplaying) + !ControlGroup(301).HasFocus() + !Control.HasFocus(4567) + !Control.HasFocus(8808) + !Control.HasFocus(8888) + Player.HasMedia">
++        <!-- Therand .89.3: keep the Modern Multi-Widgets container logically visible.
++             Kodi treats a conditional fade to 0 as hidden for dynamic content, which
++             tears down/restarts every DirectoryProvider when preview playback toggles.
++             Other home layouts retain the original extended-now-playing behaviour. -->
++        <animation type="Conditional" reversible="false" condition="!$EXP[HomeIsModernMultiWidgets] + !$EXP[TherandInsetPreview] + Skin.HasSetting(extended.nowplaying) + !ControlGroup(301).HasFocus() + !Control.HasFocus(4567) + !Control.HasFocus(8808) + !Control.HasFocus(8888) + Player.HasMedia">
+             <effect type="fade" start="100" end="0" tween="sine" reversible="false" easing="out" delay="0" time="350"/>
+         </animation>
+-        <animation type="Conditional" reversible="false" condition="$EXP[TherandInsetPreview] | ![Skin.HasSetting(extended.nowplaying) + !ControlGroup(301).HasFocus() + !Control.HasFocus(4567) + !Control.HasFocus(8808) + !Control.HasFocus(8888) + Player.HasMedia]">
++        <animation type="Conditional" reversible="false" condition="$EXP[HomeIsModernMultiWidgets] | $EXP[TherandInsetPreview] | ![Skin.HasSetting(extended.nowplaying) + !ControlGroup(301).HasFocus() + !Control.HasFocus(4567) + !Control.HasFocus(8808) + !Control.HasFocus(8888) + Player.HasMedia]">
+             <effect type="fade" start="0" end="100" tween="sine" reversible="false" easing="in" delay="350" time="450"/>
+         </animation>
+     </include>
+--- skin-89.2/1080i/Includes_Widgets.xml
++++ skin-89.5/1080i/Includes_Widgets.xml
+@@ -2946,6 +2946,11 @@
+             <onfocus>SetProperty(TherandInset.SelectedPosition,$INFO[ListItem.CurrentItem],Home)</onfocus>
+             <onfocus>SetProperty(TherandInset.SelectedTmdb,$INFO[ListItem.UniqueID(tmdb)],Home)</onfocus>
+             <onfocus>SetProperty(TherandInset.SelectedTitle,$ESCINFO[ListItem.Title],Home)</onfocus>
++            <!-- Therand .89.5: folder/pagination cards such as JackTook's
++                 "Next (N)" often have no ListItem.Title. Publish Label as a
++                 fallback identity so leaving the last real poster is a real
++                 selection change and an owned preview is stopped immediately. -->
++            <onfocus condition="String.IsEmpty(ListItem.Title)">SetProperty(TherandInset.SelectedTitle,$ESCINFO[ListItem.Label],Home)</onfocus>
+         </control>
+     </include>
