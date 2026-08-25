@@ -25,13 +25,27 @@ La version 89.5.12 conserve le routage direct introduit dans 89.5.11 : les carte
 
 Pendant le swap, le focus est garé sur un contrôle neutre afin que Kodi ne choisisse pas un widget voisin lorsque le container inline est momentanément vide. En cas de provider bloqué, le helper garde son timeout de sécurité et restaure proprement le widget racine.
 
-## Intégrité du ZIP testé
+## Intégrité du ZIP complet testé
 
 `skin.arctic.zephyr.martian.25widgets-3.19.11+25widgets.89.5.12-focus-anchor-path-rearm.zip`
 
 SHA-256 : `b1476bca58c600cc28e37804d0d180ba725fd3850df0bcf8cbd20cf12fa516d9`
 
-Ce hash désigne exactement l'archive testée avant la promotion de cette baseline.
+Ce hash désigne exactement l'archive complète testée avant la promotion de cette baseline.
+
+## Snapshot source archivé dans GitHub
+
+Le ZIP complet contient beaucoup d'assets inchangés et n'est pas stocké en entier dans Git. À la place, la branche conserve un snapshot ZIP des fichiers source concernés par le développement 89.5.12 (XML Home/widgets/vidéo, template de widgets et helpers Python).
+
+SHA-256 du snapshot source : `c6106ae3e296a1bf7768934fe215bfcb87e684798c3a0068c3979621dc4bb014`
+
+Restauration :
+
+```sh
+sh baseline/restore-89.5.12-source.sh
+```
+
+Le script concatène les morceaux Base64 archivés, vérifie le SHA-256 puis exécute `unzip -t`. Le morceau `part01` est volontairement découpé en `part01a` à `part01d` pour éviter toute troncature lors de l'archivage via l'API GitHub.
 
 ## Règle de reprise
 
