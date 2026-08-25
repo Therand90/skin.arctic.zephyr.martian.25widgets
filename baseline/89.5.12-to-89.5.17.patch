@@ -1,0 +1,171 @@
+--- a/addon.xml
++++ b/addon.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.89.5.12" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
++<addon id="skin.arctic.zephyr.martian.25widgets" version="3.19.11+25widgets.89.5.17" name="Arctic: Zephyr (martian) + 25widgets" provider-name="jurialmunkey, beatmasterrs, martian89, therand90">
+     <requires>
+         <import addon="xbmc.gui" version="5.17.0"/>
+         <import addon="script.skinvariables" version="2.1.33" />
+--- a/1080i/Home.xml
++++ b/1080i/Home.xml
+@@ -20,6 +20,8 @@
+     <onunload>ClearProperty(TherandInline45.Label,home)</onunload>
+     <onunload>ClearProperty(TherandInline45.PassThrough,home)</onunload>
+     <onunload>ClearProperty(TherandInline45.NavBusy,home)</onunload>
++    <onunload>ClearProperty(TherandInline45.TransitionVisual,home)</onunload>
++    <onunload>ClearProperty(TherandInline45.TransitionTitle,home)</onunload>
+     <onunload>ClearProperty(TherandInline45.RootHandoff,home)</onunload>
+     <onunload>ClearProperty(TherandInline45.FocusGuard,home)</onunload>
+     <onunload>ClearProperty(TherandInset.SelectedPosition,home)</onunload>
+--- a/1080i/Includes.xml
++++ b/1080i/Includes.xml
+@@ -64,6 +64,9 @@
+     <!-- Expressions -->
+     <!-- Therand .46: friendly title for Jacktook pagination cards. -->
+     <variable name="TherandNextPageTitle">
++        <!-- Therand 89.5.17: while the focus guard owns focus, ListItem is no
++             longer the pagination card. Keep the frozen friendly title instead. -->
++        <value condition="String.IsEqual(Window(Home).Property(TherandInline45.NavBusy),true) + String.IsEqual(Window(Home).Property(TherandInline45.TransitionVisual),true) + !String.IsEmpty(Window(Home).Property(TherandInline45.TransitionTitle))">$INFO[Window(Home).Property(TherandInline45.TransitionTitle)]</value>
+         <value condition="String.IsEqual(ListItem.Label,Next (2))">Vers page n°2</value>
+         <value condition="String.IsEqual(ListItem.Label,Next (3))">Vers page n°3</value>
+         <value condition="String.IsEqual(ListItem.Label,Next (4))">Vers page n°4</value>
+@@ -1447,7 +1450,7 @@
+ 
+         <!-- Therand .46: dedicated theatrical background for the focused Jacktook Next card. -->
+         <control type="image" description="Focused Jacktook Next background">
+-            <visible>Window.IsVisible(Home.xml) + ControlGroup(301).HasFocus() + ListItem.IsFolder + String.StartsWith(ListItem.Label,Next)</visible>
++            <visible>Window.IsVisible(Home.xml) + [[ControlGroup(301).HasFocus() + ListItem.IsFolder + String.StartsWith(ListItem.Label,Next)] | [String.IsEqual(Window(Home).Property(TherandInline45.NavBusy),true) + String.IsEqual(Window(Home).Property(TherandInline45.TransitionVisual),true)]]</visible>
+             <include>Dimensions_Fullscreen</include>
+             <aspectratio>scale</aspectratio>
+             <texture background="true">special://skin/extras/therand-next-focus.png</texture>
+@@ -1493,7 +1496,7 @@
+ 
+         <!-- Therand .49: keep the pagination title centered inside the open stage, away from the curtains. -->
+         <control type="label" description="Centered Jacktook next-page home title">
+-            <visible>Window.IsVisible(home) + ControlGroup(301).HasFocus() + String.StartsWith(ListItem.Label,Next)</visible>
++            <visible>Window.IsVisible(home) + [[ControlGroup(301).HasFocus() + String.StartsWith(ListItem.Label,Next)] | [String.IsEqual(Window(Home).Property(TherandInline45.NavBusy),true) + String.IsEqual(Window(Home).Property(TherandInline45.TransitionVisual),true)]]</visible>
+             <left>360</left>
+             <top>185</top>
+             <width>1200</width>
+--- a/1080i/Includes_Widgets.xml
++++ b/1080i/Includes_Widgets.xml
+@@ -56,6 +56,10 @@
+             <include condition="!Skin.HasSetting(widgets.fade)">Animation.Vertical.Widgets.Container</include>
+             <onfocus>SetProperty(TMDbHelper.WidgetContainer,$PARAM[id],Home)</onfocus>
+             <onfocus>SetProperty(TherandReplay.ActiveContainer,$PARAM[id],Home)</onfocus>
++            <!-- Therand 89.5.17: pagination belongs only to the widget that opened it.
++                 Entering another vertical widget abandons the previous widget's inline
++                 state/history, but never during the protected NavBusy handoff. -->
++            <onfocus condition="!String.IsEqual(Window(Home).Property(TherandInline45.NavBusy),true) + !String.IsEmpty(Window(Home).Property(TherandInline45.Path)) + !String.IsEqual(Window(Home).Property(TherandInline45.WidgetId),$PARAM[id]) + !String.IsEqual(Window(Home).Property(TherandInline45.InlineId),$PARAM[id])">RunScript(special://skin/extras/therand_inline45.py,abandon,$PARAM[id])</onfocus>
+             <onfocus>SetProperty(TherandReplay.ActiveAspect,$PARAM[artaspect],Home)</onfocus>
+             <onfocus condition="$PARAM[PVRChannelGroups]">SetProperty(TherandPVR.ChannelGroups,true,Home)</onfocus>
+             <onfocus condition="!$PARAM[PVRChannelGroups]">ClearProperty(TherandPVR.ChannelGroups,Home)</onfocus>
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -1,5 +1,12 @@
+ # Changelog
+ 
++## 3.19.11+25widgets.89.5.17
++
++- conserve le décor théâtre et le texte `Vers page n°X` pendant les swaps protégés `NavBusy`, y compris lors d'un retour vers une page précédente ;
++- l'état/history `TherandInline45` est désormais strictement limité au widget vertical actif : entrer dans un autre widget abandonne l'ancien historique sans déplacer le focus ;
++- aucune modification du focus guard/path rearm validé en 89.5.12.
++
++
+ Les versions intermédiaires non publiées ne sont listées que lorsqu’elles correspondent à un checkpoint vérifié ou à un ensemble fonctionnel identifiable.
+ 
+ ## Unreleased — `develop`
+--- a/extras/therand_inline45.py
++++ b/extras/therand_inline45.py
+@@ -288,7 +288,36 @@
+     return True
+ 
+ 
++def clear_transition_visual():
++    HOME.clearProperty('TherandInline45.TransitionVisual')
++    HOME.clearProperty('TherandInline45.TransitionTitle')
++
++
++def set_transition_visual(title):
++    if title:
++        HOME.setProperty('TherandInline45.TransitionTitle', title)
++        HOME.setProperty('TherandInline45.TransitionVisual', 'true')
++    else:
++        clear_transition_visual()
++
++
++def pagination_title_from_label(label):
++    match = re.search(r'\((\d+)\)\s*$', clean_label(label))
++    if not match:
++        return ''
++    return 'Vers page n°{}'.format(match.group(1))
++
++
++def pagination_title_from_url(url):
++    try:
++        page = dict(parse_qsl(urlsplit(url).query, keep_blank_values=True)).get('page', '')
++    except Exception:
++        page = ''
++    return 'Vers page n°{}'.format(page) if str(page).isdigit() else ''
++
++
+ def unlock_nav():
++    clear_transition_visual()
+     HOME.clearProperty('TherandInline45.NavBusy')
+ 
+ 
+@@ -621,6 +650,12 @@
+         native_passthrough(source_id)
+         raise SystemExit
+ 
++    # Freeze the dedicated theater/title only for deterministic pagination.
++    # This is display state only; it never participates in provider or focus logic.
++    transition_title = pagination_title_from_label(selected_label)
++    if resolver == 'page-direct' and transition_title:
++        set_transition_visual(transition_title)
++
+     # Ignore a stale card that resolves back to the exact directory already
+     # displayed. This can happen during a very fast repeated click.
+     if current_inline and target == current_inline:
+@@ -696,6 +731,32 @@
+         unlock_nav()
+ 
+ 
++elif mode == 'abandon':
++    # A different vertical Home widget has taken focus. Pagination is intentionally
++    # scoped to the widget that owns it, so discard the previous widget's inline
++    # provider/history without moving focus or touching the newly focused widget.
++    if nav_locked():
++        log('ABANDON IGNORED busy new={}'.format(source_id))
++        raise SystemExit
++
++    try:
++        stored_original = int(HOME.getProperty('TherandInline45.WidgetId') or '0')
++    except Exception:
++        stored_original = 0
++
++    stored_inline = HOME.getProperty('TherandInline45.InlineId').strip()
++    if stored_original:
++        clear_history(stored_original)
++    clear_focus_guard()
++    clear_transition_visual()
++    for name in ('Path', 'WidgetId', 'InlineId', 'Label', 'RootHandoff'):
++        HOME.clearProperty('TherandInline45.' + name)
++    log(
++        'ABANDON previous_original={} previous_inline={!r} new_container={}'.format(
++            stored_original, stored_inline, source_id
++        )
++    )
++
+ elif mode == 'back':
+     if not lock_nav():
+         log('BACK IGNORED busy')
+@@ -749,6 +810,7 @@
+     else:
+         previous_signature = container_signature(inline_id, limit=5)
+         save_history(original_id, history)
++        set_transition_visual(pagination_title_from_url(previous))
+         guard_engaged = begin_focus_guard()
+         if not guard_engaged:
+             clear_focus_guard()
